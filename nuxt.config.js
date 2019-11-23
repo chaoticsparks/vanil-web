@@ -26,7 +26,7 @@ export default {
     /*
      ** Global CSS
      */
-    css: ['normalize.css', '@/assets/styles/main.scss'],
+    css: ['normalize.css', '~assets/styles/main.scss'],
     /*
      ** SCSS styles that won't be in build but used in components
      */
@@ -68,6 +68,17 @@ export default {
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {}
+        extend(
+            config,
+            {
+                isClient,
+                loaders: { vue }
+            }
+        ) {
+            // Extend only webpack config for client-bundle
+            if (isClient) {
+                vue.transformAssetUrls.video = ['poster'];
+            }
+        }
     }
 };
