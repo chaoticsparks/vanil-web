@@ -16,7 +16,13 @@
             </video>
             <header class="default-header">
                 <div class="default-header__logo">
-                    <img class="logo-img" src="" alt="" />
+                    <nuxt-link to="/">
+                        <img
+                            class="logo-img"
+                            src="~assets/image/logo.svg"
+                            alt="logo"
+                        />
+                    </nuxt-link>
                 </div>
                 <div class="default-header__phone">
                     <a
@@ -26,11 +32,40 @@
                     >
                 </div>
                 <div class="default-header__social">
-                    <img class="fb-icon" src="" alt="" />
-                    <img class="insta-icon" src="" alt="" />
-                    <img class="tripadvisor" src="" alt="" />
+                    <a
+                        class="default-header__social-link"
+                        href="https://www.facebook.com/vanilbakeryandicecreamery"
+                        target="_blank"
+                        ><img
+                            class="social-icon"
+                            src="~assets/image/fb-icon.svg"
+                            alt="fb-icon"
+                    /></a>
+                    <a
+                        class="default-header__social-link"
+                        href="https://www.instagram.com/vanilodessa/"
+                        target="_blank"
+                        ><img
+                            class="social-icon"
+                            src="~assets/image/insta-icon.svg"
+                            alt="insta-icon"
+                    /></a>
+                    <a
+                        class="default-header__social-link"
+                        href="https://www.tripadvisor.ru/Restaurant_Review-g295368-d12017150-Reviews-Vanil-Odessa_Odessa_Oblast.html"
+                        target="_blank"
+                        ><img
+                            class="social-icon"
+                            src="~assets/image/trip-icon.svg"
+                            alt="trip-icon"
+                    /></a>
                 </div>
             </header>
+            <h1 class="intro-text">
+                Merry Christmas<br />
+                and<br />
+                Happy New Year
+            </h1>
         </section>
 
         <main class="default-container">
@@ -42,6 +77,8 @@
 <style lang="scss" scoped>
 .default-intro {
     height: 100vh;
+    overflow: auto;
+    position: relative;
 }
 
 .bg-video {
@@ -53,16 +90,53 @@
 }
 
 .default-header {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 76px;
+    justify-content: flex-end;
     &__logo {
+        top: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
-
     &__phone {
     }
+    &__phone-link {
+        color: $text-color-light;
+        font-size: 18px;
+    }
+    &__social {
+        font-size: 0;
+        margin-right: 45px;
+    }
+    &__social-link {
+        margin-left: 16px;
+    }
+}
+
+.social-icon {
+    height: 20px;
+    width: 20px;
 }
 
 .default-container {
     margin: 150px auto;
     width: 100%;
     max-width: 1024px;
+}
+.intro-text {
+    color: $text-color-light;
+    font-size: 100px;
+    font-family: RosamundaOne, sans-serif;
+    text-align: center;
+    line-height: 0.9;
+    font-weight: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 </style>
