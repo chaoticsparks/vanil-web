@@ -79,6 +79,7 @@
     height: 100vh;
     overflow: auto;
     position: relative;
+    overflow: hidden;
 }
 
 .bg-video {
@@ -96,11 +97,22 @@
     position: relative;
     height: 76px;
     justify-content: flex-end;
+    flex-wrap: wrap;
+    @include max-breakpoint(tablet-portrait) {
+        justify-content: center;
+    }
     &__logo {
         top: 0;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        @include max-breakpoint(tablet-portrait) {
+            position: static;
+            transform: translate(0, 0);
+            flex: 0 0 100%;
+            text-align: center;
+            padding-bottom: 10px;
+        }
     }
     &__phone {
     }
@@ -111,6 +123,9 @@
     &__social {
         font-size: 0;
         margin-right: 45px;
+        @include max-breakpoint(tablet-portrait) {
+            margin-right: 0;
+        }
     }
     &__social-link {
         margin-left: 16px;
@@ -128,6 +143,8 @@
     max-width: 1024px;
 }
 .intro-text {
+    height: 270px;
+    width: 585px;
     color: $text-color-light;
     font-size: 100px;
     font-family: RosamundaOne, sans-serif;
@@ -138,5 +155,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @include max-breakpoint(tablet-portrait) {
+        height: 180px;
+        width: 390px;
+        font-size: 66px;
+    }
+    @include max-breakpoint(mobile-medium) {
+        height: 135px;
+        width: 293px;
+        font-size: 50px;
+    }
 }
 </style>
