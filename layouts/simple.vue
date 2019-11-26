@@ -14,7 +14,7 @@
 </template>
 
 <style lang="scss" scoped>
-.default-container {
+.simple-layout-container {
     margin: 64px auto 124px;
     width: 100%;
     max-width: 1024px;
