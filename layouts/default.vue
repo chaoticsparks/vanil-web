@@ -77,7 +77,6 @@
 <style lang="scss" scoped>
 .default-intro {
     height: 100vh;
-    overflow: auto;
     position: relative;
     overflow: hidden;
 }
