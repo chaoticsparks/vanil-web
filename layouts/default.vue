@@ -71,6 +71,17 @@
         <main class="default-container">
             <nuxt />
         </main>
+        <footer class="default-footer">
+            <div class="default-header__logo">
+                <nuxt-link to="/">
+                    <img
+                        class="logo-img"
+                        src="~assets/image/logo.svg"
+                        alt="logo"
+                    />
+                </nuxt-link>
+            </div>
+        </footer>
     </div>
 </template>
 
