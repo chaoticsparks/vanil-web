@@ -7,30 +7,41 @@
             <ul class="cart-list">
                 <li class="cart-item">
                     <div class="cart-item__image-container">
-                        <img src="" alt="" />
+                        <img
+                            src="~assets/image/product1.png"
+                            alt="product-mini"
+                            class="product-icon"
+                        />
                     </div>
                     <div class="cart-item__title-container">
-                        <h5>Рождественский калач</h5>
+                        <h5 class="h5-like">Рождественский калач</h5>
                         <span class="cart-item__flavour">Мак и орех</span>
                     </div>
                     <div class="cart-item__quantity-container">
                         <QuantityCounter />
                     </div>
                     <div class="cart-item__price-container">
-                        <span class="cart-item__price-text"></span>
+                        <span class="cart-item__price-text">130 грн</span>
                     </div>
                     <div class="cart-item__remove-container">
                         <button class="cart-item__remove-btn">
-                            <img src="" alt="" />
+                            <img
+                                src="~assets/image/close-btn.svg"
+                                alt="close-btn"
+                            />
                         </button>
                     </div>
                 </li>
                 <li class="cart-item">
                     <div class="cart-item__image-container">
-                        <img src="" alt="" />
+                        <img
+                            src="~assets/image/product1.png"
+                            alt="product-mini"
+                            class="product-icon"
+                        />
                     </div>
                     <div class="cart-item__title-container">
-                        <h5>
+                        <h5 class="h5-like">
                             Штоллен с изюмом, орехами и цукатами, посыпанный
                             сахарной пудрой
                         </h5>
@@ -39,17 +50,20 @@
                         <QuantityCounter />
                     </div>
                     <div class="cart-item__price-container">
-                        <span class="cart-item__price-text"></span>
+                        <span class="cart-item__price-text">150 грн</span>
                     </div>
                     <div class="cart-item__remove-container">
                         <button class="cart-item__remove-btn">
-                            <img src="" alt="" />
+                            <img
+                                src="~assets/image/close-btn.svg"
+                                alt="close-btn"
+                            />
                         </button>
                     </div>
                 </li>
             </ul>
             <footer class="cart-summary">
-                Сумма заказа:<span class="cart-summary__price">545 грн</span>
+                Сумма заказа: <span class="cart-summary__price">545 грн</span>
             </footer>
         </section>
         <section class="cart-order">
@@ -98,11 +112,57 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cart-item {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__image-container {
+        display: flex;
+        align-items: center;
+    }
+    &__title-container {
+        width: 361px;
+    }
+    &__flavour {
+        font-family: Montserrat, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: $text-color-location;
+    }
+    &__price-container {
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        font-style: italic;
+    }
+    &__remove-btn {
+        @include button-reset;
+    }
+}
+.cart-summary {
+    font-family: LawyerGothic, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid $text-color-location;
+}
+.product-icon {
+    width: 45px;
+    height: 35px;
+    object-fit: fill;
+}
 .cart-section {
     margin-top: 64px;
 }
 .cart-order {
     margin-top: 64px;
+}
+.cart-list {
+    margin-top: 33px;
+    @include ul-reset;
 }
 .cart-form {
     margin-top: 32px;
@@ -131,6 +191,7 @@ export default {
     }
     &__comment {
         margin-top: 24px;
+        padding-top: 16px;
         width: 100%;
         box-sizing: border-box;
         border-radius: 8px;

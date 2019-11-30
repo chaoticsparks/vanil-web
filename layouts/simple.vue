@@ -99,19 +99,18 @@
     &__wrapper {
         max-width: 730px;
     }
-}
-.logo-img {
-    fill: black;
+    @include max-breakpoint(tablet-landscape) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 .simple-layout-header {
     height: 116px;
-    border-bottom: 1px solid rgba(80, 201, 206, 0.3);
+    border-bottom: 1px solid $text-color-location;
     display: flex;
     align-items: center;
     &__logo {
         margin-left: 44px;
     }
-}
-.logo-img {
 }
 </style>
