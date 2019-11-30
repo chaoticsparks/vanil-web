@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="cart-section">
-            <h2 class="h2-like">
+            <h2 class="h2-like cart-h2">
                 Корзина
             </h2>
             <ul class="cart-list">
@@ -85,4 +85,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.cart-h2 {
+    margin-top: 64px;
+}
+</style>

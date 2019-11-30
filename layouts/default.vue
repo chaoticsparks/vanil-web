@@ -66,8 +66,17 @@
                 and<br />
                 Happy New Year
             </h1>
+            <div class="fixed-cart">
+                <div class="fixed-cart__icon">
+                    <img
+                        src="~assets/image/fixed-cart-icon.svg"
+                        alt="fixed-cart"
+                        class="fixed-cart__image"
+                    />
+                    <span class="fixed-cart__counter">0</span>
+                </div>
+            </div>
         </section>
-
         <main class="default-container">
             <nuxt />
         </main>
@@ -317,6 +326,35 @@
     @include max-breakpoint(tablet-portrait) {
         height: 12px;
         width: 12px;
+    }
+}
+.fixed-cart {
+    position: fixed;
+    right: 45px;
+    top: 50 px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__counter {
+        display: inline-block;
+        width: 16px;
+        height: 13px;
+        border-radius: 2px;
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        font-family: NotoSans, sans-serif;
+        font-weight: normal;
+        font-size: 10px;
+        color: $text-color-location;
+        background-color: white;
+        border: 1px solid $text-color-location;
+        text-align: center;
+        line-height: 1;
     }
 }
 </style>
