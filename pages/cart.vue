@@ -36,7 +36,7 @@
                         </h5>
                     </div>
                     <div class="cart-item__quantity-container">
-                        <!-- TODO: @chaoticsparks Implement quantity counter component -->
+                        <QuantityCounter />
                     </div>
                     <div class="cart-item__price-container">
                         <span class="cart-item__price-text"></span>
