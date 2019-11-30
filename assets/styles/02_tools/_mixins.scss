@@ -3,3 +3,12 @@
         @content;
     }
 }
+
+@mixin button-reset() {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
