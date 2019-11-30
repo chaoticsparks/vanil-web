@@ -4,6 +4,7 @@
             v-for="(product, index) in products"
             :key="index"
             :product="product"
+            @addToCart="onAddToCart"
         />
         <span class="h1-like">Доставка</span>
         <p class="delivery-text">
@@ -56,6 +57,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import Product from '../components/Product';
 export default {
     components: { Product },
@@ -63,6 +65,11 @@ export default {
         products() {
             return this.$store.state.products;
         }
+    },
+    methods: {
+        ...mapActions({
+            onAddToCart: 'addToCart'
+        })
     }
 };
 </script>

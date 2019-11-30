@@ -19,7 +19,7 @@
                     class="radio-container product-option"
                 >
                     <input
-                        :value="option"
+                        :value="`O${index}`"
                         type="radio"
                         name="delivery"
                         class="radio-container__input"

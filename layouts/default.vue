@@ -66,16 +66,6 @@
                 and<br />
                 Happy New Year
             </h1>
-            <div class="fixed-cart">
-                <div class="fixed-cart__icon">
-                    <img
-                        src="~assets/image/fixed-cart-icon.svg"
-                        alt="fixed-cart"
-                        class="fixed-cart__image"
-                    />
-                    <span class="fixed-cart__counter">0</span>
-                </div>
-            </div>
         </section>
         <main class="default-container">
             <nuxt />
@@ -153,8 +143,27 @@
                 </div>
             </footer>
         </section>
+        <div class="fixed-cart">
+            <div class="fixed-cart__icon">
+                <img
+                    src="~assets/image/fixed-cart-icon.svg"
+                    alt="fixed-cart"
+                    class="fixed-cart__image"
+                />
+                <span class="fixed-cart__counter">{{ getCartCounter }}</span>
+            </div>
+        </div>
     </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex';
+export default {
+    computed: {
+        ...mapGetters(['getCartCounter'])
+    }
+};
+</script>
 
 <style lang="scss" scoped>
 .default-intro {
@@ -331,7 +340,7 @@
 .fixed-cart {
     position: fixed;
     right: 45px;
-    top: 50 px;
+    top: 108px;
     height: 80px;
     width: 80px;
     border-radius: 50%;
@@ -339,6 +348,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     &__counter {
         display: inline-block;
         width: 16px;
