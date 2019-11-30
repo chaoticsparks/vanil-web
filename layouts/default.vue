@@ -82,35 +82,33 @@
                         />
                     </nuxt-link>
                 </div>
-                <div class="default-footer__email">
+                <div class="default-footer__contacts">
                     <a
-                        class="default-footer__email-link"
+                        class="default-footer__contacts-email"
                         href="mailto:info@vanil.od.ua"
                         target="_blank"
                         ><img
-                            class="email-icon"
+                            class="contact-icon"
                             src="~assets/image/email-icon.svg"
                             alt="email-icon"
                         />info@vanil.od.ua</a
                     >
-                </div>
-                <div class="default-footer__schedule">
-                    <img
-                        src="~assets/image/schedule-icon.svg"
-                        class="default-footer__schedule-icon"
-                        alt="schedule-icon"
-                    />
-                    <span class="default-footer__schedule-text"
-                        >ПН-ВС: 9:00 – 22:00</span
-                    >
-                </div>
-                <div class="default-footer__phone">
+                    <div class="default-footer__contacts-schedule">
+                        <img
+                            src="~assets/image/schedule-icon.svg"
+                            class="contact-icon"
+                            alt="schedule-icon"
+                        />
+                        <span class="default-footer__schedule-text"
+                            >ПН-ВС: 9:00 – 22:00</span
+                        >
+                    </div>
                     <a
-                        class="default-footer__phone-link"
+                        class="default-footer__contacts-phone"
                         href="tel:+380933479806"
                         ><img
                             src="~assets/image/phone-icon.svg"
-                            class="default-footer__phone-icon"
+                            class="contact-icon"
                             alt="phone-icon"
                         />+380 73 077 7065</a
                     >
@@ -250,5 +248,75 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-weight: normal;
+    font-size: 12px;
+    flex-wrap: wrap-reverse;
+    &__logo {
+        margin-left: 20px;
+    }
+    &__contacts {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        @include max-breakpoint(tablet-portrait) {
+            flex-direction: column;
+            align-items: normal;
+            order: 3;
+            margin-right: 20px;
+        }
+    }
+    &__contacts-email {
+        display: flex;
+        align-items: center;
+        margin-right: 24px;
+        color: $text-color-brown;
+        @include max-breakpoint(tablet-portrait) {
+            font-size: 10px;
+            margin-right: 0;
+        }
+    }
+    &__contacts-schedule {
+        display: flex;
+        align-items: center;
+        margin-right: 24px;
+        @include max-breakpoint(tablet-portrait) {
+            font-size: 10px;
+            margin-top: 4px;
+            margin-right: 0;
+        }
+    }
+    &__contacts-phone {
+        display: flex;
+        align-items: center;
+        color: $text-color-brown;
+        margin-right: 50px;
+        @include max-breakpoint(tablet-portrait) {
+            font-size: 10px;
+            margin-top: 4px;
+            margin-right: 0;
+        }
+    }
+    &__social {
+        font-size: 0;
+        margin-right: 20px;
+        @include max-breakpoint(mobile-medium) {
+            margin-right: 0;
+        }
+    }
+    &__social-link {
+        margin-left: 8px;
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 4px;
+        }
+    }
+}
+.contact-icon {
+    height: 18px;
+    width: 18px;
+    margin-right: 6px;
+    @include max-breakpoint(tablet-portrait) {
+        height: 12px;
+        width: 12px;
+    }
 }
 </style>

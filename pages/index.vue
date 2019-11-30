@@ -218,12 +218,24 @@
     font-weight: bold;
     font-size: 48px;
     color: $text-color-brown;
+    margin-left: 20px;
+    @include max-breakpoint(tablet-portrait) {
+        font-size: 32px;
+    }
 }
 .delivery-text {
     margin-top: 48px;
     font-weight: 500;
     color: $text-color-dark-brown;
     margin-bottom: 0;
+    margin-left: 20px;
+    font-size: 14px;
+    @include max-breakpoint(tablet-portrait) {
+        margin-top: 32px;
+    }
+    /*@include max-breakpoint(mobile-medium) {
+        font-size: 10px;
+    }*/
 }
 .bold-text {
     display: inline-block;
@@ -231,6 +243,11 @@
     font-family: Montserrat, sans-serif;
     font-weight: 600;
     color: $text-color-dark-brown;
+    margin-left: 20px;
+    margin-right: 20px;
+    @include max-breakpoint(mobile-medium) {
+        font-size: 14px;
+    }
 }
 td {
     height: 35px;
@@ -239,11 +256,21 @@ td {
     font-size: 14px;
     font-weight: normal;
     color: $text-color-dark-brown;
+    @include max-breakpoint(mobile-medium) {
+        font-size: 10px;
+        height: 23px;
+    }
     &:nth-of-type(2) {
         padding-left: 24px;
         font-family: NotoSans, sans-serif;
         font-weight: normal;
+        @include max-breakpoint(mobile-medium) {
+            padding-left: 10px;
+        }
     }
+}
+.locations {
+    margin-left: 20px;
 }
 .location {
     display: flex;
