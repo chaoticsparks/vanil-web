@@ -331,7 +331,7 @@
 .fixed-cart {
     position: fixed;
     right: 45px;
-    top: 50 px;
+    top: 110px;
     height: 80px;
     width: 80px;
     border-radius: 50%;
@@ -339,6 +339,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid $text-color-location;
     &__counter {
         display: inline-block;
         width: 16px;

@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="cart-section">
-            <h2 class="h2-like cart-h2">
+            <h2 class="h2-like">
                 Корзина
             </h2>
             <ul class="cart-list">
@@ -64,16 +64,23 @@
                     class="cart-form__phone"
                 />
                 <textarea
+                    class="cart-form__comment"
                     cols="30"
                     rows="10"
                     placeholder="Комментарий"
                 ></textarea>
-                <span>Доставка</span>
+                <div class="cart-form__delivery-text">
+                    <span>Доставка</span>
+                </div>
                 <!-- TODO: @chaoticsparks Implement radio inputs -->
-                <input type="text" placeholder="Адрес" />
-                <span>Оплата</span>
+                <input
+                    type="text"
+                    placeholder="Адрес"
+                    class="cart-form__address"
+                />
+                <div class="cart-form__payment-text"><span>Оплата</span></div>
                 <!-- TODO: @chaoticsparks Implement radio inputs -->
-                <button class="btn">Оформить заказ</button>
+                <button class="btn btn-order">Оформить заказ</button>
             </form>
         </section>
     </div>
@@ -86,7 +93,74 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cart-h2 {
+.cart-section {
     margin-top: 64px;
+}
+.cart-order {
+    margin-top: 64px;
+}
+.cart-form {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    &__name {
+        width: 60%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        border: solid 1px $text-color-location;
+        font-size: 14px;
+        font-weight: 100;
+        height: 45px;
+        padding-left: 24px;
+    }
+    &__phone {
+        width: 35%;
+        margin-left: 5%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        border: solid 1px $text-color-location;
+        font-size: 14px;
+        font-weight: 100;
+        height: 45px;
+        padding-left: 24px;
+    }
+    &__comment {
+        margin-top: 24px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        border: solid 1px $text-color-location;
+        font-size: 14px;
+        font-weight: 100;
+        height: 90px;
+        padding-left: 24px;
+    }
+    &__delivery-text {
+        width: 100%;
+        margin-top: 32px;
+        font-weight: 500;
+    }
+    &__address {
+        margin-top: 24px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        border: solid 1px $text-color-location;
+        font-size: 14px;
+        font-weight: 100;
+        height: 45px;
+        padding-left: 24px;
+    }
+    &__payment-text {
+        width: 100%;
+        margin-top: 32px;
+        font-weight: 500;
+    }
+    .btn-order {
+        margin-top: 32px;
+        width: 256px;
+        height: 35px;
+        font: 12px;
+    }
 }
 </style>
