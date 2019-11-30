@@ -69,10 +69,52 @@
                     placeholder="Комментарий"
                 ></textarea>
                 <span>Доставка</span>
-                <!-- TODO: @chaoticsparks Implement radio inputs -->
+                <label class="radio-container">
+                    <input
+                        type="radio"
+                        value="Самовывоз"
+                        name="delivery"
+                        class="radio-container__input"
+                    />
+                    <span class="radio-container__text">Самовывоз</span>
+                    <span class="radio-container__custom-radio"></span>
+                </label>
+                <label class="radio-container">
+                    <input
+                        type="radio"
+                        value="Сервис Bond"
+                        name="delivery"
+                        class="radio-container__input"
+                    />
+                    <span class="radio-container__text">Сервис Bond</span>
+                    <span class="radio-container__custom-radio"></span>
+                </label>
                 <input type="text" placeholder="Адрес" />
                 <span>Оплата</span>
-                <!-- TODO: @chaoticsparks Implement radio inputs -->
+                <label class="radio-container">
+                    <input
+                        type="radio"
+                        value="Онлайн оплата (Интеркасса)"
+                        name="delivery"
+                        class="radio-container__input"
+                    />
+                    <span class="radio-container__text"
+                        >Онлайн оплата (Интеркасса)</span
+                    >
+                    <span class="radio-container__custom-radio"></span>
+                </label>
+                <label class="radio-container">
+                    <input
+                        type="radio"
+                        value="Оплата при получении"
+                        name="delivery"
+                        class="radio-container__input"
+                    />
+                    <span class="radio-container__text"
+                        >Оплата при получении</span
+                    >
+                    <span class="radio-container__custom-radio"></span>
+                </label>
                 <button class="btn">Оформить заказ</button>
             </form>
         </section>
