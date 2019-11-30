@@ -9,7 +9,32 @@
     font-weight: bold;
 }
 @font-face {
+    src: url('~assets/fonts/Montserrat-Light.ttf') format('truetype');
+    font-family: 'Montserrat';
+    font-weight: 100;
+}
+@font-face {
+    src: url('~assets/fonts/Montserrat-Medium.ttf') format('truetype');
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+@font-face {
+    src: url('~assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+@font-face {
     src: url('~assets/fonts/RosamundaOne.ttf') format('truetype');
     font-family: 'RosamundaOne';
     font-weight: normal;
+}
+@font-face {
+    src: url('~assets/fonts/NotoSans-Regular.ttf') format('truetype');
+    font-family: 'NotoSans';
+    font-weight: normal;
+}
+@font-face {
+    src: url('~assets/fonts/LawyerGothic-Bold.ttf') format('truetype');
+    font-family: 'LawyerGothic';
+    font-weight: bold;
 }

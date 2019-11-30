@@ -1,9 +1,33 @@
 body {
     font-family: Montserrat, sans-serif;
+    color: $text-color-brown;
+    background-color: $text-color-light;
 }
 a {
     text-decoration: none;
     &:hover {
         text-decoration: underline;
+    }
+}
+p {
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    color: $text-color-dark-brown;
+    font-size: 14px;
+    @include max-breakpoint(tablet-portrait) {
+        font-size: 10px;
+    }
+}
+
+.h2-like {
+    font-family: LawyerGothic, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    &--underlined {
+        padding-bottom: 7px;
+        border-bottom: 1px solid $text-color-brown-transparent;
+    }
+    @include max-breakpoint(tablet-portrait) {
+        font-size: 16px;
     }
 }
