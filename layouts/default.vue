@@ -71,17 +71,81 @@
         <main class="default-container">
             <nuxt />
         </main>
-        <footer class="default-footer">
-            <div class="default-header__logo">
-                <nuxt-link to="/">
+        <section class="footer-section">
+            <footer class="default-footer">
+                <div class="default-footer__logo">
+                    <nuxt-link to="/">
+                        <img
+                            class="logo-brown-img"
+                            src="~assets/image/logo-brown.svg"
+                            alt="logo"
+                        />
+                    </nuxt-link>
+                </div>
+                <div class="default-footer__email">
+                    <a
+                        class="default-footer__email-link"
+                        href="mailto:info@vanil.od.ua"
+                        target="_blank"
+                        ><img
+                            class="email-icon"
+                            src="~assets/image/email-icon.svg"
+                            alt="email-icon"
+                        />info@vanil.od.ua</a
+                    >
+                </div>
+                <div class="default-footer__schedule">
                     <img
-                        class="logo-img"
-                        src="~assets/image/logo.svg"
-                        alt="logo"
+                        src="~assets/image/schedule-icon.svg"
+                        class="default-footer__schedule-icon"
+                        alt="schedule-icon"
                     />
-                </nuxt-link>
-            </div>
-        </footer>
+                    <span class="default-footer__schedule-text"
+                        >ПН-ВС: 9:00 – 22:00</span
+                    >
+                </div>
+                <div class="default-footer__phone">
+                    <a
+                        class="default-footer__phone-link"
+                        href="tel:+380933479806"
+                        ><img
+                            src="~assets/image/phone-icon.svg"
+                            class="default-footer__phone-icon"
+                            alt="phone-icon"
+                        />+380 73 077 7065</a
+                    >
+                </div>
+                <div class="default-footer__social">
+                    <a
+                        class="default-footer__social-link"
+                        href="https://www.facebook.com/vanilbakeryandicecreamery"
+                        target="_blank"
+                        ><img
+                            class="social-icon"
+                            src="~assets/image/fb-icon-brown.svg"
+                            alt="fb-icon-brown"
+                    /></a>
+                    <a
+                        class="default-footer__social-link"
+                        href="https://www.instagram.com/vanilodessa/"
+                        target="_blank"
+                        ><img
+                            class="social-icon"
+                            src="~assets/image/insta-icon-brown.svg"
+                            alt="insta-icon-brown"
+                    /></a>
+                    <a
+                        class="default-footer__social-link"
+                        href="https://www.tripadvisor.ru/Restaurant_Review-g295368-d12017150-Reviews-Vanil-Odessa_Odessa_Oblast.html"
+                        target="_blank"
+                        ><img
+                            class="social-icon"
+                            src="~assets/image/trip-icon-brown.svg"
+                            alt="trip-icon-brown"
+                    /></a>
+                </div>
+            </footer>
+        </section>
     </div>
 </template>
 
@@ -151,10 +215,13 @@
     margin: 150px auto;
     width: 100%;
     max-width: 1024px;
+    @include max-breakpoint(tablet-portrait) {
+        margin: 100px auto;
+    }
 }
 .intro-text {
-    height: 270px;
-    width: 585px;
+    margin: 0;
+    white-space: nowrap;
     color: $text-color-light;
     font-size: 100px;
     font-family: RosamundaOne, sans-serif;
@@ -166,14 +233,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
     @include max-breakpoint(tablet-portrait) {
-        height: 180px;
-        width: 390px;
         font-size: 66px;
     }
     @include max-breakpoint(mobile-medium) {
-        height: 135px;
-        width: 293px;
         font-size: 50px;
     }
+}
+.footer-section {
+    width: 100%;
+    background-color: $text-color-brown-transparent;
+}
+.default-footer {
+    margin: 0 auto;
+    max-width: 1024px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 </style>

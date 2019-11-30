@@ -18,7 +18,7 @@
     margin: 64px auto 124px;
     width: 100%;
     max-width: 1024px;
-
+    background-color: $text-color-light;
     &__wrapper {
         max-width: 730px;
     }
