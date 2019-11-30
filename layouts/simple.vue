@@ -96,6 +96,7 @@
     width: 100%;
     max-width: 1024px;
     background-color: $text-color-light;
+    box-sizing: border-box;
     &__wrapper {
         max-width: 730px;
     }

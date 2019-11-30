@@ -117,12 +117,25 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include max-breakpoint(mobile-medium) {
+        flex-wrap: wrap;
+        justify-items: stretch;
+    }
     &__image-container {
         display: flex;
         align-items: center;
+        @include max-breakpoint(tablet-portrait) {
+            margin-right: 10px;
+        }
     }
     &__title-container {
         width: 361px;
+        @include max-breakpoint(tablet-portrait) {
+            margin-right: 10px;
+        }
+        @include max-breakpoint(mobile-medium) {
+            width: 70%;
+        }
     }
     &__flavour {
         font-family: Montserrat, sans-serif;
@@ -130,11 +143,20 @@ export default {
         font-weight: 600;
         color: $text-color-location;
     }
+    &__quantity-container {
+        @include max-breakpoint(tablet-portrait) {
+            margin-right: 10px;
+        }
+    }
     &__price-container {
         font-family: Montserrat, sans-serif;
         font-size: 14px;
         font-weight: bold;
         font-style: italic;
+        flex-shrink: 0;
+        @include max-breakpoint(tablet-portrait) {
+            margin-right: 10px;
+        }
     }
     &__remove-btn {
         @include button-reset;
