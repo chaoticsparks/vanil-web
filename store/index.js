@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import {
     INCREASE_CART_PRODUCT_QTY,
-    ADD_PRODUCT_TO_CART
+    UPDATE_PRODUCT_QTY,
+    ADD_PRODUCT_TO_CART,
+    REMOVE_PRODUCT_FROM_CART
 } from '~/constants/store';
 
 export const state = () => ({
@@ -30,6 +32,13 @@ export const state = () => ({
 export const mutations = {
     [INCREASE_CART_PRODUCT_QTY](state, cartProductId) {
         state.cart[cartProductId].quantity++;
+    },
+    [UPDATE_PRODUCT_QTY](state, payload) {
+        const { cartProductId, newQty } = payload;
+        state.cart[cartProductId].quantity = newQty;
+    },
+    [REMOVE_PRODUCT_FROM_CART](state, cartProductId) {
+        Vue.delete(state.cart, cartProductId);
     },
     [ADD_PRODUCT_TO_CART](state, payload) {
         const { productToAddId, cartProductId, selectedOption } = payload;
@@ -75,6 +84,11 @@ export const getters = {
     getCartCounter(state) {
         return Object.values(state.cart).reduce((quantity, product) => {
             return quantity + product.quantity;
+        }, 0);
+    },
+    getCartTotal(state) {
+        return Object.values(state.cart).reduce((total, product) => {
+            return total + product.quantity * product.price;
         }, 0);
     }
 };

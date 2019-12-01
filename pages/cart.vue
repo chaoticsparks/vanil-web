@@ -5,65 +5,18 @@
                 Корзина
             </h2>
             <ul class="cart-list">
-                <li class="cart-item">
-                    <div class="cart-item__image-container">
-                        <img
-                            src="~assets/image/product1.png"
-                            alt="product-mini"
-                            class="product-icon"
-                        />
-                    </div>
-                    <div class="cart-item__title-container">
-                        <h5 class="h5-like">Рождественский калач</h5>
-                        <span class="cart-item__flavour">Мак и орех</span>
-                    </div>
-                    <div class="cart-item__quantity-container">
-                        <QuantityCounter />
-                    </div>
-                    <div class="cart-item__price-container">
-                        <span class="cart-item__price-text">130 грн</span>
-                    </div>
-                    <div class="cart-item__remove-container">
-                        <button class="cart-item__remove-btn">
-                            <img
-                                src="~assets/image/close-btn.svg"
-                                alt="close-btn"
-                            />
-                        </button>
-                    </div>
-                </li>
-                <li class="cart-item">
-                    <div class="cart-item__image-container">
-                        <img
-                            src="~assets/image/product1.png"
-                            alt="product-mini"
-                            class="product-icon"
-                        />
-                    </div>
-                    <div class="cart-item__title-container">
-                        <h5 class="h5-like">
-                            Штоллен с изюмом, орехами и цукатами, посыпанный
-                            сахарной пудрой
-                        </h5>
-                    </div>
-                    <div class="cart-item__quantity-container">
-                        <QuantityCounter />
-                    </div>
-                    <div class="cart-item__price-container">
-                        <span class="cart-item__price-text">150 грн</span>
-                    </div>
-                    <div class="cart-item__remove-container">
-                        <button class="cart-item__remove-btn">
-                            <img
-                                src="~assets/image/close-btn.svg"
-                                alt="close-btn"
-                            />
-                        </button>
-                    </div>
-                </li>
+                <CartItem
+                    v-for="(cartItem, cartItemId) in cartItems"
+                    :key="cartItemId"
+                    :cart-item="cartItem"
+                    :cart-item-id="cartItemId"
+                    @changeQuantity="onChangeQuantity"
+                    @removeItemFromCart="onRemoveItemFromCart"
+                />
             </ul>
             <footer class="cart-summary">
-                Сумма заказа: <span class="cart-summary__price">545 грн</span>
+                Сумма заказа:
+                <span class="cart-summary__price">{{ getCartTotal }} грн</span>
             </footer>
         </section>
         <section class="cart-order">
@@ -143,77 +96,37 @@
 </template>
 
 <script>
-import QuantityCounter from '../components/QuantityCounter';
+import { mapGetters, mapMutations } from 'vuex';
+import CartItem from '../components/CartItem';
+import {
+    UPDATE_PRODUCT_QTY,
+    REMOVE_PRODUCT_FROM_CART
+} from '../constants/store';
 
 export default {
     components: {
-        QuantityCounter
+        CartItem
     },
-    layout: 'simple'
+    layout: 'simple',
+    computed: {
+        cartItems() {
+            return this.$store.state.cart;
+        },
+        ...mapGetters(['getCartTotal'])
+    },
+    methods: {
+        onChangeQuantity(payload) {
+            this.updateQuantity(payload);
+        },
+        ...mapMutations({
+            updateQuantity: UPDATE_PRODUCT_QTY,
+            onRemoveItemFromCart: REMOVE_PRODUCT_FROM_CART
+        })
+    }
 };
 </script>
 
 <style lang="scss" scoped>
-.cart-item {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @include max-breakpoint(mobile-medium) {
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    &__image-container {
-        display: flex;
-        align-items: center;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-    }
-    &__title-container {
-        width: 361px;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            width: 50%;
-        }
-    }
-    &__flavour {
-        font-family: Montserrat, sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-        color: $text-color-location;
-    }
-    &__quantity-container {
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-    }
-    &__price-container {
-        font-family: Montserrat, sans-serif;
-        font-size: 14px;
-        font-weight: bold;
-        font-style: italic;
-        flex-shrink: 0;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            order: 11;
-            margin-top: 10px;
-        }
-    }
-    &__remove-btn {
-        @include button-reset;
-    }
-    &__quantity-container {
-        @include max-breakpoint(mobile-medium) {
-            order: 10;
-            margin-top: 10px;
-        }
-    }
-}
 .cart-summary {
     font-family: LawyerGothic, sans-serif;
     font-size: 18px;
@@ -227,11 +140,7 @@ export default {
         text-align: center;
     }
 }
-.product-icon {
-    width: 45px;
-    height: 35px;
-    object-fit: fill;
-}
+
 .cart-section {
     margin-top: 64px;
 }
