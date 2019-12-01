@@ -12,3 +12,10 @@
     cursor: pointer;
     outline: none;
 }
+@mixin ul-reset() {
+  padding: 0;
+  li {
+    list-style: none;
+
+  }
+}

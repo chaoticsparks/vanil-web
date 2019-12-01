@@ -348,6 +348,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid $text-color-location;
     cursor: pointer;
     &__counter {
         display: inline-block;
