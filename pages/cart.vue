@@ -161,7 +161,7 @@ export default {
     justify-content: space-between;
     @include max-breakpoint(mobile-medium) {
         flex-wrap: wrap;
-        justify-items: stretch;
+        justify-content: space-around;
     }
     &__image-container {
         display: flex;
@@ -176,7 +176,7 @@ export default {
             margin-right: 10px;
         }
         @include max-breakpoint(mobile-medium) {
-            width: 70%;
+            width: 50%;
         }
     }
     &__flavour {
@@ -199,9 +199,19 @@ export default {
         @include max-breakpoint(tablet-portrait) {
             margin-right: 10px;
         }
+        @include max-breakpoint(mobile-medium) {
+            order: 11;
+            margin-top: 10px;
+        }
     }
     &__remove-btn {
         @include button-reset;
+    }
+    &__quantity-container {
+        @include max-breakpoint(mobile-medium) {
+            order: 10;
+            margin-top: 10px;
+        }
     }
 }
 .cart-summary {
@@ -212,6 +222,10 @@ export default {
     margin-top: 32px;
     padding-bottom: 32px;
     border-bottom: 1px solid $text-color-location;
+    @include max-breakpoint(mobile-medium) {
+        font-size: 16px;
+        text-align: center;
+    }
 }
 .product-icon {
     width: 45px;
@@ -241,6 +255,9 @@ export default {
         font-weight: 100;
         height: 45px;
         padding-left: 24px;
+        @include max-breakpoint(mobile-medium) {
+            width: 100%;
+        }
     }
     &__phone {
         width: 35%;
@@ -252,6 +269,11 @@ export default {
         font-weight: 100;
         height: 45px;
         padding-left: 24px;
+        @include max-breakpoint(mobile-medium) {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 24px;
+        }
     }
     &__comment {
         margin-top: 24px;
@@ -292,5 +314,9 @@ export default {
         height: 35px;
         font: 12px;
     }
+}
+.radio-container {
+    margin-top: 24px;
+    width: 100%;
 }
 </style>
