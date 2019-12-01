@@ -143,7 +143,7 @@
                 </div>
             </footer>
         </section>
-        <div class="fixed-cart">
+        <nuxt-link v-if="getCartCounter" to="cart" class="fixed-cart">
             <div class="fixed-cart__icon">
                 <img
                     src="~assets/image/fixed-cart-icon.svg"
@@ -152,7 +152,7 @@
                 />
                 <span class="fixed-cart__counter">{{ getCartCounter }}</span>
             </div>
-        </div>
+        </nuxt-link>
     </div>
 </template>
 

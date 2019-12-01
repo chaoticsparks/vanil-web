@@ -1,7 +1,11 @@
 import Vue from 'vue';
 import {
     INCREASE_CART_PRODUCT_QTY,
-    ADD_PRODUCT_TO_CART
+    UPDATE_PRODUCT_QTY,
+    ADD_PRODUCT_TO_CART,
+    REMOVE_PRODUCT_FROM_CART,
+    UPDATE_ORDER_FORM_FIELD,
+    SET_ORDER_FORM_FIELD_ERROR
 } from '~/constants/store';
 
 export const state = () => ({
@@ -24,12 +28,51 @@ export const state = () => ({
             }
         }
     ],
-    cart: {}
+    cart: {},
+    orderForm: {
+        name: '',
+        phone: '',
+        comment: '',
+        delivery: '',
+        address: ''
+    },
+    orderFormErrors: {
+        name: false,
+        phone: false,
+        phoneTooShort: false,
+        delivery: false,
+        address: false
+    }
 });
 
 export const mutations = {
+    [SET_ORDER_FORM_FIELD_ERROR](state, emptyFields) {
+        Object.keys(state.orderFormErrors).forEach(key => {
+            state.orderFormErrors[key] = false;
+        });
+        emptyFields.forEach(key => {
+            state.orderFormErrors[key] = true;
+        });
+        if (state.orderForm.phone.length < 19) {
+            state.orderFormErrors.phoneTooShort = true;
+        }
+    },
+    [UPDATE_ORDER_FORM_FIELD](state, payload) {
+        const { name, value } = payload;
+        if (name === 'delivery') {
+            state.orderForm.address = '';
+        }
+        state.orderForm[name] = value;
+    },
     [INCREASE_CART_PRODUCT_QTY](state, cartProductId) {
         state.cart[cartProductId].quantity++;
+    },
+    [UPDATE_PRODUCT_QTY](state, payload) {
+        const { cartProductId, newQty } = payload;
+        state.cart[cartProductId].quantity = newQty;
+    },
+    [REMOVE_PRODUCT_FROM_CART](state, cartProductId) {
+        Vue.delete(state.cart, cartProductId);
     },
     [ADD_PRODUCT_TO_CART](state, payload) {
         const { productToAddId, cartProductId, selectedOption } = payload;
@@ -68,6 +111,18 @@ export const actions = {
                 cartProductId
             });
         }
+    },
+    submitForm({ commit, state }) {
+        const orderFormFields = Object.keys(state.orderForm);
+        const emptyFields = orderFormFields.filter(
+            field => !state.orderForm[field]
+        );
+        if (emptyFields.length > 1) {
+            commit(SET_ORDER_FORM_FIELD_ERROR, emptyFields);
+        } else {
+            // eslint-disable-next-line no-undef
+            $nuxt.$router.push('order');
+        }
     }
 };
 
@@ -75,6 +130,11 @@ export const getters = {
     getCartCounter(state) {
         return Object.values(state.cart).reduce((quantity, product) => {
             return quantity + product.quantity;
+        }, 0);
+    },
+    getCartTotal(state) {
+        return Object.values(state.cart).reduce((total, product) => {
+            return total + product.quantity * product.price;
         }, 0);
     }
 };
