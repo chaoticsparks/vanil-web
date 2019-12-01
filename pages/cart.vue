@@ -24,13 +24,21 @@
                 Оформление заказа
             </h2>
             <form class="cart-form">
-                <input type="text" placeholder="Имя" class="cart-form__name" />
                 <input
+                    v-model="name"
                     type="text"
-                    placeholder="Номер телефона"
+                    placeholder="Имя *"
+                    class="cart-form__name"
+                />
+                <input
+                    v-model="phone"
+                    v-mask="'+38 (###) ###-##-##'"
+                    type="text"
+                    placeholder="Номер телефона *"
                     class="cart-form__phone"
                 />
                 <textarea
+                    v-model="comment"
                     class="cart-form__comment"
                     cols="30"
                     rows="10"
@@ -41,6 +49,7 @@
                 </div>
                 <label class="radio-container">
                     <input
+                        v-model="delivery"
                         type="radio"
                         value="Самовывоз"
                         name="delivery"
@@ -49,8 +58,53 @@
                     <span class="radio-container__text">Самовывоз</span>
                     <span class="radio-container__custom-radio"></span>
                 </label>
+                <div
+                    v-if="delivery === 'Самовывоз'"
+                    class="cart-form__self-delivery"
+                >
+                    <label class="radio-container">
+                        <input
+                            v-model="address"
+                            type="radio"
+                            value="ул. Приморский бульвар, 10"
+                            name="address_vanil"
+                            class="radio-container__input"
+                        />
+                        <span class="radio-container__text"
+                            >ул. Приморский бульвар, 10</span
+                        >
+                        <span class="radio-container__custom-radio"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input
+                            v-model="address"
+                            type="radio"
+                            value="ул. Троицкая, 16 "
+                            name="address_vanil"
+                            class="radio-container__input"
+                        />
+                        <span class="radio-container__text"
+                            >ул. Троицкая, 16
+                        </span>
+                        <span class="radio-container__custom-radio"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input
+                            v-model="address"
+                            type="radio"
+                            value="ул. Генерала Петрова, 31/1"
+                            name="address_vanil"
+                            class="radio-container__input"
+                        />
+                        <span class="radio-container__text"
+                            >ул. Генерала Петрова, 31/1</span
+                        >
+                        <span class="radio-container__custom-radio"></span>
+                    </label>
+                </div>
                 <label class="radio-container">
                     <input
+                        v-model="delivery"
                         type="radio"
                         value="Сервис Bond"
                         name="delivery"
@@ -60,11 +114,13 @@
                     <span class="radio-container__custom-radio"></span>
                 </label>
                 <input
+                    v-if="delivery === 'Сервис Bond'"
+                    v-model="address"
                     type="text"
                     placeholder="Адрес"
                     class="cart-form__address"
                 />
-                <div class="cart-form__payment-text"><span>Оплата</span></div>
+                <!--<div class="cart-form__payment-text"><span>Оплата</span></div>
                 <label class="radio-container">
                     <input
                         type="radio"
@@ -88,7 +144,7 @@
                         >Оплата при получении</span
                     >
                     <span class="radio-container__custom-radio"></span>
-                </label>
+                </label>-->
                 <button class="btn btn-order">Оформить заказ</button>
             </form>
         </section>
@@ -97,13 +153,16 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
+import { mask } from 'vue-the-mask';
 import CartItem from '../components/CartItem';
 import {
     UPDATE_PRODUCT_QTY,
-    REMOVE_PRODUCT_FROM_CART
+    REMOVE_PRODUCT_FROM_CART,
+    UPDATE_ORDER_FORM_FIELD
 } from '../constants/store';
 
 export default {
+    directives: { mask },
     components: {
         CartItem
     },
@@ -111,6 +170,61 @@ export default {
     computed: {
         cartItems() {
             return this.$store.state.cart;
+        },
+        name: {
+            get() {
+                return this.$store.state.orderForm.name;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'name',
+                    value
+                });
+            }
+        },
+        phone: {
+            get() {
+                return this.$store.state.orderForm.phone;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'phone',
+                    value
+                });
+            }
+        },
+        comment: {
+            get() {
+                return this.$store.state.orderForm.comment;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'comment',
+                    value
+                });
+            }
+        },
+        delivery: {
+            get() {
+                return this.$store.state.orderForm.delivery;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'delivery',
+                    value
+                });
+            }
+        },
+        address: {
+            get() {
+                return this.$store.state.orderForm.address;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'address',
+                    value
+                });
+            }
         },
         ...mapGetters(['getCartTotal'])
     },
@@ -120,7 +234,8 @@ export default {
         },
         ...mapMutations({
             updateQuantity: UPDATE_PRODUCT_QTY,
-            onRemoveItemFromCart: REMOVE_PRODUCT_FROM_CART
+            onRemoveItemFromCart: REMOVE_PRODUCT_FROM_CART,
+            updateOrderFormField: UPDATE_ORDER_FORM_FIELD
         })
     }
 };
@@ -195,6 +310,9 @@ export default {
         font-weight: 100;
         height: 90px;
         padding-left: 24px;
+    }
+    &__self-delivery {
+        margin-left: 32px;
     }
     &__delivery-text {
         width: 100%;

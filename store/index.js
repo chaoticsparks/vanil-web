@@ -3,7 +3,8 @@ import {
     INCREASE_CART_PRODUCT_QTY,
     UPDATE_PRODUCT_QTY,
     ADD_PRODUCT_TO_CART,
-    REMOVE_PRODUCT_FROM_CART
+    REMOVE_PRODUCT_FROM_CART,
+    UPDATE_ORDER_FORM_FIELD
 } from '~/constants/store';
 
 export const state = () => ({
@@ -26,10 +27,24 @@ export const state = () => ({
             }
         }
     ],
-    cart: {}
+    cart: {},
+    orderForm: {
+        name: '',
+        phone: '',
+        comment: '',
+        delivery: '',
+        address: ''
+    }
 });
 
 export const mutations = {
+    [UPDATE_ORDER_FORM_FIELD](state, payload) {
+        const { name, value } = payload;
+        if (name === 'delivery') {
+            state.orderForm.address = '';
+        }
+        state.orderForm[name] = value;
+    },
     [INCREASE_CART_PRODUCT_QTY](state, cartProductId) {
         state.cart[cartProductId].quantity++;
     },
