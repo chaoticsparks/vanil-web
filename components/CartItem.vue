@@ -112,6 +112,10 @@ export default {
         @include max-breakpoint(tablet-portrait) {
             margin-right: 10px;
         }
+        @include max-breakpoint(mobile-medium) {
+            order: 10;
+            margin-top: 10px;
+        }
     }
     &__price-container {
         font-family: Montserrat, sans-serif;
@@ -129,12 +133,6 @@ export default {
     }
     &__remove-btn {
         @include button-reset;
-    }
-    &__quantity-container {
-        @include max-breakpoint(mobile-medium) {
-            order: 10;
-            margin-top: 10px;
-        }
     }
 }
 </style>

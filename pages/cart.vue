@@ -278,64 +278,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cart-item {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @include max-breakpoint(mobile-medium) {
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    &__image-container {
-        display: flex;
-        align-items: center;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-    }
-    &__title-container {
-        width: 361px;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            width: 50%;
-        }
-    }
-    &__flavour {
-        font-family: Montserrat, sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-        color: $text-color-location;
-    }
-    &__quantity-container {
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            order: 10;
-            margin-top: 10px;
-        }
-    }
-    &__price-container {
-        font-family: Montserrat, sans-serif;
-        font-size: 14px;
-        font-weight: bold;
-        font-style: italic;
-        flex-shrink: 0;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            order: 11;
-            margin-top: 10px;
-        }
-    }
-    &__remove-btn {
-        @include button-reset;
-    }
-}
 .cart-summary {
     font-family: LawyerGothic, sans-serif;
     font-size: 18px;
