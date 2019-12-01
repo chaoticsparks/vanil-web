@@ -29,6 +29,7 @@
                     type="text"
                     placeholder="Имя *"
                     class="cart-form__name"
+                    :class="{ 'cart-form-error': formErrors.name && !name }"
                 />
                 <input
                     v-model="phone"
@@ -36,6 +37,11 @@
                     type="text"
                     placeholder="Номер телефона *"
                     class="cart-form__phone"
+                    :class="{
+                        'cart-form-error':
+                            (formErrors.phone && !phone) ||
+                            (formErrors.phoneTooShort && phone.length < 19)
+                    }"
                 />
                 <textarea
                     v-model="comment"
@@ -145,7 +151,14 @@
                     >
                     <span class="radio-container__custom-radio"></span>
                 </label>-->
-                <button class="btn btn-order">Оформить заказ</button>
+                <p
+                    v-if="errorText"
+                    class="cart-form__errors"
+                    v-html="errorText"
+                ></p>
+                <button class="btn btn-order" @click.prevent="submitForm">
+                    Оформить заказ
+                </button>
             </form>
         </section>
     </div>
@@ -170,6 +183,26 @@ export default {
     computed: {
         cartItems() {
             return this.$store.state.cart;
+        },
+        formErrors() {
+            return this.$store.state.orderFormErrors;
+        },
+        errorText() {
+            const errorText = [];
+            if (this.formErrors.name) {
+                errorText.push('Пожалуйста, укажите Ваше имя!');
+            }
+            if (this.formErrors.phone) {
+                errorText.push('Пожалуйста, укажите Ваш номер телефона!');
+            } else if (this.formErrors.phoneTooShort) {
+                errorText.push('Пожалуйста, укажите номер телефона полностью!');
+            }
+            if (this.formErrors.delivery) {
+                errorText.push('Пожалуйста, выберите способ доставки!');
+            } else if (this.formErrors.address) {
+                errorText.push('Пожалуйста, укажите детали доставки!');
+            }
+            return errorText.join('<br>');
         },
         name: {
             get() {
@@ -231,6 +264,9 @@ export default {
     methods: {
         onChangeQuantity(payload) {
             this.updateQuantity(payload);
+        },
+        submitForm() {
+            this.$store.dispatch('submitForm');
         },
         ...mapMutations({
             updateQuantity: UPDATE_PRODUCT_QTY,
@@ -335,12 +371,22 @@ export default {
         margin-top: 32px;
         font-weight: 500;
     }
+    &__errors {
+        margin-top: 32px;
+        margin-bottom: 0;
+        line-height: 1.5;
+        width: 100%;
+        color: red;
+    }
     .btn-order {
         margin-top: 32px;
         width: 256px;
         height: 35px;
         font: 12px;
     }
+}
+.cart-form-error {
+    border: 1px solid red;
 }
 .radio-container {
     margin-top: 24px;

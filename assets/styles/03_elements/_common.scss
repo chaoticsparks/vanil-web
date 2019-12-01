@@ -19,6 +19,11 @@ p {
         font-size: 10px;
     }
 }
+input,
+button,
+textarea {
+    outline: none;
+}
 
 .h2-like {
     font-family: LawyerGothic, sans-serif;

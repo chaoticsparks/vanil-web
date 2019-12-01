@@ -4,7 +4,8 @@ import {
     UPDATE_PRODUCT_QTY,
     ADD_PRODUCT_TO_CART,
     REMOVE_PRODUCT_FROM_CART,
-    UPDATE_ORDER_FORM_FIELD
+    UPDATE_ORDER_FORM_FIELD,
+    SET_ORDER_FORM_FIELD_ERROR
 } from '~/constants/store';
 
 export const state = () => ({
@@ -34,10 +35,28 @@ export const state = () => ({
         comment: '',
         delivery: '',
         address: ''
+    },
+    orderFormErrors: {
+        name: false,
+        phone: false,
+        phoneTooShort: false,
+        delivery: false,
+        address: false
     }
 });
 
 export const mutations = {
+    [SET_ORDER_FORM_FIELD_ERROR](state, emptyFields) {
+        Object.keys(state.orderFormErrors).forEach(key => {
+            state.orderFormErrors[key] = false;
+        });
+        emptyFields.forEach(key => {
+            state.orderFormErrors[key] = true;
+        });
+        if (state.orderForm.phone.length < 19) {
+            state.orderFormErrors.phoneTooShort = true;
+        }
+    },
     [UPDATE_ORDER_FORM_FIELD](state, payload) {
         const { name, value } = payload;
         if (name === 'delivery') {
@@ -91,6 +110,18 @@ export const actions = {
                 selectedOption,
                 cartProductId
             });
+        }
+    },
+    submitForm({ commit, state }) {
+        const orderFormFields = Object.keys(state.orderForm);
+        const emptyFields = orderFormFields.filter(
+            field => !state.orderForm[field]
+        );
+        if (emptyFields.length > 1) {
+            commit(SET_ORDER_FORM_FIELD_ERROR, emptyFields);
+        } else {
+            // eslint-disable-next-line no-undef
+            $nuxt.$router.push('order');
         }
     }
 };
