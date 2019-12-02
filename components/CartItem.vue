@@ -74,11 +74,9 @@ export default {
 <style lang="scss" scoped>
 .product-icon {
     width: 45px;
-    height: 35px;
-    object-fit: fill;
+    height: 100%;
     @include max-breakpoint(mobile-medium) {
         width: 75px;
-        height: 59px;
     }
 }
 .cart-item {
@@ -136,7 +134,7 @@ export default {
             margin-right: 10px;
         }
         @include max-breakpoint(mobile-medium) {
-            order: 11;
+            order: 3;
             margin-top: 0;
             margin-right: 0;
         }
