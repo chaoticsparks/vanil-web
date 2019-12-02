@@ -108,22 +108,22 @@ export const mutations = {
     },
     [ADD_PRODUCT_TO_CART](state, payload) {
         const { productToAddId, cartProductId, selectedOption } = payload;
-        const {
-            id,
-            imgFile,
-            title,
-            price,
-            options: { values }
-        } = state.products.find(product => product.id === productToAddId);
+        const { id, imgFile, title, price, options } = state.products.find(
+            product => product.id === productToAddId
+        );
         Vue.set(state.cart, cartProductId, {
             productId: id,
             imgFile,
             title,
-            price: price[selectedOption.option.slice(1)],
-            selectedOption: {
-                name: selectedOption.name,
-                option: values[selectedOption.option.slice(1)]
-            },
+            price: selectedOption
+                ? price[selectedOption.option.slice(1)]
+                : price,
+            selectedOption: options
+                ? {
+                      name: selectedOption.name,
+                      option: options.values[selectedOption.option.slice(1)]
+                  }
+                : null,
             quantity: 1
         });
     }
@@ -132,7 +132,9 @@ export const mutations = {
 export const actions = {
     addToCart({ commit, state }, productToAdd) {
         const { id, selectedOption } = productToAdd;
-        const cartProductId = `${id}${selectedOption.option || ''}`;
+        const cartProductId = `${id}${
+            selectedOption ? selectedOption.option || '' : ''
+        }`;
 
         if (state.cart[cartProductId]) {
             commit(INCREASE_CART_PRODUCT_QTY, cartProductId);

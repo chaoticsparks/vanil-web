@@ -81,7 +81,10 @@ export default {
             this.selectedOption = event.target.value;
         },
         addToCart() {
-            this.isError = !this.selectedOption;
+            if (this.product.options) {
+                this.isError = !this.selectedOption;
+            }
+
             if (!this.isError) {
                 this.$emit('addToCart', {
                     id: this.product.id,
