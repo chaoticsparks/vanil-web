@@ -3,81 +3,113 @@
         <section class="order-section">
             <h2 class="h2-like">
                 Спасибо, ваш заказ
-                <span class="order-number">№3548</span> в обработке
+                <!--<span class="order-number">№3548</span>-->
+                в обработке
             </h2>
             <p class="text-order-manager">
                 Наш менеджер свяжется с вами в ближайшее время!
             </p>
-            <p class="text-order-number">
+            <!--<p class="text-order-number">
                 Сообщите номер вашего заказа при получении товара в кафе!
-            </p>
+            </p>-->
             <h2 class="h2-like details-text">
                 Детали вашего заказа
             </h2>
             <ul class="cart-list">
-                <li class="cart-item">
+                <li
+                    v-for="(cartItem, cartItemId) in cartItems"
+                    :key="cartItemId"
+                    class="cart-item"
+                >
                     <div class="cart-item__image-container">
                         <img
-                            src="~assets/image/product1.png"
+                            :src="getImagePath(cartItem.imgFile)"
                             alt="product-mini"
                             class="product-icon"
                         />
                     </div>
                     <div class="cart-item__title-container">
-                        <h5 class="h5-like">Рождественский калач</h5>
-                        <span class="cart-item__flavour">Мак и орех</span>
+                        <h5 class="h5-like">{{ cartItem.title }}</h5>
+                        <span
+                            v-if="cartItem.selectedOption"
+                            class="cart-item__flavour"
+                            >{{
+                                cartItem.selectedOption.name +
+                                    ' ' +
+                                    cartItem.selectedOption.option
+                            }}</span
+                        >
                     </div>
                     <div class="cart-item__price-container">
-                        <span class="cart-item__price-text">130 грн</span>
-                    </div>
-                </li>
-                <li class="cart-item">
-                    <div class="cart-item__image-container">
-                        <img
-                            src="~assets/image/product1.png"
-                            alt="product-mini"
-                            class="product-icon"
-                        />
-                    </div>
-                    <div class="cart-item__title-container">
-                        <h5 class="h5-like">
-                            Штоллен с изюмом, орехами и цукатами, посыпанный
-                            сахарной пудрой
-                        </h5>
-                    </div>
-                    <div class="cart-item__price-container">
-                        <span class="cart-item__price-text">150 грн</span>
+                        <span class="cart-item__price-text"
+                            >{{ cartItem.price * cartItem.quantity }} грн</span
+                        >
                     </div>
                 </li>
             </ul>
             <footer class="cart-summary">
-                Сумма заказа: <span class="cart-summary__price">545 грн</span>
+                Сумма заказа:
+                <span class="cart-summary__price">{{ getCartTotal }} грн</span>
             </footer>
         </section>
         <section class="order-summary">
-            <h2 class="h2-like">
+            <!-- <h2 class="h2-like">
                 Номер заказа <span class="order-number">3548</span>
-            </h2>
+            </h2>-->
             <div class="order-summary__options">
-                <div class="option-result">
+                <!--<div class="option-result">
                     <span class="option">Оплата:</span>
                     <span class="payment-option chosen">При получении</span>
+                </div>-->
+                <div class="option-result">
+                    <span class="option">Способ доставки:</span>
+                    <span class="delivery-option chosen">{{
+                        deliveryMethod
+                    }}</span>
                 </div>
                 <div class="option-result">
-                    <span class="option">Доставка:</span>
-                    <span class="delivery-option chosen"
-                        >Самовывоз, ул. Приморский бульвар, 10</span
-                    >
+                    <span class="option">Адрес:</span>
+                    <span class="delivery-option chosen">{{
+                        deliveryAddress
+                    }}</span>
                 </div>
             </div>
-            <button class="btn btn-order">Продолжить покупки</button>
+            <button class="btn btn-order" @click="onContinueShopping">
+                Продолжить покупки
+            </button>
         </section>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-    layout: 'simple'
+    layout: 'simple',
+    computed: {
+        cartItems() {
+            return this.$store.state.cart;
+        },
+        deliveryMethod() {
+            return this.$store.state.orderForm.delivery;
+        },
+        deliveryAddress() {
+            return this.$store.state.orderForm.address;
+        },
+        ...mapGetters(['getCartTotal'])
+    },
+    fetch({ redirect, store }) {
+        if (!Object.values(store.state.cart).length) {
+            redirect('/');
+        }
+    },
+    methods: {
+        getImagePath(imgName) {
+            return require(`~/assets/image/${imgName}`);
+        },
+        onContinueShopping() {
+            this.$router.push('/');
+        }
+    }
 };
 </script>
 

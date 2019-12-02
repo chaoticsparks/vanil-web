@@ -261,6 +261,11 @@ export default {
         },
         ...mapGetters(['getCartTotal'])
     },
+    fetch({ redirect, store }) {
+        if (!Object.values(store.state.cart).length) {
+            redirect('/');
+        }
+    },
     methods: {
         onChangeQuantity(payload) {
             this.updateQuantity(payload);
