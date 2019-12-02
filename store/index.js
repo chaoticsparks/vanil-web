@@ -12,20 +12,52 @@ export const state = () => ({
     products: [
         {
             id: 'P1',
-            imgFile: 'product1.png',
+            imgFile: 'product1.jpg',
             title: 'Рождественская бриошь (калач) с клюквой и вишней',
             description: `Традиционное легкое ванильное сдобное тесто на сливочном масле, кули из свежей клюквы и вишни, с добавлением апельсиновой цедры.`,
-            price: '100',
-            weight: '700',
+            price: '280',
+            weight: '700 грамм'
+        },
+        {
+            id: 'P2',
+            imgFile: 'product1.jpg',
+            title:
+                'Рождественская бриошь(калач) с маком и апельсиновыми цукатами',
+            description: `Традиционное лёгкое ванильное сдобное тесто на сливочном масле,мак, цукаты вымоченные в ликере Куантро,апельсиновое кули.`,
+            price: '280',
+            weight: '700 грамм'
+        },
+        {
+            id: 'P3',
+            imgFile: 'product1.jpg',
+            title:
+                'Рождественская бриошь(калач) с соленой карамелью, фундуком и шоколадом.',
+            description: `Традиционное лёгкое ванильное сдобное тесто на сливочном масле, соленая карамель собственного приготовления, дробленый фундук, шоколадная крошка.`,
+            price: '280',
+            weight: '700 грамм'
+        },
+        {
+            id: 'P4',
+            imgFile: 'product1.jpg',
+            title: 'Английский рождественский кекс',
+            description: `Кексовое тесто приготовленное на сливочном масле, вымоченные в темном роме изюм коринка, вяленная вишня, светлый изюм, вяленная клюква, коричневый изюм, грецкий орех, корица, имбирь, мускатный орех.<br><br> 
+После выпечки пропитывается большим количеством рома и выстаивается около трех недель.`,
+            price: ['250', '350'],
+            weight: '470 грамм, 730 грамм',
             options: {
-                name: 'Начинка:',
-                values: [
-                    'Клюква и вишня',
-                    'Мак и апельсиновые цукаты',
-                    'Соленая карамель с фундуков и шоколадом'
-                ],
-                errorText: 'Пожалуйста, выберите начинку!'
+                name: 'Вес:',
+                values: ['470 грамм, 250 грн.', '730 грамм, 350грн.'],
+                errorText: 'Пожалуйста, укажите вес!'
             }
+        },
+        {
+            id: 'P5',
+            imgFile: 'product1.jpg',
+            title: 'Штоллен',
+            description: `Традиционное тяжелое сдобное тесто на большом количестве сливочного масла, вымоченные в роме изюм коринка, курага, изюм светлый, изюм коричневый,миндаль, апельсиновая цедра.<br><br>
+После выпечки пропитывается сливочным маслом, посыпается сахарно пудрой и выстаивается около трёх недель.`,
+            price: '420',
+            weight: '750 грамм'
         }
     ],
     cart: {},
@@ -76,22 +108,22 @@ export const mutations = {
     },
     [ADD_PRODUCT_TO_CART](state, payload) {
         const { productToAddId, cartProductId, selectedOption } = payload;
-        const {
-            id,
-            imgFile,
-            title,
-            price,
-            options: { values }
-        } = state.products.find(product => product.id === productToAddId);
+        const { id, imgFile, title, price, options } = state.products.find(
+            product => product.id === productToAddId
+        );
         Vue.set(state.cart, cartProductId, {
             productId: id,
             imgFile,
             title,
-            price,
-            selectedOption: {
-                name: selectedOption.name,
-                option: values[selectedOption.option.slice(1)]
-            },
+            price: selectedOption
+                ? price[selectedOption.option.slice(1)]
+                : price,
+            selectedOption: options
+                ? {
+                      name: selectedOption.name,
+                      option: options.values[selectedOption.option.slice(1)]
+                  }
+                : null,
             quantity: 1
         });
     }
@@ -100,7 +132,9 @@ export const mutations = {
 export const actions = {
     addToCart({ commit, state }, productToAdd) {
         const { id, selectedOption } = productToAdd;
-        const cartProductId = `${id}${selectedOption.option || ''}`;
+        const cartProductId = `${id}${
+            selectedOption ? selectedOption.option || '' : ''
+        }`;
 
         if (state.cart[cartProductId]) {
             commit(INCREASE_CART_PRODUCT_QTY, cartProductId);
