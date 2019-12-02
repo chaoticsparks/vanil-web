@@ -104,13 +104,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &:nth-of-type(even) {
-        flex-direction: row-reverse;
-    }
-    @include max-breakpoint(tablet-landscape) {
-        margin-right: 20px;
-        margin-left: 20px;
-    }
+
     @include max-breakpoint(tablet-portrait) {
         margin-top: 80px;
     }
@@ -118,25 +112,47 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    &:first-of-type {
+        margin-top: 0;
+    }
     &__img {
         max-width: 100%;
         height: auto;
+        border-radius: 32px;
+
+        @include max-breakpoint(mobile-medium) {
+            border-radius: 0;
+        }
     }
     &__photo {
+        width: 50%;
+        padding-right: 24px;
+        box-sizing: border-box;
+        @include max-breakpoint(tablet-portrait) {
+            padding-right: 16px;
+        }
         @include max-breakpoint(mobile-medium) {
-            width: 70%;
+            width: calc(100% + 64px);
+            padding-right: 0;
+            margin-left: -16px;
+            margin-right: -16px;
         }
     }
     &__info {
         font-weight: 500;
-        width: 445px;
+        width: 50%;
+        box-sizing: border-box;
         font-size: 14px;
+        padding-left: 24px;
         @include max-breakpoint(tablet-portrait) {
-            width: 670px;
+            padding-left: 16px;
             font-size: 10px;
         }
         @include max-breakpoint(mobile-medium) {
             width: 100%;
+            padding-left: 0;
+            padding-top: 16px;
         }
     }
     &__weight {
@@ -157,17 +173,52 @@ export default {
         justify-content: space-between;
         align-items: center;
     }
+
+    &:nth-of-type(even) {
+        flex-direction: row-reverse;
+
+        .product__photo {
+            padding-right: 0;
+            padding-left: 24px;
+        }
+        .product__info {
+            padding-left: 0;
+            padding-right: 24px;
+        }
+
+        @include max-breakpoint(tablet-portrait) {
+            .product__photo {
+                padding-left: 16px;
+            }
+            .product__info {
+                padding-right: 16px;
+            }
+        }
+
+        @include max-breakpoint(mobile-medium) {
+            .product__photo {
+                padding-left: 0;
+            }
+            .product__info {
+                padding-right: 0;
+            }
+        }
+    }
 }
 .h2-like {
     font-family: LawyerGothic, sans-serif;
     font-weight: bold;
     font-size: 24px;
+    margin-top: 0;
     &--underlined {
         padding-bottom: 7px;
         border-bottom: 1px solid $text-color-brown-transparent;
     }
     @include max-breakpoint(tablet-portrait) {
         font-size: 16px;
+    }
+    @include max-breakpoint(medium-phone) {
+        font-size: 14px;
     }
 }
 .btn {

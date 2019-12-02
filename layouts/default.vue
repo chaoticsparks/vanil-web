@@ -230,9 +230,18 @@ export default {
 .default-container {
     margin: 150px auto;
     width: 100%;
-    max-width: 1024px;
+    max-width: 1392px;
+    padding: 0 48px;
+    box-sizing: border-box;
+
     @include max-breakpoint(tablet-portrait) {
         margin: 100px auto;
+        padding: 0 36px;
+    }
+
+    @include max-breakpoint(mobile-medium) {
+        margin: 64px auto;
+        padding: 0 16px;
     }
 }
 .intro-text {
