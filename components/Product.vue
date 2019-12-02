@@ -8,9 +8,7 @@
                 {{ product.title }}
             </h2>
             <span class="product__weight">{{ product.weight }}</span>
-            <p>
-                {{ product.description }}
-            </p>
+            <p v-html="product.description"></p>
             <template v-if="product.options">
                 <span>{{ product.options.name }}</span>
                 <label
@@ -35,10 +33,10 @@
                     'product-option-error--visible': isError
                 }"
             >
-                {{ product.options.errorText }}
+                {{ errorText }}
             </p>
             <section class="product__buy">
-                <span class="product__price">{{ product.price }} грн.</span>
+                <span class="product__price">{{ productPrice }}</span>
                 <button class="btn" :disabled="isError" @click="addToCart">
                     Купить
                 </button>
@@ -60,6 +58,19 @@ export default {
         isError: false
     }),
     computed: {
+        productPrice() {
+            if (Array.isArray(this.product.price)) {
+                if (!this.selectedOption) {
+                    return '';
+                }
+                const index = this.selectedOption.slice(1);
+                return this.product.price[index] + ' грн.';
+            }
+            return this.product.price + ' грн.';
+        },
+        errorText() {
+            return this.product.options ? this.product.options.errorText : '';
+        },
         imagePath() {
             return require(`~/assets/image/${this.product.imgFile}`);
         }
