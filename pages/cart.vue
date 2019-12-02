@@ -294,6 +294,9 @@ export default {
 
 .cart-section {
     margin-top: 64px;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
 }
 .cart-order {
     margin-top: 64px;
@@ -301,6 +304,9 @@ export default {
 .cart-list {
     margin-top: 33px;
     @include ul-reset;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
 }
 .cart-form {
     margin-top: 32px;

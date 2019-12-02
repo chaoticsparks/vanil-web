@@ -76,6 +76,10 @@ export default {
     width: 45px;
     height: 35px;
     object-fit: fill;
+    @include max-breakpoint(mobile-medium) {
+        width: 75px;
+        height: 59px;
+    }
 }
 .cart-item {
     margin-top: 32px;
@@ -83,14 +87,18 @@ export default {
     align-items: center;
     justify-content: space-between;
     @include max-breakpoint(mobile-medium) {
+        justify-content: start;
         flex-wrap: wrap;
-        justify-content: space-around;
+        margin-top: 19px;
     }
     &__image-container {
         display: flex;
         align-items: center;
         @include max-breakpoint(tablet-portrait) {
             margin-right: 10px;
+        }
+        @include max-breakpoint(mobile-medium) {
+            margin-right: 0;
         }
     }
     &__title-container {
@@ -99,7 +107,9 @@ export default {
             margin-right: 10px;
         }
         @include max-breakpoint(mobile-medium) {
-            width: 50%;
+            margin-right: 0;
+            margin-left: 9px;
+            width: calc(100% - 84px);
         }
     }
     &__flavour {
@@ -113,8 +123,7 @@ export default {
             margin-right: 10px;
         }
         @include max-breakpoint(mobile-medium) {
-            order: 10;
-            margin-top: 10px;
+            margin-left: 21px;
         }
     }
     &__price-container {
@@ -128,7 +137,8 @@ export default {
         }
         @include max-breakpoint(mobile-medium) {
             order: 11;
-            margin-top: 10px;
+            margin-top: 0;
+            margin-right: 0;
         }
     }
     &__remove-btn {

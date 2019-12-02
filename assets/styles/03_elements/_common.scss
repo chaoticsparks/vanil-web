@@ -29,12 +29,13 @@ textarea {
     font-family: LawyerGothic, sans-serif;
     font-weight: bold;
     font-size: 24px;
+    margin: 0;
     &--underlined {
         padding-bottom: 7px;
         border-bottom: 1px solid $text-color-brown-transparent;
     }
     @include max-breakpoint(tablet-portrait) {
-        font-size: 16px;
+        font-size: 21px;
     }
 }
 
@@ -82,7 +83,7 @@ textarea {
         margin-right: 24px;
         color: $text-color-brown;
         @include max-breakpoint(tablet-portrait) {
-            font-size: 10px;
+            font-size: 12px;
             margin-right: 0;
         }
     }
@@ -91,7 +92,7 @@ textarea {
         align-items: center;
         margin-right: 24px;
         @include max-breakpoint(tablet-portrait) {
-            font-size: 10px;
+            font-size: 12px;
             margin-top: 4px;
             margin-right: 0;
         }
@@ -102,7 +103,7 @@ textarea {
         color: $text-color-brown;
         margin-right: 50px;
         @include max-breakpoint(tablet-portrait) {
-            font-size: 10px;
+            font-size: 12px;
             margin-top: 4px;
             margin-right: 0;
         }
@@ -126,8 +127,8 @@ textarea {
     width: 18px;
     margin-right: 6px;
     @include max-breakpoint(tablet-portrait) {
-        height: 12px;
-        width: 12px;
+        height: 14px;
+        width: 14px;
     }
 }
 .fixed-cart {
@@ -165,4 +166,7 @@ textarea {
     margin: 0;
     font-size: 14px;
     font-weight: 600;
+    @include max-breakpoint(mobile-medium) {
+        font-size: 12px;
+    }
 }
