@@ -7,7 +7,7 @@ export default async function({ route, store }) {
     }); */
 
     const result = await axios.post(
-        'api/get_account_info',
+        '/api/get_account_info',
         {},
         {
             headers: {
