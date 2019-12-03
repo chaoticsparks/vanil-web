@@ -150,7 +150,7 @@ export default {
         padding-left: 24px;
         @include max-breakpoint(tablet-portrait) {
             padding-left: 16px;
-            font-size: 10px;
+            font-size: 12px;
         }
         @include max-breakpoint(mobile-medium) {
             width: 100%;

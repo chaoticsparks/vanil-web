@@ -364,29 +364,39 @@ export default {
     height: 80px;
     width: 80px;
     border-radius: 50%;
-    background-color: white;
+    background-color: $text-color-light;
+    opacity: 0.8;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
     border: 1px solid $text-color-location;
     cursor: pointer;
+    @include max-breakpoint(tablet-portrait) {
+        right: 20px;
+        top: 50px;
+    }
+    @include max-breakpoint(mobile-medium) {
+        width: 60px;
+        height: 60px;
+    }
     &__counter {
         display: inline-block;
         width: 16px;
         height: 13px;
         border-radius: 2px;
         position: absolute;
-        top: 30px;
-        right: 20px;
+        top: 23px;
+        right: 13px;
         font-family: NotoSans, sans-serif;
         font-weight: normal;
         font-size: 10px;
-        color: $text-color-location;
+        opacity: 0.8;
+        color: $text-color-dark-brown;
         background-color: white;
         border: 1px solid $text-color-location;
         text-align: center;
-        line-height: 1;
+        line-height: 1.3;
     }
 }
 </style>

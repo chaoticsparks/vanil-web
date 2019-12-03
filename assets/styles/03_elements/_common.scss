@@ -17,7 +17,7 @@ p {
     color: $text-color-dark-brown;
     font-size: 14px;
     @include max-breakpoint(tablet-portrait) {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 input,
