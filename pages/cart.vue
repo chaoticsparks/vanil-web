@@ -294,6 +294,8 @@ export default {
     @include max-breakpoint(mobile-medium) {
         font-size: 16px;
         text-align: center;
+        margin-top: 20px;
+        padding-bottom: 9px;
     }
 }
 
@@ -305,6 +307,9 @@ export default {
 }
 .cart-order {
     margin-top: 64px;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 28px;
+    }
 }
 .cart-list {
     margin-top: 33px;
@@ -394,6 +399,9 @@ export default {
         width: 256px;
         height: 35px;
         font: 12px;
+        @include max-breakpoint(mobile-medium) {
+            margin: 32px auto 0;
+        }
     }
 }
 .cart-form-error {
