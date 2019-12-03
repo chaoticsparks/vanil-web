@@ -104,14 +104,31 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
 }
 .simple-layout-header {
     height: 116px;
-    border-bottom: 1px solid $text-color-location;
+    border-bottom: 1px solid $text-color-brown-transparent;
     display: flex;
     align-items: center;
+    @include max-breakpoint(mobile-medium) {
+        height: 64px;
+    }
     &__logo {
         margin-left: 44px;
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 9px;
+        }
+    }
+}
+.logo-img {
+    @include max-breakpoint(mobile-medium) {
+        width: 115px;
+        height: auto;
     }
 }
 </style>

@@ -39,11 +39,17 @@ export default {
 .quantity-counter {
     color: $text-color-brown;
     font-family: LawyerGothic, sans-serif;
+    /*font-weight: bold;*/
     font-size: 14px;
     width: 94px;
     height: 34px;
     display: flex;
     justify-content: space-around;
+    @include max-breakpoint(mobile-medium) {
+        width: 68px;
+        height: 26px;
+        font-size: 9px;
+    }
 
     &__section {
         height: 100%;
@@ -55,12 +61,20 @@ export default {
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
             border-right: none;
+            @include max-breakpoint(mobile-medium) {
+                border-top-left-radius: 9px;
+                border-bottom-left-radius: 9px;
+            }
         }
 
         &--plus {
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
             border-left: none;
+            @include max-breakpoint(mobile-medium) {
+                border-top-right-radius: 9px;
+                border-bottom-right-radius: 9px;
+            }
         }
 
         &--quantity {
