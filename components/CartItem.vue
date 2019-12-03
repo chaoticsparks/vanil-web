@@ -168,6 +168,10 @@ export default {
             margin-left: 10px;
             margin-right: 10px;
         }
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
     &__remove-btn {
         @include button-reset;
