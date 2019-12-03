@@ -283,22 +283,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cart-summary {
-    font-family: LawyerGothic, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: right;
-    margin-top: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid $text-color-location;
-    @include max-breakpoint(mobile-medium) {
-        font-size: 16px;
-        text-align: center;
-        margin-top: 20px;
-        padding-bottom: 9px;
-    }
-}
-
 .cart-section {
     margin-top: 64px;
     @include max-breakpoint(mobile-medium) {
@@ -309,13 +293,6 @@ export default {
     margin-top: 64px;
     @include max-breakpoint(mobile-medium) {
         margin-top: 28px;
-    }
-}
-.cart-list {
-    margin-top: 33px;
-    @include ul-reset;
-    @include max-breakpoint(mobile-medium) {
-        margin-top: 19px;
     }
 }
 .cart-form {
@@ -393,15 +370,6 @@ export default {
         line-height: 1.5;
         width: 100%;
         color: red;
-    }
-    .btn-order {
-        margin-top: 32px;
-        width: 256px;
-        height: 35px;
-        font: 12px;
-        @include max-breakpoint(mobile-medium) {
-            margin: 32px auto 0;
-        }
     }
 }
 .cart-form-error {

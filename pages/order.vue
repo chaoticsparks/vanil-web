@@ -28,22 +28,28 @@
                             class="product-icon"
                         />
                     </div>
-                    <div class="cart-item__title-container">
-                        <h5 class="h5-like">{{ cartItem.title }}</h5>
-                        <span
-                            v-if="cartItem.selectedOption"
-                            class="cart-item__flavour"
-                            >{{
-                                cartItem.selectedOption.name +
-                                    ' ' +
-                                    cartItem.selectedOption.option
-                            }}</span
-                        >
-                    </div>
-                    <div class="cart-item__price-container">
-                        <span class="cart-item__price-text"
-                            >{{ cartItem.price * cartItem.quantity }} грн</span
-                        >
+                    <div class="cart-item__details-container">
+                        <div class="cart-item__title-container">
+                            <h5 class="h5-like">{{ cartItem.title }}</h5>
+                            <span
+                                v-if="cartItem.selectedOption"
+                                class="cart-item__flavour"
+                                >{{
+                                    cartItem.selectedOption.name +
+                                        ' ' +
+                                        cartItem.selectedOption.option
+                                }}</span
+                            >
+                        </div>
+                        <span class="quantity-order">1 шт</span>
+                        <div class="cart-item__price-container">
+                            <span class="cart-item__price-text"
+                                >{{
+                                    cartItem.price * cartItem.quantity
+                                }}
+                                грн</span
+                            >
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -131,83 +137,9 @@ export default {
 .details-text {
     margin-top: 48px;
 }
-.cart-item {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    @include max-breakpoint(mobile-medium) {
-        justify-content: space-around;
-    }
-    &__image-container {
-        display: flex;
-        align-items: center;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-    }
-    &__title-container {
-        margin-left: 37px;
-        width: 50%;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            margin-left: 10px;
-            width: 50%;
-        }
-    }
-    &__flavour {
-        font-family: Montserrat, sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-        color: $text-color-location;
-    }
-    &__price-container {
-        font-family: Montserrat, sans-serif;
-        font-size: 14px;
-        font-weight: bold;
-        font-style: italic;
-        flex-shrink: 0;
-        margin-left: auto;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            order: 11;
-            margin-top: 10px;
-        }
-    }
-}
-.cart-summary {
-    font-family: LawyerGothic, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: right;
-    margin-top: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid $text-color-location;
-    @include max-breakpoint(mobile-medium) {
-        font-size: 16px;
-        text-align: center;
-    }
-}
-.product-icon {
-    width: 45px;
-    height: 35px;
-    object-fit: fill;
-}
-.cart-list {
-    margin-top: 33px;
-    @include ul-reset;
-}
+
 .order-summary {
     margin-top: 48px;
-    .btn-order {
-        margin-top: 32px;
-        width: 256px;
-        height: 35px;
-        font: 12px;
-    }
     &__options {
         margin-top: 32px;
         flex-direction: column;
@@ -220,17 +152,30 @@ export default {
     width: 190px;
     display: block;
     @include max-breakpoint(mobile-medium) {
-        width: 120px;
+        width: 50%;
         flex-shrink: 0;
     }
 }
 .chosen {
     display: inline-block;
     max-width: 253px;
+    @include max-breakpoint(mobile-medium) {
+        width: 50%;
+    }
 }
 .option-result {
     margin-top: 16px;
     width: 100%;
     display: flex;
+}
+.quantity-order {
+    display: block;
+    flex-shrink: 0;
+    font-weight: 600;
+    @include max-breakpoint(mobile-medium) {
+        order: 3;
+        margin-left: 10px;
+        font-size: 12px;
+    }
 }
 </style>
