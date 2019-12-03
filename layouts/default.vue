@@ -8,12 +8,13 @@
                 class="bg-video"
                 width="100"
                 height="100"
-                poster="~assets/video/video-placeholder.png"
+                poster="~assets/video/video-placeholder.jpg"
             >
                 <!--<source src="~assets/video/flower.webm" type="video/webm" />
 <source src="~assets/video/flower.mp4" type="video/mp4" />-->
                 Извините, Ваш браузер не поддерживает встроенные видео.
             </video>
+            <div class="video-overlay"></div>
             <header class="default-header">
                 <div class="default-header__logo">
                     <nuxt-link to="/">
@@ -178,6 +179,16 @@ export default {
     height: 100%;
     position: absolute;
     z-index: -1;
+}
+
+.video-overlay {
+    background-color: black;
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .default-header {
