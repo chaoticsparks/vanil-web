@@ -72,7 +72,7 @@ export default {
             return this.product.options ? this.product.options.errorText : '';
         },
         imagePath() {
-            return require(`~/assets/image/${this.product.imgFile}`);
+            return require(`~/assets/image/products/${this.product.imgFile}`);
         }
     },
     methods: {

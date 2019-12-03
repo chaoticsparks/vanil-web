@@ -66,7 +66,7 @@ export default {
     },
     methods: {
         getImagePath(imgName) {
-            return require(`~/assets/image/${imgName}`);
+            return require(`~/assets/image/products/${imgName}`);
         },
         onChangeQuantity(newQty) {
             this.$emit('changeQuantity', {

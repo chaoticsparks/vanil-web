@@ -104,7 +104,7 @@ export default {
     },
     methods: {
         getImagePath(imgName) {
-            return require(`~/assets/image/${imgName}`);
+            return require(`~/assets/image/products/${imgName}`);
         },
         onContinueShopping() {
             this.$router.push('/');
