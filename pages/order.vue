@@ -108,11 +108,11 @@ export default {
             accessToken: '4ab3498feb67d4ea-13b937d35cdef139-8f4d592ff4262b1e'
         });
 
-        await client.setWebhook('https://vanil-test.netlify.com', [
+        /* await client.setWebhook('https://vanil-test.netlify.com', [
             'delivered',
             'subscribed',
             'conversation_started'
-        ]);
+        ]); */
 
         const info = await client.getAccountInfo();
 
