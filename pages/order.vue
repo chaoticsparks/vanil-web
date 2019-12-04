@@ -89,6 +89,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { ViberClient } from 'messaging-api-viber';
+
 export default {
     layout: 'simple',
     computed: {
@@ -103,9 +105,51 @@ export default {
         },
         ...mapGetters(['getCartTotal'])
     },
-    fetch({ redirect, store }) {
+    async fetch({ redirect, store }) {
         if (!Object.values(store.state.cart).length) {
             redirect('/');
+        } else {
+            const cartItemsString = Object.values(store.state.cart).map(
+                item => {
+                    const { quantity, selectedOption, title } = item;
+                    return `${title}${
+                        selectedOption ? ' (' + selectedOption.option + ')' : ''
+                    }\nКол-во: ${quantity}\n\n`;
+                }
+            );
+
+            const {
+                name,
+                phone,
+                comment,
+                delivery,
+                address
+            } = store.state.orderForm;
+
+            const messageString = `Заказ:\n${cartItemsString.join(
+                ''
+            )}\nИтого: ${
+                store.getters.getCartTotal
+            } грн.\n\nИмя: ${name}\nНомер тел.: ${phone}\nДоставка: ${delivery}\nАдрес: ${address}\n${
+                comment ? 'Комментарий: ' + comment : ''
+            }`;
+
+            const client = ViberClient.connect({
+                accessToken:
+                    '4ab3498feb67d4ea-13b937d35cdef139-8f4d592ff4262b1e',
+                origin: '/api/'
+            });
+
+            let info;
+            try {
+                info = await client.getAccountInfo();
+            } catch (e) {
+                console.log(e);
+            }
+
+            const members = info.members.map(member => member.id);
+
+            await client.broadcastText(members, messageString);
         }
     },
     methods: {
