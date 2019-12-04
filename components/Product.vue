@@ -150,7 +150,7 @@ export default {
         padding-left: 24px;
         @include max-breakpoint(tablet-portrait) {
             padding-left: 16px;
-            font-size: 10px;
+            font-size: 12px;
         }
         @include max-breakpoint(mobile-medium) {
             width: 100%;
@@ -239,6 +239,12 @@ export default {
         width: 105px;
         height: 27px;
         font-size: 12px;
+    }
+    &:hover {
+        background-color: $btn-color-hover;
+    }
+    &:disabled {
+        background-color: $text-color-brown-transparent;
     }
 }
 

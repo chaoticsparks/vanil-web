@@ -2,11 +2,13 @@
     <div>
         <header class="simple-layout-header">
             <div class="simple-layout-header__logo">
-                <img
-                    class="logo-img"
-                    src="~assets/image/logo-brown-big.svg"
-                    alt="logo"
-                />
+                <nuxt-link to="/">
+                    <img
+                        class="logo-img"
+                        src="~assets/image/logo-brown-big.svg"
+                        alt="logo"
+                    />
+                </nuxt-link>
             </div>
         </header>
         <main class="simple-layout-container">

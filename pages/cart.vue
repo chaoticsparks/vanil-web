@@ -28,7 +28,7 @@
                     v-model="name"
                     type="text"
                     placeholder="Имя *"
-                    class="cart-form__name"
+                    class="cart-form__name form-default"
                     :class="{ 'cart-form-error': formErrors.name && !name }"
                 />
                 <input
@@ -36,7 +36,7 @@
                     v-mask="'+38 (###) ###-##-##'"
                     type="text"
                     placeholder="Номер телефона *"
-                    class="cart-form__phone"
+                    class="cart-form__phone form-default"
                     :class="{
                         'cart-form-error':
                             (formErrors.phone && !phone) ||
@@ -45,7 +45,7 @@
                 />
                 <textarea
                     v-model="comment"
-                    class="cart-form__comment"
+                    class="cart-form__comment form-default"
                     cols="30"
                     rows="10"
                     placeholder="Комментарий"
@@ -283,22 +283,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cart-summary {
-    font-family: LawyerGothic, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: right;
-    margin-top: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid $text-color-location;
-    @include max-breakpoint(mobile-medium) {
-        font-size: 16px;
-        text-align: center;
-        margin-top: 20px;
-        padding-bottom: 9px;
-    }
-}
-
 .cart-section {
     margin-top: 64px;
     @include max-breakpoint(mobile-medium) {
@@ -311,26 +295,13 @@ export default {
         margin-top: 28px;
     }
 }
-.cart-list {
-    margin-top: 33px;
-    @include ul-reset;
-    @include max-breakpoint(mobile-medium) {
-        margin-top: 19px;
-    }
-}
 .cart-form {
     margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
     &__name {
         width: 60%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 45px;
-        padding-left: 24px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
         }
@@ -338,13 +309,7 @@ export default {
     &__phone {
         width: 35%;
         margin-left: 5%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 45px;
-        padding-left: 24px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
             margin-left: 0;
@@ -355,13 +320,7 @@ export default {
         margin-top: 24px;
         padding-top: 16px;
         width: 100%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 90px;
-        padding-left: 24px;
     }
     &__self-delivery {
         margin-left: 32px;
@@ -394,15 +353,6 @@ export default {
         width: 100%;
         color: red;
     }
-    .btn-order {
-        margin-top: 32px;
-        width: 256px;
-        height: 35px;
-        font: 12px;
-        @include max-breakpoint(mobile-medium) {
-            margin: 32px auto 0;
-        }
-    }
 }
 .cart-form-error {
     border: 1px solid red;
@@ -410,5 +360,19 @@ export default {
 .radio-container {
     margin-top: 24px;
     width: 100%;
+    &__text {
+        opacity: 0.5;
+    }
+}
+.form-default {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: solid 1px $text-color-brown-transparent;
+    font-size: 14px;
+    font-weight: 100;
+    padding-left: 24px;
+}
+.form-default:focus {
+    border: solid 1px $text-color-location;
 }
 </style>
