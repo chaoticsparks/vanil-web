@@ -10,8 +10,8 @@
                 height="100"
                 poster="~assets/video/video-placeholder.jpg"
             >
-                <!--<source src="~assets/video/flower.webm" type="video/webm" />
-<source src="~assets/video/flower.mp4" type="video/mp4" />-->
+                <source src="~assets/video/vanildark2.webm" type="video/webm" />
+                <source src="~assets/video/vanildark2.mp4" type="video/mp4" />
                 Извините, Ваш браузер не поддерживает встроенные видео.
             </video>
             <div class="video-overlay"></div>
@@ -220,6 +220,9 @@ export default {
     &__phone-link {
         color: $text-color-light;
         font-size: 18px;
+        @include max-breakpoint(mobile-medium) {
+            font-size: 16px;
+        }
     }
     &__social {
         font-size: 0;
@@ -230,12 +233,25 @@ export default {
     }
     &__social-link {
         margin-left: 16px;
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 12px;
+        }
+    }
+}
+.logo-img {
+    @include max-breakpoint(mobile-medium) {
+        width: 127px;
+        height: 100%;
     }
 }
 
 .social-icon {
     height: 20px;
     width: 20px;
+    @include max-breakpoint(mobile-medium) {
+        height: 19px;
+        width: 19px;
+    }
 }
 
 .default-container {
@@ -281,16 +297,26 @@ export default {
 }
 .default-footer {
     margin: 0 auto;
-    max-width: 1024px;
+    max-width: 1392px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-weight: normal;
     font-size: 12px;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
+    position: relative;
+    @include max-breakpoint(mobile-medium) {
+        height: 98px;
+    }
     &__logo {
         margin-left: 20px;
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 0;
+            position: absolute;
+            left: 19px;
+            top: 23px;
+        }
     }
     &__contacts {
         display: flex;
@@ -309,7 +335,7 @@ export default {
         margin-right: 24px;
         color: $text-color-brown;
         @include max-breakpoint(tablet-portrait) {
-            font-size: 10px;
+            font-size: 12px;
             margin-right: 0;
         }
     }
@@ -318,7 +344,7 @@ export default {
         align-items: center;
         margin-right: 24px;
         @include max-breakpoint(tablet-portrait) {
-            font-size: 10px;
+            font-size: 12px;
             margin-top: 4px;
             margin-right: 0;
         }
@@ -329,7 +355,7 @@ export default {
         color: $text-color-brown;
         margin-right: 50px;
         @include max-breakpoint(tablet-portrait) {
-            font-size: 10px;
+            font-size: 12px;
             margin-top: 4px;
             margin-right: 0;
         }
@@ -339,12 +365,18 @@ export default {
         margin-right: 20px;
         @include max-breakpoint(mobile-medium) {
             margin-right: 0;
+            position: absolute;
+            left: 19px;
+            bottom: 23px;
         }
     }
     &__social-link {
         margin-left: 8px;
         @include max-breakpoint(mobile-medium) {
-            margin-left: 4px;
+            margin-left: 9px;
+            &:first-of-type {
+                margin-left: 0;
+            }
         }
     }
 }
@@ -353,8 +385,14 @@ export default {
     width: 18px;
     margin-right: 6px;
     @include max-breakpoint(tablet-portrait) {
-        height: 12px;
-        width: 12px;
+        height: 14px;
+        width: 14px;
+    }
+}
+.logo-brown-img {
+    @include max-breakpoint(mobile-medium) {
+        width: 72px;
+        height: 100%;
     }
 }
 .fixed-cart {

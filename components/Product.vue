@@ -240,6 +240,12 @@ export default {
         height: 27px;
         font-size: 12px;
     }
+    &:hover {
+        background-color: $btn-color-hover;
+    }
+    &:disabled {
+        background-color: $text-color-brown-transparent;
+    }
 }
 
 .product-option {

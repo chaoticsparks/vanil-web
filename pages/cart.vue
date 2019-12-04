@@ -28,7 +28,7 @@
                     v-model="name"
                     type="text"
                     placeholder="Имя *"
-                    class="cart-form__name"
+                    class="cart-form__name form-default"
                     :class="{ 'cart-form-error': formErrors.name && !name }"
                 />
                 <input
@@ -36,7 +36,7 @@
                     v-mask="'+38 (###) ###-##-##'"
                     type="text"
                     placeholder="Номер телефона *"
-                    class="cart-form__phone"
+                    class="cart-form__phone form-default"
                     :class="{
                         'cart-form-error':
                             (formErrors.phone && !phone) ||
@@ -45,7 +45,7 @@
                 />
                 <textarea
                     v-model="comment"
-                    class="cart-form__comment"
+                    class="cart-form__comment form-default"
                     cols="30"
                     rows="10"
                     placeholder="Комментарий"
@@ -301,13 +301,7 @@ export default {
     flex-wrap: wrap;
     &__name {
         width: 60%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 45px;
-        padding-left: 24px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
         }
@@ -315,13 +309,7 @@ export default {
     &__phone {
         width: 35%;
         margin-left: 5%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 45px;
-        padding-left: 24px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
             margin-left: 0;
@@ -332,13 +320,7 @@ export default {
         margin-top: 24px;
         padding-top: 16px;
         width: 100%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 90px;
-        padding-left: 24px;
     }
     &__self-delivery {
         margin-left: 32px;
@@ -378,5 +360,19 @@ export default {
 .radio-container {
     margin-top: 24px;
     width: 100%;
+    &__text {
+        opacity: 0.5;
+    }
+}
+.form-default {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: solid 1px $text-color-brown-transparent;
+    font-size: 14px;
+    font-weight: 100;
+    padding-left: 24px;
+}
+.form-default:focus {
+    border: solid 1px $text-color-location;
 }
 </style>

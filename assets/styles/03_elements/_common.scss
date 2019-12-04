@@ -48,6 +48,12 @@ textarea {
     color: $text-color-light;
     border-style: none;
     cursor: pointer;
+    &:hover {
+        background-color: $btn-color-hover;
+    }
+    &:disabled {
+        background-color: $text-color-brown-transparent;
+    }
 }
 
 .footer-section {
