@@ -29,12 +29,12 @@
         }
     }
     &__title-container {
-        max-width: 361px;
+        width: 361px;
         margin-left: 37px;
         @include max-breakpoint(mobile-medium) {
             margin-right: 0;
             margin-left: 9px;
-            width: 100%;
+            width: calc(100% - 45px);
             margin-bottom: 6px;
         }
     }

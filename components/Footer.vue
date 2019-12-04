@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="footer-placeholder">
         <section class="footer-section">
             <footer class="default-footer">
                 <div class="default-footer__logo">
@@ -81,7 +81,16 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.footer-placeholder {
+    height: 60px;
+    width: 100%;
+    @include max-breakpoint(tablet-portrait) {
+        height: 98px;
+    }
+}
 .footer-section {
+    position: absolute;
+    bottom: 0;
     width: 100%;
     background-color: $text-color-brown-transparent;
 }
