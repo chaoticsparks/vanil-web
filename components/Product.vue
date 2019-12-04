@@ -162,6 +162,7 @@ export default {
         margin-top: 24px;
         font-weight: 100;
         color: $text-color-dark-brown;
+        display: inline-block;
     }
     &__price {
         font-size: 30px;

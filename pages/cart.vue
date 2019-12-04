@@ -357,13 +357,6 @@ export default {
 .cart-form-error {
     border: 1px solid red;
 }
-.radio-container {
-    margin-top: 24px;
-    width: 100%;
-    &__text {
-        opacity: 0.5;
-    }
-}
 .form-default {
     box-sizing: border-box;
     border-radius: 8px;
