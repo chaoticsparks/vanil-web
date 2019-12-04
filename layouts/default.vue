@@ -220,6 +220,9 @@ export default {
     &__phone-link {
         color: $text-color-light;
         font-size: 18px;
+        @include max-breakpoint(mobile-medium) {
+            font-size: 16px;
+        }
     }
     &__social {
         font-size: 0;
@@ -230,6 +233,15 @@ export default {
     }
     &__social-link {
         margin-left: 16px;
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 12px;
+        }
+    }
+}
+.logo-img {
+    @include max-breakpoint(mobile-medium) {
+        width: 127px;
+        height: 100%;
     }
 }
 
