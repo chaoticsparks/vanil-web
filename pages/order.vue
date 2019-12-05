@@ -90,6 +90,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { ViberClient } from 'messaging-api-viber';
+import { CLEAN_STORE } from '../constants/store';
 
 export default {
     layout: 'simple',
@@ -151,6 +152,9 @@ export default {
 
             await client.broadcastText(members, messageString);
         }
+    },
+    destroyed() {
+        this.$store.commit(CLEAN_STORE);
     },
     methods: {
         getImagePath(imgName) {
