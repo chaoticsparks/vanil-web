@@ -1,0 +1,125 @@
+.product-icon {
+    width: 75px;
+    height: 100%;
+    border-radius: 8px;
+}
+.cart-item {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    @include max-breakpoint(mobile-medium) {
+        justify-content: start;
+        margin-top: 19px;
+    }
+    &__details-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 75px);
+        @include max-breakpoint(mobile-medium) {
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+    }
+    &__image-container {
+        display: flex;
+        align-items: center;
+        @include max-breakpoint(mobile-medium) {
+            margin-right: 0;
+        }
+    }
+    &__title-container {
+        width: 361px;
+        margin-left: 37px;
+        @include max-breakpoint(mobile-medium) {
+            margin-right: 0;
+            margin-left: 9px;
+            width: calc(100% - 45px);
+            margin-bottom: 6px;
+        }
+    }
+    &__flavour {
+        font-family: Montserrat, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: $text-color-location;
+    }
+    &__quantity-container {
+        @include max-breakpoint(tablet-portrait) {
+            margin-left: 10px;
+        }
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 0px;
+            margin-right: 24px;
+            order: 3;
+        }
+    }
+    &__price-container {
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        font-style: italic;
+        flex-shrink: 0;
+        width: 73px;
+        @include max-breakpoint(tablet-portrait) {
+            margin-left: 16px;
+        }
+        @include max-breakpoint(mobile-medium) {
+            order: 2;
+            margin-left: 9px;
+            margin-top: 0;
+            margin-right: 0;
+            font-size: 12px;
+        }
+    }
+    &__remove-container {
+        order: 4;
+        @include max-breakpoint(tablet-portrait) {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        @include max-breakpoint(mobile-medium) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    &__remove-btn {
+        @include button-reset;
+        display: block;
+    }
+    .close-btn-img {
+        display: block;
+    }
+}
+.cart-list {
+    margin-top: 33px;
+    @include ul-reset;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
+}
+.btn-order {
+    margin-top: 32px;
+    width: 256px;
+    height: 35px;
+    font: 12px;
+    display: block;
+    @include max-breakpoint(mobile-medium) {
+        margin: 19px auto 0;
+    }
+}
+.cart-summary {
+    font-family: LawyerGothic, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid $border-transparent;
+    @include max-breakpoint(mobile-medium) {
+        font-size: 16px;
+        text-align: left;
+        margin-top: 20px;
+        padding-bottom: 9px;
+    }
+}

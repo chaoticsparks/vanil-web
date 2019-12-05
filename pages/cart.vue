@@ -5,65 +5,18 @@
                 Корзина
             </h2>
             <ul class="cart-list">
-                <li class="cart-item">
-                    <div class="cart-item__image-container">
-                        <img
-                            src="~assets/image/product1.png"
-                            alt="product-mini"
-                            class="product-icon"
-                        />
-                    </div>
-                    <div class="cart-item__title-container">
-                        <h5 class="h5-like">Рождественский калач</h5>
-                        <span class="cart-item__flavour">Мак и орех</span>
-                    </div>
-                    <div class="cart-item__quantity-container">
-                        <QuantityCounter />
-                    </div>
-                    <div class="cart-item__price-container">
-                        <span class="cart-item__price-text">130 грн</span>
-                    </div>
-                    <div class="cart-item__remove-container">
-                        <button class="cart-item__remove-btn">
-                            <img
-                                src="~assets/image/close-btn.svg"
-                                alt="close-btn"
-                            />
-                        </button>
-                    </div>
-                </li>
-                <li class="cart-item">
-                    <div class="cart-item__image-container">
-                        <img
-                            src="~assets/image/product1.png"
-                            alt="product-mini"
-                            class="product-icon"
-                        />
-                    </div>
-                    <div class="cart-item__title-container">
-                        <h5 class="h5-like">
-                            Штоллен с изюмом, орехами и цукатами, посыпанный
-                            сахарной пудрой
-                        </h5>
-                    </div>
-                    <div class="cart-item__quantity-container">
-                        <QuantityCounter />
-                    </div>
-                    <div class="cart-item__price-container">
-                        <span class="cart-item__price-text">150 грн</span>
-                    </div>
-                    <div class="cart-item__remove-container">
-                        <button class="cart-item__remove-btn">
-                            <img
-                                src="~assets/image/close-btn.svg"
-                                alt="close-btn"
-                            />
-                        </button>
-                    </div>
-                </li>
+                <CartItem
+                    v-for="(cartItem, cartItemId) in cartItems"
+                    :key="cartItemId"
+                    :cart-item="cartItem"
+                    :cart-item-id="cartItemId"
+                    @changeQuantity="onChangeQuantity"
+                    @removeItemFromCart="onRemoveItemFromCart"
+                />
             </ul>
             <footer class="cart-summary">
-                Сумма заказа: <span class="cart-summary__price">545 грн</span>
+                Сумма заказа:
+                <span class="cart-summary__price">{{ getCartTotal }} грн</span>
             </footer>
         </section>
         <section class="cart-order">
@@ -71,14 +24,28 @@
                 Оформление заказа
             </h2>
             <form class="cart-form">
-                <input type="text" placeholder="Имя" class="cart-form__name" />
                 <input
+                    v-model="name"
                     type="text"
-                    placeholder="Номер телефона"
-                    class="cart-form__phone"
+                    placeholder="Имя *"
+                    class="cart-form__name form-default"
+                    :class="{ 'cart-form-error': formErrors.name && !name }"
+                />
+                <input
+                    v-model="phone"
+                    v-mask="'+38 (###) ###-##-##'"
+                    type="text"
+                    placeholder="Номер телефона *"
+                    class="cart-form__phone form-default"
+                    :class="{
+                        'cart-form-error':
+                            (formErrors.phone && !phone) ||
+                            (formErrors.phoneTooShort && phone.length < 19)
+                    }"
                 />
                 <textarea
-                    class="cart-form__comment"
+                    v-model="comment"
+                    class="cart-form__comment form-default"
                     cols="30"
                     rows="10"
                     placeholder="Комментарий"
@@ -88,6 +55,7 @@
                 </div>
                 <label class="radio-container">
                     <input
+                        v-model="delivery"
                         type="radio"
                         value="Самовывоз"
                         name="delivery"
@@ -96,8 +64,53 @@
                     <span class="radio-container__text">Самовывоз</span>
                     <span class="radio-container__custom-radio"></span>
                 </label>
+                <div
+                    v-if="delivery === 'Самовывоз'"
+                    class="cart-form__self-delivery"
+                >
+                    <label class="radio-container">
+                        <input
+                            v-model="address"
+                            type="radio"
+                            value="ул. Приморский бульвар, 10"
+                            name="address_vanil"
+                            class="radio-container__input"
+                        />
+                        <span class="radio-container__text"
+                            >ул. Приморский бульвар, 10</span
+                        >
+                        <span class="radio-container__custom-radio"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input
+                            v-model="address"
+                            type="radio"
+                            value="ул. Троицкая, 16 "
+                            name="address_vanil"
+                            class="radio-container__input"
+                        />
+                        <span class="radio-container__text"
+                            >ул. Троицкая, 16
+                        </span>
+                        <span class="radio-container__custom-radio"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input
+                            v-model="address"
+                            type="radio"
+                            value="ул. Генерала Петрова, 31/1"
+                            name="address_vanil"
+                            class="radio-container__input"
+                        />
+                        <span class="radio-container__text"
+                            >ул. Генерала Петрова, 31/1</span
+                        >
+                        <span class="radio-container__custom-radio"></span>
+                    </label>
+                </div>
                 <label class="radio-container">
                     <input
+                        v-model="delivery"
                         type="radio"
                         value="Сервис Bond"
                         name="delivery"
@@ -107,11 +120,13 @@
                     <span class="radio-container__custom-radio"></span>
                 </label>
                 <input
+                    v-if="delivery === 'Сервис Bond'"
+                    v-model="address"
                     type="text"
                     placeholder="Адрес"
                     class="cart-form__address"
                 />
-                <div class="cart-form__payment-text"><span>Оплата</span></div>
+                <!--<div class="cart-form__payment-text"><span>Оплата</span></div>
                 <label class="radio-container">
                     <input
                         type="radio"
@@ -135,124 +150,168 @@
                         >Оплата при получении</span
                     >
                     <span class="radio-container__custom-radio"></span>
-                </label>
-                <button class="btn btn-order">Оформить заказ</button>
+                </label>-->
+                <p
+                    v-if="errorText"
+                    class="cart-form__errors"
+                    v-html="errorText"
+                ></p>
+                <button class="btn btn-order" @click.prevent="submitForm">
+                    Оформить заказ
+                </button>
             </form>
         </section>
     </div>
 </template>
 
 <script>
-import QuantityCounter from '../components/QuantityCounter';
+import { mapGetters, mapMutations } from 'vuex';
+import { mask } from 'vue-the-mask';
+import CartItem from '../components/CartItem';
+import {
+    UPDATE_PRODUCT_QTY,
+    CLEAN_STORE,
+    UPDATE_ORDER_FORM_FIELD
+} from '../constants/store';
 
 export default {
+    directives: { mask },
     components: {
-        QuantityCounter
+        CartItem
     },
-    layout: 'simple'
+    layout: 'simple',
+    computed: {
+        cartItems() {
+            return this.$store.state.cart;
+        },
+        formErrors() {
+            return this.$store.state.orderFormErrors;
+        },
+        errorText() {
+            const errorText = [];
+            if (this.formErrors.name) {
+                errorText.push('Пожалуйста, укажите Ваше имя!');
+            }
+            if (this.formErrors.phone) {
+                errorText.push('Пожалуйста, укажите Ваш номер телефона!');
+            } else if (this.formErrors.phoneTooShort) {
+                errorText.push('Пожалуйста, укажите номер телефона полностью!');
+            }
+            if (this.formErrors.delivery) {
+                errorText.push('Пожалуйста, выберите способ доставки!');
+            } else if (this.formErrors.address) {
+                errorText.push('Пожалуйста, укажите детали доставки!');
+            }
+            return errorText.join('<br>');
+        },
+        name: {
+            get() {
+                return this.$store.state.orderForm.name;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'name',
+                    value
+                });
+            }
+        },
+        phone: {
+            get() {
+                return this.$store.state.orderForm.phone;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'phone',
+                    value
+                });
+            }
+        },
+        comment: {
+            get() {
+                return this.$store.state.orderForm.comment;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'comment',
+                    value
+                });
+            }
+        },
+        delivery: {
+            get() {
+                return this.$store.state.orderForm.delivery;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'delivery',
+                    value
+                });
+            }
+        },
+        address: {
+            get() {
+                return this.$store.state.orderForm.address;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'address',
+                    value
+                });
+            }
+        },
+        ...mapGetters(['getCartTotal'])
+    },
+    fetch({ redirect, store }) {
+        if (!Object.values(store.state.cart).length) {
+            redirect('/');
+        }
+    },
+    destroyed() {
+        this.$store.commit(CLEAN_STORE);
+    },
+    methods: {
+        onChangeQuantity(payload) {
+            this.updateQuantity(payload);
+        },
+        submitForm() {
+            this.$store.dispatch('submitForm');
+        },
+        onRemoveItemFromCart(cartProductId) {
+            if (Object.values(this.cartItems).length === 1) {
+                this.$router.push('/');
+            }
+        },
+        ...mapMutations({
+            updateQuantity: UPDATE_PRODUCT_QTY,
+            updateOrderFormField: UPDATE_ORDER_FORM_FIELD
+        })
+    }
 };
 </script>
 
 <style lang="scss" scoped>
-.cart-item {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @include max-breakpoint(mobile-medium) {
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    &__image-container {
-        display: flex;
-        align-items: center;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-    }
-    &__title-container {
-        width: 361px;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            width: 50%;
-        }
-    }
-    &__flavour {
-        font-family: Montserrat, sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-        color: $text-color-location;
-    }
-    &__quantity-container {
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            order: 10;
-            margin-top: 10px;
-        }
-    }
-    &__price-container {
-        font-family: Montserrat, sans-serif;
-        font-size: 14px;
-        font-weight: bold;
-        font-style: italic;
-        flex-shrink: 0;
-        @include max-breakpoint(tablet-portrait) {
-            margin-right: 10px;
-        }
-        @include max-breakpoint(mobile-medium) {
-            order: 11;
-            margin-top: 10px;
-        }
-    }
-    &__remove-btn {
-        @include button-reset;
-    }
-}
-.cart-summary {
-    font-family: LawyerGothic, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: right;
-    margin-top: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid $text-color-location;
-    @include max-breakpoint(mobile-medium) {
-        font-size: 16px;
-        text-align: center;
-    }
-}
-.product-icon {
-    width: 45px;
-    height: 35px;
-    object-fit: fill;
-}
 .cart-section {
     margin-top: 64px;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
 }
 .cart-order {
     margin-top: 64px;
-}
-.cart-list {
-    margin-top: 33px;
-    @include ul-reset;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 28px;
+    }
 }
 .cart-form {
     margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
     &__name {
         width: 60%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 45px;
-        padding-left: 24px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
         }
@@ -260,35 +319,32 @@ export default {
     &__phone {
         width: 35%;
         margin-left: 5%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 45px;
-        padding-left: 24px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
             margin-left: 0;
-            margin-top: 24px;
+            margin-top: 19px;
         }
     }
     &__comment {
         margin-top: 24px;
         padding-top: 16px;
         width: 100%;
-        box-sizing: border-box;
-        border-radius: 8px;
-        border: solid 1px $text-color-location;
-        font-size: 14px;
-        font-weight: 100;
         height: 90px;
-        padding-left: 24px;
+        @include max-breakpoint(mobile-medium) {
+            margin-top: 19px;
+        }
+    }
+    &__self-delivery {
+        margin-left: 32px;
     }
     &__delivery-text {
         width: 100%;
         margin-top: 32px;
         font-weight: 500;
+        @include max-breakpoint(mobile-medium) {
+            margin-top: 19px;
+        }
     }
     &__address {
         margin-top: 24px;
@@ -306,15 +362,33 @@ export default {
         margin-top: 32px;
         font-weight: 500;
     }
-    .btn-order {
+    &__errors {
         margin-top: 32px;
-        width: 256px;
-        height: 35px;
-        font: 12px;
+        margin-bottom: 0;
+        line-height: 1.5;
+        width: 100%;
+        color: red;
     }
 }
-.radio-container {
-    margin-top: 24px;
-    width: 100%;
+.cart-form-error {
+    border: 1px solid red;
+}
+.form-default {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: solid 1px $text-color-brown-transparent;
+    background-color: $text-color-light;
+    font-size: 14px;
+    padding-left: 24px;
+    &::placeholder {
+        font-weight: 600;
+        color: $text-colo-semi-transparent;
+    }
+    @include max-breakpoint(mobile-medium) {
+        padding-left: 19px;
+    }
+}
+.form-default:focus {
+    border: solid 1px $text-color-location;
 }
 </style>
