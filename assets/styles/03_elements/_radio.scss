@@ -4,6 +4,13 @@
     padding-left: 32px;
     cursor: pointer;
     user-select: none;
+    margin-top: 24px;
+    width: 100%;
+    color: $text-color-location;
+    opacity: 1;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
 
     &:hover .radio-container__custom-radio {
         background-color: $text-color-brown-transparent;
@@ -22,12 +29,17 @@
 
         &:checked ~ .radio-container__custom-radio,
         &:checked ~ .radio-container__text {
-            opacity: 1;
+            color: $text-color-brown;
+        }
+        &:checked ~ .radio-container__custom-radio {
+            border: solid 1px $text-color-brown;
         }
     }
 
     &__text {
-        opacity: 0.2;
+        color: $text-color-location;
+        opacity: 1;
+        font-weight: 500;
     }
 
     &__custom-radio {
@@ -36,10 +48,10 @@
         left: 0;
         width: 16px;
         height: 16px;
-        border: solid 1px $text-color-brown;
+        border: solid 1px $text-color-location;
         border-radius: 50%;
         box-sizing: border-box;
-        opacity: 0.2;
+        opacity: 1;
 
         &:after {
             content: '';

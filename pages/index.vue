@@ -17,7 +17,11 @@
                 <td>ул. Приморский бульвар, 10</td>
                 <td>
                     <div class="location">
-                        <a href="" class="location__link">Показать на карте</a
+                        <a
+                            href="https://goo.gl/maps/wTDFFF43NSndXDaY9"
+                            class="location__link"
+                            target="_blank"
+                            >Показать на карте</a
                         ><img
                             src="~assets/image/map-point.svg"
                             class="location__icon"
@@ -30,7 +34,11 @@
                 <td>ул. Троицкая, 16</td>
                 <td>
                     <div class="location">
-                        <a href="" class="location__link">Показать на карте</a
+                        <a
+                            href="https://goo.gl/maps/49WHsmPK3Mm3vZMS7"
+                            class="location__link"
+                            target="_blank"
+                            >Показать на карте</a
                         ><img
                             src="~assets/image/map-point.svg"
                             class="location__icon"
@@ -43,7 +51,11 @@
                 <td>ул. Генерала Петрова, 31/1</td>
                 <td>
                     <div class="location">
-                        <a href="" class="location__link">Показать на карте</a
+                        <a
+                            href="https://goo.gl/maps/bdHkkadWu2nXaGo28"
+                            class="location__link"
+                            target="_blank"
+                            >Показать на карте</a
                         ><img
                             src="~assets/image/map-point.svg"
                             class="location__icon"
@@ -82,7 +94,6 @@ export default {
     font-weight: bold;
     font-size: 48px;
     color: $text-color-brown;
-    margin-left: 20px;
     @include max-breakpoint(tablet-portrait) {
         font-size: 32px;
     }
@@ -92,7 +103,6 @@ export default {
     font-weight: 500;
     color: $text-color-dark-brown;
     margin-bottom: 0;
-    margin-left: 20px;
     font-size: 14px;
     @include max-breakpoint(tablet-portrait) {
         margin-top: 32px;
@@ -107,7 +117,6 @@ export default {
     font-family: Montserrat, sans-serif;
     font-weight: 600;
     color: $text-color-dark-brown;
-    margin-left: 20px;
     margin-right: 20px;
     @include max-breakpoint(mobile-medium) {
         font-size: 14px;
@@ -134,7 +143,6 @@ td {
     }
 }
 .locations {
-    margin-left: 20px;
 }
 .location {
     display: flex;
@@ -142,6 +150,10 @@ td {
     &__link {
         color: $text-color-location;
         border-bottom: 1px dashed $text-color-location;
+        &:hover {
+            border-bottom: none;
+            text-decoration: none;
+        }
     }
     &__icon {
         margin-left: 3px;

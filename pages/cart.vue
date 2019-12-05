@@ -306,6 +306,9 @@ export default {
     margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
     &__name {
         width: 60%;
         height: 45px;
@@ -320,7 +323,7 @@ export default {
         @include max-breakpoint(mobile-medium) {
             width: 100%;
             margin-left: 0;
-            margin-top: 24px;
+            margin-top: 19px;
         }
     }
     &__comment {
@@ -328,6 +331,9 @@ export default {
         padding-top: 16px;
         width: 100%;
         height: 90px;
+        @include max-breakpoint(mobile-medium) {
+            margin-top: 19px;
+        }
     }
     &__self-delivery {
         margin-left: 32px;
@@ -336,6 +342,9 @@ export default {
         width: 100%;
         margin-top: 32px;
         font-weight: 500;
+        @include max-breakpoint(mobile-medium) {
+            margin-top: 19px;
+        }
     }
     &__address {
         margin-top: 24px;
@@ -364,20 +373,20 @@ export default {
 .cart-form-error {
     border: 1px solid red;
 }
-.radio-container {
-    margin-top: 24px;
-    width: 100%;
-    &__text {
-        opacity: 0.5;
-    }
-}
 .form-default {
     box-sizing: border-box;
     border-radius: 8px;
     border: solid 1px $text-color-brown-transparent;
+    background-color: $text-color-light;
     font-size: 14px;
-    font-weight: 100;
     padding-left: 24px;
+    &::placeholder {
+        font-weight: 600;
+        color: $text-colo-semi-transparent;
+    }
+    @include max-breakpoint(mobile-medium) {
+        padding-left: 19px;
+    }
 }
 .form-default:focus {
     border: solid 1px $text-color-location;
