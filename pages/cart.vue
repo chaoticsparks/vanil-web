@@ -170,7 +170,7 @@ import { mask } from 'vue-the-mask';
 import CartItem from '../components/CartItem';
 import {
     UPDATE_PRODUCT_QTY,
-    REMOVE_PRODUCT_FROM_CART,
+    CLEAN_STORE,
     UPDATE_ORDER_FORM_FIELD
 } from '../constants/store';
 
@@ -266,6 +266,9 @@ export default {
             redirect('/');
         }
     },
+    destroyed() {
+        this.$store.commit(CLEAN_STORE);
+    },
     methods: {
         onChangeQuantity(payload) {
             this.updateQuantity(payload);
@@ -273,9 +276,13 @@ export default {
         submitForm() {
             this.$store.dispatch('submitForm');
         },
+        onRemoveItemFromCart(cartProductId) {
+            if (Object.values(this.cartItems).length === 1) {
+                this.$router.push('/');
+            }
+        },
         ...mapMutations({
             updateQuantity: UPDATE_PRODUCT_QTY,
-            onRemoveItemFromCart: REMOVE_PRODUCT_FROM_CART,
             updateOrderFormField: UPDATE_ORDER_FORM_FIELD
         })
     }
