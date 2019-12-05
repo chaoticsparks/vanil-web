@@ -8,6 +8,9 @@
     width: 100%;
     color: $text-color-location;
     opacity: 1;
+    @include max-breakpoint(mobile-medium) {
+        margin-top: 19px;
+    }
 
     &:hover .radio-container__custom-radio {
         background-color: $text-color-brown-transparent;
