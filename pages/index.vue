@@ -6,7 +6,7 @@
             :product="product"
             @addToCart="onAddToCart"
         />
-        <span class="h1-like">Доставка</span>
+        <!--  <span class="h1-like">Доставка</span>
         <p class="delivery-text">
             Доставка по Одессе производится через сервис Bond, а также возможен
             самовывоз из кафе.
@@ -64,7 +64,7 @@
                     </div>
                 </td>
             </tr>
-        </table>
+        </table>-->
     </div>
 </template>
 
