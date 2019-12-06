@@ -74,7 +74,7 @@
             <nuxt />
         </main>
         <Footer />
-        <nuxt-link v-if="getCartCounter" to="cart" class="fixed-cart">
+        <nuxt-link v-show="getCartCounter" to="cart" class="fixed-cart">
             <div class="fixed-cart__icon">
                 <img
                     src="~assets/image/fixed-cart-icon.svg"

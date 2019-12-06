@@ -5,7 +5,8 @@ import {
     ADD_PRODUCT_TO_CART,
     REMOVE_PRODUCT_FROM_CART,
     UPDATE_ORDER_FORM_FIELD,
-    SET_ORDER_FORM_FIELD_ERROR
+    SET_ORDER_FORM_FIELD_ERROR,
+    CLEAN_STORE
 } from '~/constants/store';
 
 export const state = () => ({
@@ -126,6 +127,23 @@ export const mutations = {
                 : null,
             quantity: 1
         });
+    },
+    [CLEAN_STORE](state) {
+        state.cart = {};
+        state.orderForm = {
+            name: '',
+            phone: '',
+            comment: '',
+            delivery: '',
+            address: ''
+        };
+        state.orderFormErrors = {
+            name: false,
+            phone: false,
+            phoneTooShort: false,
+            delivery: false,
+            address: false
+        };
     }
 };
 

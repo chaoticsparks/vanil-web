@@ -273,9 +273,14 @@ export default {
         submitForm() {
             this.$store.dispatch('submitForm');
         },
+        onRemoveItemFromCart(cartProductId) {
+            if (Object.values(this.cartItems).length === 1) {
+                this.$router.push('/');
+            }
+            this.$store.commit(REMOVE_PRODUCT_FROM_CART, cartProductId);
+        },
         ...mapMutations({
             updateQuantity: UPDATE_PRODUCT_QTY,
-            onRemoveItemFromCart: REMOVE_PRODUCT_FROM_CART,
             updateOrderFormField: UPDATE_ORDER_FORM_FIELD
         })
     }

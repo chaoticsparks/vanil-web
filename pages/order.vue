@@ -89,7 +89,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-/* import { ViberClient } from 'messaging-api-viber'; */
+import { ViberClient } from 'messaging-api-viber';
+import { CLEAN_STORE } from '../constants/store';
 
 export default {
     layout: 'simple',
@@ -105,7 +106,7 @@ export default {
         },
         ...mapGetters(['getCartTotal'])
     },
-    /* async fetch({ redirect, store }) {
+    async fetch({ redirect, store }) {
         if (!Object.values(store.state.cart).length) {
             redirect('/');
         } else {
@@ -151,7 +152,10 @@ export default {
 
             await client.broadcastText(members, messageString);
         }
-    }, */
+    },
+    destroyed() {
+        this.$store.commit(CLEAN_STORE);
+    },
     methods: {
         getImagePath(imgName) {
             return require(`~/assets/image/products/${imgName}`);
