@@ -153,8 +153,9 @@ export default {
             await client.broadcastText(members, messageString);
         }
     },
-    destroyed() {
+    beforeRouteLeave(to, from, next) {
         this.$store.commit(CLEAN_STORE);
+        next();
     },
     methods: {
         getImagePath(imgName) {
