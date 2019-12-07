@@ -5,7 +5,7 @@
     cursor: pointer;
     user-select: none;
     margin-top: 24px;
-    width: 100%;
+    width: calc(100% - 32px);
     color: $text-color-location;
     opacity: 1;
     @include max-breakpoint(mobile-medium) {

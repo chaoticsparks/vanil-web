@@ -136,7 +136,7 @@ export default {
             padding-right: 16px;
         }
         @include max-breakpoint(mobile-medium) {
-            width: calc(100% + 64px);
+            width: calc(100% + 32px);
             padding-right: 0;
             margin-left: -16px;
             margin-right: -16px;
