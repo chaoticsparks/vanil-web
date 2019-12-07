@@ -51,9 +51,46 @@
                     placeholder="Комментарий"
                 ></textarea>
                 <div class="cart-form__delivery-text">
-                    <span>Доставка</span>
+                    <span>Откуда Вы хотите забрать заказ?</span>
                 </div>
                 <label class="radio-container">
+                    <input
+                        v-model="address"
+                        type="radio"
+                        value="ул. Приморский бульвар, 10"
+                        name="address_vanil"
+                        class="radio-container__input"
+                    />
+                    <span class="radio-container__text"
+                        >ул. Приморский бульвар, 10</span
+                    >
+                    <span class="radio-container__custom-radio"></span>
+                </label>
+                <label class="radio-container">
+                    <input
+                        v-model="address"
+                        type="radio"
+                        value="ул. Троицкая, 16 "
+                        name="address_vanil"
+                        class="radio-container__input"
+                    />
+                    <span class="radio-container__text">ул. Троицкая, 16 </span>
+                    <span class="radio-container__custom-radio"></span>
+                </label>
+                <label class="radio-container">
+                    <input
+                        v-model="address"
+                        type="radio"
+                        value="ул. Генерала Петрова, 31/1"
+                        name="address_vanil"
+                        class="radio-container__input"
+                    />
+                    <span class="radio-container__text"
+                        >ул. Генерала Петрова, 31/1</span
+                    >
+                    <span class="radio-container__custom-radio"></span>
+                </label>
+                <!--<label class="radio-container">
                     <input
                         v-model="delivery"
                         type="radio"
@@ -125,7 +162,7 @@
                     type="text"
                     placeholder="Адрес"
                     class="cart-form__address"
-                />
+                />-->
                 <!--<div class="cart-form__payment-text"><span>Оплата</span></div>
                 <label class="radio-container">
                     <input
@@ -197,10 +234,11 @@ export default {
             } else if (this.formErrors.phoneTooShort) {
                 errorText.push('Пожалуйста, укажите номер телефона полностью!');
             }
-            if (this.formErrors.delivery) {
+            /* if (this.formErrors.delivery) {
                 errorText.push('Пожалуйста, выберите способ доставки!');
-            } else if (this.formErrors.address) {
-                errorText.push('Пожалуйста, укажите детали доставки!');
+            } else */
+            if (this.formErrors.address) {
+                errorText.push('Пожалуйста, выберите адрес доставки!');
             }
             return errorText.join('<br>');
         },
@@ -237,7 +275,7 @@ export default {
                 });
             }
         },
-        delivery: {
+        /* delivery: {
             get() {
                 return this.$store.state.orderForm.delivery;
             },
@@ -247,7 +285,7 @@ export default {
                     value
                 });
             }
-        },
+        }, */
         address: {
             get() {
                 return this.$store.state.orderForm.address;
