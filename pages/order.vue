@@ -3,15 +3,15 @@
         <section class="order-section">
             <h2 class="h2-like">
                 Спасибо, ваш заказ
-                <!--<span class="order-number">№3548</span>-->
+                <span class="order-number">№{{ orderNumber }}</span>
                 в обработке
             </h2>
             <p class="text-order-manager">
                 Наш менеджер свяжется с вами в ближайшее время!
             </p>
-            <!--<p class="text-order-number">
+            <p class="text-order-number">
                 Сообщите номер вашего заказа при получении товара в кафе!
-            </p>-->
+            </p>
             <h2 class="h2-like details-text">
                 Детали вашего заказа
             </h2>
@@ -59,20 +59,21 @@
             </footer>
         </section>
         <section class="order-summary">
-            <!-- <h2 class="h2-like">
-                Номер заказа <span class="order-number">3548</span>
-            </h2>-->
+            <h2 class="h2-like">
+                Номер заказа
+                <span class="order-number">№{{ orderNumber }}</span>
+            </h2>
             <div class="order-summary__options">
                 <!--<div class="option-result">
                     <span class="option">Оплата:</span>
                     <span class="payment-option chosen">При получении</span>
                 </div>-->
-                <div class="option-result">
+                <!--<div class="option-result">
                     <span class="option">Способ доставки:</span>
                     <span class="delivery-option chosen">{{
                         deliveryMethod
                     }}</span>
-                </div>
+                </div>-->
                 <div class="option-result">
                     <span class="option">Адрес:</span>
                     <span class="delivery-option chosen">{{
@@ -89,7 +90,9 @@
 
 <script>
 import { mapGetters } from 'vuex';
-// import { ViberClient } from 'messaging-api-viber';
+import moment from 'moment';
+import { ViberClient } from 'messaging-api-viber';
+import axios from 'axios';
 import { CLEAN_STORE } from '../constants/store';
 
 export default {
@@ -106,10 +109,83 @@ export default {
         },
         ...mapGetters(['getCartTotal'])
     },
-    /* async fetch({ redirect, store }) {
+    async asyncData({ redirect, store }) {
         if (!Object.values(store.state.cart).length) {
             redirect('/');
         } else {
+            const instance = axios.create({
+                baseURL: 'https://iiko.biz:9900/api/0'
+            });
+            const { data: accessToken } = await instance.get(
+                '/auth/access_token?user_id=vanilAPI2019&user_secret=vaNilAPI70712'
+            );
+
+            const items = Object.values(store.state.cart).map(item => ({
+                id: item.iikoId,
+                amount: item.quantity,
+                code: item.code
+            }));
+
+            const userComment = store.state.orderForm.comment
+                ? `Комментарий заказчика: ${store.state.orderForm.comment}`
+                : '';
+            const comment = `Адрес доставки: ${store.state.orderForm.address}\n${userComment}`;
+
+            let deliveryHistory;
+            try {
+                deliveryHistory = await instance.get(
+                    `/orders/deliveryHistoryByPhone?access_token=${accessToken}&organization=53782c84-00d1-11ea-80eb-d8d38565926f&phone=${store.state.orderForm.phone}`
+                );
+            } catch (e) {
+                deliveryHistory = null;
+            }
+
+            let customer;
+            if (deliveryHistory) {
+                const fetchedCustomer =
+                    deliveryHistory.data.customersDeliveryHistory[0].customer;
+                customer = {
+                    id: fetchedCustomer.id,
+                    name: fetchedCustomer.name,
+                    phone: fetchedCustomer.phone
+                };
+            } else {
+                customer = {
+                    name: store.state.orderForm.name,
+                    phone: store.state.orderForm.phone
+                };
+            }
+
+            // console.log(customer);
+
+            const orderRequest = {
+                organization: '53782c84-00d1-11ea-80eb-d8d38565926f',
+                customer,
+                order: {
+                    date: moment(store.state.orderForm.date).format(
+                        'YYYY-MM-DD hh:mm:ss'
+                    ),
+                    phone: store.state.orderForm.phone,
+                    comment,
+                    isSelfService: true,
+                    items
+                },
+                emailForFailedOrderInfo: 'mahbeilias@gmail.com'
+            };
+
+            // console.log(orderRequest);
+            let result;
+            try {
+                result = await instance.post(
+                    `/orders/add?access_token=${accessToken}`,
+                    orderRequest
+                );
+            } catch (e) {
+                console.log(e);
+            }
+
+            // console.log(result);
+
             const cartItemsString = Object.values(store.state.cart).map(
                 item => {
                     const { quantity, selectedOption, title } = item;
@@ -119,40 +195,48 @@ export default {
                 }
             );
 
-            const {
-                name,
-                phone,
-                comment,
-                delivery,
-                address
-            } = store.state.orderForm;
+            {
+                const {
+                    name,
+                    phone,
+                    date,
+                    comment,
+                    address
+                } = store.state.orderForm;
 
-            const messageString = `Заказ:\n${cartItemsString.join(
-                ''
-            )}\nИтого: ${
-                store.getters.getCartTotal
-            } грн.\n\nИмя: ${name}\nНомер тел.: ${phone}\nДоставка: ${delivery}\nАдрес: ${address}\n${
-                comment ? 'Комментарий: ' + comment : ''
-            }`;
+                const messageString = `Заказ:\n${cartItemsString.join(
+                    ''
+                )}\nИтого: ${
+                    store.getters.getCartTotal
+                } грн.\n\nНомер заказа: ${
+                    result.data.number
+                }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
+                    date
+                ).format('DD.MM.YYYY')}\nАдрес: ${address}\n${
+                    comment ? 'Комментарий: ' + comment : ''
+                }`;
 
-            const client = ViberClient.connect({
-                accessToken:
-                    '4ab3498feb67d4ea-13b937d35cdef139-8f4d592ff4262b1e',
-                origin: '/api/'
-            });
+                const client = ViberClient.connect({
+                    accessToken:
+                        '4ab3498feb67d4ea-13b937d35cdef139-8f4d592ff4262b1e',
+                    origin: '/api/'
+                });
 
-            let info;
-            try {
-                info = await client.getAccountInfo();
-            } catch (e) {
-                console.log(e);
+                let info;
+                try {
+                    info = await client.getAccountInfo();
+                } catch (e) {
+                    console.log(e);
+                }
+
+                const members = info.members.map(member => member.id);
+
+                await client.broadcastText(members, messageString);
             }
 
-            const members = info.members.map(member => member.id);
-
-            await client.broadcastText(members, messageString);
+            return { orderNumber: result.data.number };
         }
-    }, */
+    },
     beforeRouteLeave(to, from, next) {
         this.$store.commit(CLEAN_STORE);
         next();
