@@ -22,6 +22,14 @@ p {
         font-size: 12px;
     }
 }
+
+input[type='text'], textarea {
+    /* Remove efault styles for input */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 input,
 button,
 textarea {

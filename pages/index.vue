@@ -6,12 +6,12 @@
             :product="product"
             @addToCart="onAddToCart"
         />
-        <span class="h1-like">Доставка</span>
+        <!--  <span class="h1-like">Доставка</span>
         <p class="delivery-text">
             Доставка по Одессе производится через сервис Bond, а также возможен
             самовывоз из кафе.
-        </p>
-        <span class="bold-text">Адреса отделений:</span>
+        </p> -->
+        <span class="h2-like">Адреса отделений</span>
         <table class="locations">
             <tr>
                 <td>ул. Приморский бульвар, 10</td>
@@ -98,6 +98,14 @@ export default {
         font-size: 32px;
     }
 }
+.h2-like {
+    @include max-breakpoint(tablet-portrait) {
+        font-size: 16px;
+    }
+    @include max-breakpoint(medium-phone) {
+        font-size: 14px;
+    }
+}
 .delivery-text {
     margin-top: 48px;
     font-weight: 500;
@@ -143,6 +151,7 @@ td {
     }
 }
 .locations {
+    margin-top: 16px;
 }
 .location {
     display: flex;

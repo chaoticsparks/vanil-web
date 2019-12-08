@@ -5,6 +5,8 @@
                 autoplay
                 loop
                 muted
+                playsInline
+                preload="auto"
                 class="bg-video"
                 width="100"
                 height="100"
@@ -62,11 +64,13 @@
                     /></a>
                 </div>
             </header>
-            <h1 class="intro-text">
-                Merry Christmas<br />
-                and<br />
-                Happy New Year
-            </h1>
+            <div class="intro-text">
+                <img
+                    src="~assets/image/intro-text.svg"
+                    alt="intro"
+                    class="intro-text-img"
+                />
+            </div>
         </section>
         <main class="default-container">
             <nuxt />
@@ -101,6 +105,7 @@ export default {
 <style lang="scss" scoped>
 .default-intro {
     height: 100vh;
+    min-height: 550px;
     position: relative;
     overflow: hidden;
 }
@@ -205,13 +210,6 @@ export default {
 }
 .intro-text {
     margin: 0;
-    white-space: nowrap;
-    color: $text-color-light;
-    font-size: 100px;
-    font-family: RosamundaOne, sans-serif;
-    text-align: center;
-    line-height: 0.9;
-    font-weight: normal;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -221,6 +219,16 @@ export default {
     }
     @include max-breakpoint(mobile-medium) {
         font-size: 50px;
+    }
+}
+.intro-text-img {
+    width: 585px;
+    height: 100%;
+    @include max-breakpoint(tablet-portrait) {
+        width: 390px;
+    }
+    @include max-breakpoint(mobile-medium) {
+        width: 292px;
     }
 }
 .fixed-cart {

@@ -38,7 +38,7 @@
             <section class="product__buy">
                 <span class="product__price">{{ productPrice }}</span>
                 <button class="btn" :disabled="isError" @click="addToCart">
-                    Купить
+                    В корзину
                 </button>
             </section>
         </div>
@@ -103,22 +103,19 @@ export default {
 
 <style lang="scss" scoped>
 .product {
-    margin-top: 120px;
+    margin-bottom: 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     @include max-breakpoint(tablet-portrait) {
-        margin-top: 80px;
+        margin-bottom: 80px;
     }
     @include max-breakpoint(mobile-medium) {
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    &:first-of-type {
-        margin-top: 0;
-    }
     &__img {
         max-width: 100%;
         height: auto;
@@ -136,7 +133,7 @@ export default {
             padding-right: 16px;
         }
         @include max-breakpoint(mobile-medium) {
-            width: calc(100% + 64px);
+            width: calc(100% + 32px);
             padding-right: 0;
             margin-left: -16px;
             margin-right: -16px;
@@ -226,7 +223,7 @@ export default {
     }
 }
 .btn {
-    width: 160px;
+    width: 168px;
     height: 40px;
     border-radius: 8px;
     background-color: $text-color-brown;
@@ -237,7 +234,7 @@ export default {
     border-style: none;
     cursor: pointer;
     @include max-breakpoint(tablet-portrait) {
-        width: 105px;
+        width: 124px;
         height: 27px;
         font-size: 12px;
     }
