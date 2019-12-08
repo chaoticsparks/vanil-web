@@ -214,7 +214,6 @@
 
 <script>
 import { ru } from 'vuejs-datepicker/dist/locale';
-import moment from 'moment';
 import Datepicker from 'vuejs-datepicker';
 import { mapGetters, mapMutations } from 'vuex';
 import { mask } from 'vue-the-mask';
@@ -297,11 +296,9 @@ export default {
                 return this.$store.state.orderForm.date;
             },
             set(value) {
-                const date = moment(value).format('YYYY-MM-DD hh:mm:ss');
-
                 this.updateOrderFormField({
                     name: 'date',
-                    value: date
+                    value
                 });
             }
         },

@@ -90,6 +90,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import moment from 'moment';
 import { ViberClient } from 'messaging-api-viber';
 import axios from 'axios';
 import { CLEAN_STORE } from '../constants/store';
@@ -161,7 +162,9 @@ export default {
                 organization: '53782c84-00d1-11ea-80eb-d8d38565926f',
                 customer,
                 order: {
-                    date: store.state.orderForm.date,
+                    date: moment(store.state.orderForm.date).format(
+                        'YYYY-MM-DD hh:mm:ss'
+                    ),
                     phone: store.state.orderForm.phone,
                     comment,
                     isSelfService: true,
@@ -207,7 +210,9 @@ export default {
                     store.getters.getCartTotal
                 } грн.\n\nНомер заказа: ${
                     result.data.number
-                }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${date}\nАдрес: ${address}\n${
+                }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
+                    date
+                ).format('DD.MM.YYYY')}\nАдрес: ${address}\n${
                     comment ? 'Комментарий: ' + comment : ''
                 }`;
 
