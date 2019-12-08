@@ -1,0 +1,22 @@
+.cart-form-error {
+  border: 1px solid red !important;
+}
+.form-default {
+  height: 45px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: solid 1px $text-color-brown-transparent;
+  background-color: $text-color-light;
+  font-size: 14px;
+  padding-left: 24px;
+  &::placeholder {
+    font-weight: 600;
+    color: $text-colo-semi-transparent;
+  }
+  @include max-breakpoint(mobile-medium) {
+    padding-left: 19px;
+  }
+}
+.form-default:focus {
+  border: solid 1px $text-color-location;
+}

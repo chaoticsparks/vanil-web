@@ -66,6 +66,7 @@ export const state = () => ({
         name: '',
         phone: '',
         comment: '',
+        date: '',
         // delivery: '',
         address: ''
     },
@@ -73,6 +74,7 @@ export const state = () => ({
         name: false,
         phone: false,
         phoneTooShort: false,
+        date: false,
         // delivery: false,
         address: false
     }
