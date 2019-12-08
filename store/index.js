@@ -66,14 +66,14 @@ export const state = () => ({
         name: '',
         phone: '',
         comment: '',
-        delivery: '',
+        // delivery: '',
         address: ''
     },
     orderFormErrors: {
         name: false,
         phone: false,
         phoneTooShort: false,
-        delivery: false,
+        // delivery: false,
         address: false
     }
 });
@@ -169,6 +169,9 @@ export const actions = {
         const emptyFields = orderFormFields.filter(
             field => !state.orderForm[field]
         );
+        if (this.state.orderForm.phone.length < 19) {
+            emptyFields.push('phone');
+        }
         if (emptyFields.length > 1) {
             commit(SET_ORDER_FORM_FIELD_ERROR, emptyFields);
         } else {

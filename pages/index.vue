@@ -10,8 +10,8 @@
         <p class="delivery-text">
             Доставка по Одессе производится через сервис Bond, а также возможен
             самовывоз из кафе.
-        </p>
-        <span class="bold-text">Адреса отделений:</span>
+        </p> -->
+        <span class="h2-like">Адреса отделений</span>
         <table class="locations">
             <tr>
                 <td>ул. Приморский бульвар, 10</td>
@@ -64,7 +64,7 @@
                     </div>
                 </td>
             </tr>
-        </table>-->
+        </table>
     </div>
 </template>
 
@@ -96,6 +96,14 @@ export default {
     color: $text-color-brown;
     @include max-breakpoint(tablet-portrait) {
         font-size: 32px;
+    }
+}
+.h2-like {
+    @include max-breakpoint(tablet-portrait) {
+        font-size: 16px;
+    }
+    @include max-breakpoint(medium-phone) {
+        font-size: 14px;
     }
 }
 .delivery-text {
@@ -143,6 +151,7 @@ td {
     }
 }
 .locations {
+    margin-top: 16px;
 }
 .location {
     display: flex;

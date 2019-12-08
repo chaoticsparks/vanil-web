@@ -5,6 +5,8 @@
                 autoplay
                 loop
                 muted
+                playsInline
+                preload="auto"
                 class="bg-video"
                 width="100"
                 height="100"
