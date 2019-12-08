@@ -43,6 +43,17 @@
                             (formErrors.phoneTooShort && phone.length < 19)
                     }"
                 />
+                <datepicker
+                    v-model="date"
+                    :input-class="
+                        `${formErrors.date &&
+                            !date &&
+                            'cart-form-error'} cart-form__date form-default`
+                    "
+                    :language="ru"
+                    :placeholder="'Дата самовывоза *'"
+                    :disabled-dates="disabledDates"
+                />
                 <textarea
                     v-model="comment"
                     class="cart-form__comment form-default"
@@ -70,11 +81,11 @@
                     <input
                         v-model="address"
                         type="radio"
-                        value="ул. Троицкая, 16 "
+                        value="ул. Осипова, 10"
                         name="address_vanil"
                         class="radio-container__input"
                     />
-                    <span class="radio-container__text">ул. Троицкая, 16 </span>
+                    <span class="radio-container__text">ул. Осипова, 10</span>
                     <span class="radio-container__custom-radio"></span>
                 </label>
                 <label class="radio-container">
@@ -202,6 +213,8 @@
 </template>
 
 <script>
+import { ru } from 'vuejs-datepicker/dist/locale';
+import Datepicker from 'vuejs-datepicker';
 import { mapGetters, mapMutations } from 'vuex';
 import { mask } from 'vue-the-mask';
 import CartItem from '../components/CartItem';
@@ -214,9 +227,18 @@ import {
 export default {
     directives: { mask },
     components: {
-        CartItem
+        CartItem,
+        Datepicker
     },
     layout: 'simple',
+    data() {
+        return {
+            ru,
+            disabledDates: {
+                to: new Date(new Date().setDate(new Date().getDate() - 1))
+            }
+        };
+    },
     computed: {
         cartItems() {
             return this.$store.state.cart;
@@ -237,6 +259,11 @@ export default {
             /* if (this.formErrors.delivery) {
                 errorText.push('Пожалуйста, выберите способ доставки!');
             } else */
+            if (this.formErrors.date) {
+                errorText.push(
+                    'Пожалуйста, укажите когда Вам будет удобно забрать заказ!'
+                );
+            }
             if (this.formErrors.address) {
                 errorText.push('Пожалуйста, выберите адрес доставки!');
             }
@@ -260,6 +287,17 @@ export default {
             set(value) {
                 this.updateOrderFormField({
                     name: 'phone',
+                    value
+                });
+            }
+        },
+        date: {
+            get() {
+                return this.$store.state.orderForm.date;
+            },
+            set(value) {
+                this.updateOrderFormField({
+                    name: 'date',
                     value
                 });
             }
@@ -347,7 +385,6 @@ export default {
     }
     &__name {
         width: 60%;
-        height: 45px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
         }
@@ -355,10 +392,15 @@ export default {
     &__phone {
         width: 35%;
         margin-left: 5%;
-        height: 45px;
         @include max-breakpoint(mobile-medium) {
             width: 100%;
             margin-left: 0;
+            margin-top: 19px;
+        }
+    }
+    ::v-deep &__date {
+        margin-top: 24px;
+        @include max-breakpoint(mobile-medium) {
             margin-top: 19px;
         }
     }
@@ -405,26 +447,5 @@ export default {
         width: 100%;
         color: red;
     }
-}
-.cart-form-error {
-    border: 1px solid red;
-}
-.form-default {
-    box-sizing: border-box;
-    border-radius: 8px;
-    border: solid 1px $text-color-brown-transparent;
-    background-color: $text-color-light;
-    font-size: 14px;
-    padding-left: 24px;
-    &::placeholder {
-        font-weight: 600;
-        color: $text-colo-semi-transparent;
-    }
-    @include max-breakpoint(mobile-medium) {
-        padding-left: 19px;
-    }
-}
-.form-default:focus {
-    border: solid 1px $text-color-location;
 }
 </style>
