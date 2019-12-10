@@ -178,7 +178,6 @@ export default {
 .logo-img {
     @include max-breakpoint(mobile-medium) {
         width: 127px;
-        height: 100%;
     }
 }
 

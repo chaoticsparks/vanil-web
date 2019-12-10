@@ -96,6 +96,7 @@ import axios from 'axios';
 import { CLEAN_STORE } from '../constants/store';
 
 export default {
+    loading: false,
     layout: 'simple',
     computed: {
         cartItems() {
@@ -236,6 +237,9 @@ export default {
 
             return { orderNumber: result.data.number };
         }
+    },
+    mounted() {
+        this.$nuxt.$loading.finish();
     },
     beforeRouteLeave(to, from, next) {
         this.$store.commit(CLEAN_STORE);
