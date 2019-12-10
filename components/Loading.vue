@@ -57,6 +57,7 @@ export default {
     &__text {
         margin-top: 24px;
         font-size: 16px;
+        white-space: nowrap;
     }
 }
 </style>
