@@ -68,7 +68,7 @@
                     <input
                         v-model="address"
                         type="radio"
-                        value="ул. Приморский бульвар, 10"
+                        value="primorskiy"
                         name="address_vanil"
                         class="radio-container__input"
                     />
@@ -81,7 +81,7 @@
                     <input
                         v-model="address"
                         type="radio"
-                        value="ул. Осипова, 10"
+                        value="osipova"
                         name="address_vanil"
                         class="radio-container__input"
                     />
@@ -92,7 +92,7 @@
                     <input
                         v-model="address"
                         type="radio"
-                        value="ул. Генерала Петрова, 31/1"
+                        value="genPetrova"
                         name="address_vanil"
                         class="radio-container__input"
                     />

@@ -94,6 +94,7 @@ import moment from 'moment';
 import { ViberClient } from 'messaging-api-viber';
 import axios from 'axios';
 import { CLEAN_STORE } from '../constants/store';
+import { deliveryTerminals } from '../constants/iiko/deliveryTerminals';
 
 export default {
     loading: false,
@@ -106,7 +107,7 @@ export default {
             return this.$store.state.orderForm.delivery;
         },
         deliveryAddress() {
-            return this.$store.state.orderForm.address;
+            return deliveryTerminals[this.$store.state.orderForm.address].title;
         },
         ...mapGetters(['getCartTotal'])
     },
@@ -130,7 +131,7 @@ export default {
             const userComment = store.state.orderForm.comment
                 ? `Комментарий заказчика: ${store.state.orderForm.comment}`
                 : '';
-            const comment = `Адрес доставки: ${store.state.orderForm.address}\n${userComment}`;
+            const comment = `Адрес доставки: ${deliveryTerminals[store.state.orderForm.address].title}\n${userComment}`;
 
             let deliveryHistory;
             try {
@@ -161,6 +162,8 @@ export default {
 
             const orderRequest = {
                 organization: '53782c84-00d1-11ea-80eb-d8d38565926f',
+                deliveryTerminalId:
+                    deliveryTerminals[store.state.orderForm.address].iikoId,
                 customer,
                 order: {
                     date: moment(store.state.orderForm.date).format(
@@ -197,13 +200,7 @@ export default {
             );
 
             {
-                const {
-                    name,
-                    phone,
-                    date,
-                    comment,
-                    address
-                } = store.state.orderForm;
+                const { name, phone, date, comment } = store.state.orderForm;
 
                 const messageString = `Заказ:\n${cartItemsString.join(
                     ''
@@ -213,9 +210,9 @@ export default {
                     result.data.number
                 }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
                     date
-                ).format('DD.MM.YYYY')}\nАдрес: ${address}\n${
-                    comment ? 'Комментарий: ' + comment : ''
-                }`;
+                ).format('DD.MM.YYYY')}\nАдрес: ${
+                    deliveryTerminals[store.state.orderForm.address].title
+                }\n${comment ? 'Комментарий: ' + comment : ''}`;
 
                 const client = ViberClient.connect({
                     accessToken:
