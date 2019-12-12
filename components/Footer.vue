@@ -14,13 +14,13 @@
                 <div class="default-footer__contacts">
                     <a
                         class="default-footer__contacts-email"
-                        href="mailto:info@vanil.od.ua"
+                        href="mailto:vanilodesa@gmail.com"
                         target="_blank"
                         ><img
                             class="contact-icon"
                             src="~assets/image/email-icon.svg"
                             alt="email-icon"
-                        />info@vanil.od.ua</a
+                        />vanilodesa@gmail.com</a
                     >
                     <div class="default-footer__contacts-schedule">
                         <img
@@ -34,12 +34,12 @@
                     </div>
                     <a
                         class="default-footer__contacts-phone"
-                        href="tel:+380933479806"
+                        href="tel:+380931414890"
                         ><img
                             src="~assets/image/phone-icon.svg"
                             class="contact-icon"
                             alt="phone-icon"
-                        />+380 73 077 7065</a
+                        />+38 (093) 141-48-90</a
                     >
                 </div>
                 <div class="default-footer__social">
