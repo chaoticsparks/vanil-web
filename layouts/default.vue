@@ -30,8 +30,8 @@
                 <div class="default-header__phone">
                     <a
                         class="default-header__phone-link"
-                        href="tel:+380933479806"
-                        >+380933479806</a
+                        href="tel:+380931414890"
+                        >+38 (093) 141-48-90</a
                     >
                 </div>
                 <div class="default-header__social">
