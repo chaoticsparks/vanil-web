@@ -31,11 +31,11 @@
                 </td>
             </tr>
             <tr>
-                <td>ул. Троицкая, 16</td>
+                <td>ул. Осипова, 10</td>
                 <td>
                     <div class="location">
                         <a
-                            href="https://goo.gl/maps/49WHsmPK3Mm3vZMS7"
+                            href="https://goo.gl/maps/NV28NoVEzXtRyuYf6"
                             class="location__link"
                             target="_blank"
                             >Показать на карте</a
