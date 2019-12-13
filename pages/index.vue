@@ -73,6 +73,19 @@ import { mapActions } from 'vuex';
 import Product from '../components/Product';
 export default {
     components: { Product },
+    head() {
+        return {
+            title: 'Кафе Vanil - предзаказ',
+            meta: [
+                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: `Рождественские кексы, штоллены, бриош(калач) Заказать`
+                }
+            ]
+        };
+    },
     computed: {
         products() {
             return this.$store.state.products;
@@ -83,8 +96,8 @@ export default {
             onAddToCart: 'addToCart'
         })
     }
-};
-</script>
+};</script
+>Кафе Vanil Рождественские кексы, штоллены, бриош(калач) Заказать
 
 <style lang="scss" scoped>
 .h1-like {
