@@ -230,6 +230,19 @@ export default {
         CartItem,
         Datepicker
     },
+    head() {
+        return {
+            title: 'Кафе Vanil - корзина',
+            meta: [
+                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: `Рождественские кексы, штоллены, бриош(калач) Заказать`
+                }
+            ]
+        };
+    },
     layout: 'simple',
     data() {
         return {
