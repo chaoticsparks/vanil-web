@@ -99,6 +99,19 @@ import { deliveryTerminals } from '../constants/iiko/deliveryTerminals';
 export default {
     loading: false,
     layout: 'simple',
+    head() {
+        return {
+            title: 'Кафе Vanil - заказ оформлен',
+            meta: [
+                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: `Рождественские кексы, штоллены, бриош(калач) Заказать`
+                }
+            ]
+        };
+    },
     computed: {
         cartItems() {
             return this.$store.state.cart;
