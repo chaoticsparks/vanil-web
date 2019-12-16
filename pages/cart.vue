@@ -15,8 +15,15 @@
                 />
             </ul>
             <footer class="cart-summary">
-                Сумма заказа:
-                <span class="cart-summary__price">{{ getCartTotal }} грн</span>
+                <div class="cart-summary__total">
+                    Сумма заказа:
+                    <span class="cart-summary__price"
+                        >{{ getCartTotal }} грн</span
+                    >
+                </div>
+                <div class="cart-summary__no-discount">
+                    Все виды скидок на праздничную продукцию не действительны
+                </div>
             </footer>
         </section>
         <section class="cart-order">
@@ -460,5 +467,13 @@ export default {
         width: 100%;
         color: red;
     }
+}
+
+.cart-summary__no-discount {
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 14px;
 }
 </style>
