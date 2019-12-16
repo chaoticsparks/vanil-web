@@ -41,7 +41,9 @@
                                 }}</span
                             >
                         </div>
-                        <span class="quantity-order">{{ cartItem.quantity }} шт. </span>
+                        <span class="quantity-order"
+                            >{{ cartItem.quantity }} шт.
+                        </span>
                         <div class="cart-item__price-container">
                             <span class="cart-item__price-text"
                                 >{{
