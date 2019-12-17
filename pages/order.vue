@@ -230,7 +230,7 @@ export default {
                     date
                 ).format('DD.MM.YYYY')}\nАдрес: ${
                     deliveryTerminals[store.state.orderForm.address].title
-                }\n${comment ? 'Комментарий: ' + comment : ''}`;
+                }\n${sourceComment}${comment ? 'Комментарий: ' + comment : ''}`;
 
                 const client = ViberClient.connect({
                     accessToken:
