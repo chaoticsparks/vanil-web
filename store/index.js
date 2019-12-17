@@ -6,7 +6,8 @@ import {
     REMOVE_PRODUCT_FROM_CART,
     UPDATE_ORDER_FORM_FIELD,
     SET_ORDER_FORM_FIELD_ERROR,
-    CLEAN_STORE
+    CLEAN_STORE,
+    SET_LEAD_SOURCE
 } from '~/constants/store';
 
 export const state = () => ({
@@ -90,10 +91,14 @@ export const state = () => ({
         date: false,
         // delivery: false,
         address: false
-    }
+    },
+    leadSource: ''
 });
 
 export const mutations = {
+    [SET_LEAD_SOURCE](state, source) {
+        state.leadSource = source;
+    },
     [SET_ORDER_FORM_FIELD_ERROR](state, emptyFields) {
         Object.keys(state.orderFormErrors).forEach(key => {
             state.orderFormErrors[key] = false;

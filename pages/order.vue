@@ -146,7 +146,10 @@ export default {
             const userComment = store.state.orderForm.comment
                 ? `Комментарий заказчика: ${store.state.orderForm.comment}`
                 : '';
-            const comment = `Адрес доставки: ${deliveryTerminals[store.state.orderForm.address].title}\n${userComment}`;
+            const sourceComment = store.state.leadSource
+                ? `Источник лида: ${store.state.leadSource}\n`
+                : '';
+            const comment = `Адрес доставки: ${deliveryTerminals[store.state.orderForm.address].title}\n${sourceComment}${userComment}`;
 
             let deliveryHistory;
             try {
