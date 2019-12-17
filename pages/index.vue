@@ -79,9 +79,9 @@ export default {
             return this.$store.state.products;
         }
     },
-    fetch({ store, params }) {
-        if (params && params.source) {
-            store.commit(SET_LEAD_SOURCE, params.source);
+    fetch({ store, route }) {
+        if (route.query && route.query.source) {
+            store.commit(SET_LEAD_SOURCE, route.query.source);
         }
     },
     head() {
