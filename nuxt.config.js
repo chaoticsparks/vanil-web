@@ -4,7 +4,7 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: 'Кафе Vanil - предзаказ',
         meta: [
             { charset: 'utf-8' },
             {
@@ -14,7 +14,8 @@ export default {
             {
                 hid: 'description',
                 name: 'description',
-                content: process.env.npm_package_description || ''
+                content:
+                    '🎄 Рождественские кексы, штоллены, бриошь (калач) 🎅 Заказать'
             }
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]

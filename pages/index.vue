@@ -96,8 +96,8 @@ export default {
             onAddToCart: 'addToCart'
         })
     }
-};</script
->Кафе Vanil Рождественские кексы, штоллены, бриош(калач) Заказать
+};
+</script>
 
 <style lang="scss" scoped>
 .h1-like {
