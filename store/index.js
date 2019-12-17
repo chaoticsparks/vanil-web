@@ -6,7 +6,8 @@ import {
     REMOVE_PRODUCT_FROM_CART,
     UPDATE_ORDER_FORM_FIELD,
     SET_ORDER_FORM_FIELD_ERROR,
-    CLEAN_STORE
+    CLEAN_STORE,
+    SET_LEAD_SOURCE
 } from '~/constants/store';
 
 export const state = () => ({
@@ -26,7 +27,7 @@ export const state = () => ({
             imgFile: 'kalach46.jpg',
             title:
                 'Рождественская бриошь(калач) с маком и апельсиновыми цукатами',
-            description: `Традиционное лёгкое ванильное сдобное тесто на сливочном масле,мак, цукаты вымоченные в ликере Куантро,апельсиновое кули.`,
+            description: `Традиционное лёгкое ванильное сдобное тесто на сливочном масле, мак, цукаты вымоченные в ликере Куантро, апельсиновое кули.`,
             price: '280',
             weight: '700 грамм',
             iikoCode: '05077',
@@ -66,7 +67,7 @@ export const state = () => ({
             id: 'P5',
             imgFile: 'shtolen143.jpg',
             title: 'Штоллен',
-            description: `Традиционное тяжелое сдобное тесто на большом количестве сливочного масла, вымоченные в роме изюм коринка, курага, изюм светлый, изюм коричневый,миндаль, апельсиновая цедра.<br><br>
+            description: `Традиционное тяжелое сдобное тесто на большом количестве сливочного масла, вымоченные в роме изюм коринка, курага, изюм светлый, изюм коричневый, миндаль, апельсиновая цедра.<br><br>
 После выпечки пропитывается сливочным маслом, посыпается сахарно пудрой и выстаивается около трёх недель.`,
             price: '420',
             weight: '750 грамм',
@@ -90,10 +91,14 @@ export const state = () => ({
         date: false,
         // delivery: false,
         address: false
-    }
+    },
+    leadSource: ''
 });
 
 export const mutations = {
+    [SET_LEAD_SOURCE](state, source) {
+        state.leadSource = source;
+    },
     [SET_ORDER_FORM_FIELD_ERROR](state, emptyFields) {
         Object.keys(state.orderFormErrors).forEach(key => {
             state.orderFormErrors[key] = false;

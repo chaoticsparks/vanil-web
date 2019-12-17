@@ -109,7 +109,7 @@ export default {
                 {
                     hid: 'description',
                     name: 'description',
-                    content: `Рождественские кексы, штоллены, бриош(калач) Заказать`
+                    content: `Рождественские кексы, штоллены, бриошь (калач) Заказать`
                 }
             ]
         };
@@ -146,7 +146,10 @@ export default {
             const userComment = store.state.orderForm.comment
                 ? `Комментарий заказчика: ${store.state.orderForm.comment}`
                 : '';
-            const comment = `Адрес доставки: ${deliveryTerminals[store.state.orderForm.address].title}\n${userComment}`;
+            const sourceComment = store.state.leadSource
+                ? `Источник лида: ${store.state.leadSource}\n`
+                : '';
+            const comment = `Адрес доставки: ${deliveryTerminals[store.state.orderForm.address].title}\n${sourceComment}${userComment}`;
 
             let deliveryHistory;
             try {
@@ -227,7 +230,7 @@ export default {
                     date
                 ).format('DD.MM.YYYY')}\nАдрес: ${
                     deliveryTerminals[store.state.orderForm.address].title
-                }\n${comment ? 'Комментарий: ' + comment : ''}`;
+                }\n${sourceComment}${comment ? 'Комментарий: ' + comment : ''}`;
 
                 const client = ViberClient.connect({
                     accessToken:
