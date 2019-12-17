@@ -71,8 +71,19 @@
 <script>
 import { mapActions } from 'vuex';
 import Product from '../components/Product';
+import { SET_LEAD_SOURCE } from '../constants/store';
 export default {
     components: { Product },
+    computed: {
+        products() {
+            return this.$store.state.products;
+        }
+    },
+    fetch({ store, params }) {
+        if (params && params.source) {
+            store.commit(SET_LEAD_SOURCE, params.source);
+        }
+    },
     head() {
         return {
             title: 'Кафе Vanil - предзаказ',
@@ -81,23 +92,18 @@ export default {
                 {
                     hid: 'description',
                     name: 'description',
-                    content: `Рождественские кексы, штоллены, бриош(калач) Заказать`
+                    content: `Рождественские кексы, штоллены, бриошь (калач) Заказать`
                 }
             ]
         };
-    },
-    computed: {
-        products() {
-            return this.$store.state.products;
-        }
     },
     methods: {
         ...mapActions({
             onAddToCart: 'addToCart'
         })
     }
-};</script
->Кафе Vanil Рождественские кексы, штоллены, бриош(калач) Заказать
+};
+</script>
 
 <style lang="scss" scoped>
 .h1-like {
