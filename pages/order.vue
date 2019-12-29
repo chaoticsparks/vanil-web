@@ -3,13 +3,15 @@
         <section class="order-section">
             <h2 class="h2-like">
                 Спасибо, ваш заказ
-                <span class="order-number">№{{ orderNumber }}</span>
+                <span v-if="orderNumber" class="order-number"
+                    >№{{ orderNumber }}</span
+                >
                 в обработке
             </h2>
             <p class="text-order-manager">
                 Наш менеджер свяжется с вами в ближайшее время!
             </p>
-            <p class="text-order-number">
+            <p v-if="orderNumber" class="text-order-number">
                 Сообщите номер вашего заказа при получении товара в кафе!
             </p>
             <h2 class="h2-like details-text">
@@ -61,7 +63,7 @@
             </footer>
         </section>
         <section class="order-summary">
-            <h2 class="h2-like">
+            <h2 v-if="orderNumber" class="h2-like">
                 Номер заказа
                 <span class="order-number">№{{ orderNumber }}</span>
             </h2>
@@ -122,7 +124,9 @@ export default {
             return this.$store.state.orderForm.delivery;
         },
         deliveryAddress() {
-            return deliveryTerminals[this.$store.state.orderForm.address].title;
+            return deliveryTerminals[this.$store.state.orderForm.address]
+                ? deliveryTerminals[this.$store.state.orderForm.address].title
+                : '';
         },
         ...mapGetters(['getCartTotal'])
     },
@@ -197,16 +201,24 @@ export default {
 
             // console.log(orderRequest);
             let result;
+            let failedAddToIiko;
             try {
                 result = await instance.post(
                     `/orders/add?access_token=${accessToken}`,
                     orderRequest
                 );
             } catch (e) {
-                console.log(e);
+                failedAddToIiko = {
+                    message: e.response.data.message,
+                    httpStatusCode: e.response.data.httpStatusCode
+                };
+                result = null;
             }
 
-            // console.log(result);
+            let failedAddText = '';
+            if (failedAddToIiko) {
+                failedAddText = `\n\nКод ошибки: ${failedAddToIiko.httpStatusCode}\nТекст ошибки: ${failedAddToIiko.message}`;
+            }
 
             const cartItemsString = Object.values(store.state.cart).map(
                 item => {
@@ -225,12 +237,16 @@ export default {
                 )}\nИтого: ${
                     store.getters.getCartTotal
                 } грн.\n\nНомер заказа: ${
-                    result.data.number
+                    result
+                        ? result.data.number
+                        : 'Заказ не дошел в iiko, необходимо обработать вручную'
                 }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
                     date
                 ).format('DD.MM.YYYY')}\nАдрес: ${
                     deliveryTerminals[store.state.orderForm.address].title
-                }\n${sourceComment}${comment ? 'Комментарий: ' + comment : ''}`;
+                }\n${sourceComment}${
+                    comment ? 'Комментарий: ' + comment : ''
+                }${failedAddText}`;
 
                 const client = ViberClient.connect({
                     accessToken:
@@ -241,16 +257,14 @@ export default {
                 let info;
                 try {
                     info = await client.getAccountInfo();
-                } catch (e) {
-                    console.log(e);
-                }
+                } catch (e) {}
 
                 const members = info.members.map(member => member.id);
 
                 await client.broadcastText(members, messageString);
             }
 
-            return { orderNumber: result.data.number };
+            return { orderNumber: result ? result.data.number : null };
         }
     },
     mounted() {
