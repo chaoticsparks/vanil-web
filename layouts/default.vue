@@ -71,6 +71,14 @@
                     class="intro-text-img"
                 />
             </div>
+            <div class="scroll-down">
+                <span class="scroll-down__text">Заказ</span>
+                <img
+                    class="scroll-down__img"
+                    src="~assets/image/arrow-down.svg"
+                    alt="Прокрутите вниз для заказа"
+                />
+            </div>
         </section>
         <main class="default-container">
             <nuxt />
@@ -228,6 +236,41 @@ export default {
     }
     @include max-breakpoint(mobile-medium) {
         width: 292px;
+    }
+}
+
+@keyframes scroll-down {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(8px);
+    }
+}
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__text {
+        color: $text-color-light;
+        font-size: 16px;
+        font-family: 'LawyerGothic', sans-serif;
+        text-transform: uppercase;
+    }
+
+    &__img {
+        margin-top: 8px;
+        width: 30px;
+        animation-name: scroll-down;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
     }
 }
 .fixed-cart {
