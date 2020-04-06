@@ -58,7 +58,7 @@
                             'cart-form-error'} cart-form__date form-default`
                     "
                     :language="ru"
-                    :placeholder="'Дата самовывоза *'"
+                    :placeholder="'Дата получения *'"
                     :disabled-dates="disabledDates"
                 />
                 <textarea
@@ -71,7 +71,7 @@
                 <div class="cart-form__delivery-text">
                     <span>Откуда Вы хотите забрать заказ?</span>
                 </div>
-                <label class="radio-container">
+                <!--<label class="radio-container">
                     <input
                         v-model="address"
                         type="radio"
@@ -107,8 +107,8 @@
                         >ул. Генерала Петрова, 31/1</span
                     >
                     <span class="radio-container__custom-radio"></span>
-                </label>
-                <!--<label class="radio-container">
+                </label>-->
+                <label class="radio-container">
                     <input
                         v-model="delivery"
                         type="radio"
@@ -167,20 +167,25 @@
                     <input
                         v-model="delivery"
                         type="radio"
-                        value="Сервис Bond"
+                        value="Бусплатная доставка"
                         name="delivery"
                         class="radio-container__input"
                     />
-                    <span class="radio-container__text">Сервис Bond</span>
+                    <span class="radio-container__text"
+                        >Бесплатная доставка по Одессе</span
+                    >
                     <span class="radio-container__custom-radio"></span>
                 </label>
                 <input
-                    v-if="delivery === 'Сервис Bond'"
+                    v-if="delivery === 'Бусплатная доставка'"
                     v-model="address"
                     type="text"
                     placeholder="Адрес"
-                    class="cart-form__address"
-                />-->
+                    class="cart-form__address form-default"
+                    :class="{
+                        'cart-form-error': formErrors.address && !address
+                    }"
+                />
                 <!--<div class="cart-form__payment-text"><span>Оплата</span></div>
                 <label class="radio-container">
                     <input
@@ -268,16 +273,13 @@ export default {
             } else if (this.formErrors.phoneTooShort) {
                 errorText.push('Пожалуйста, укажите номер телефона полностью!');
             }
-            /* if (this.formErrors.delivery) {
+            if (this.formErrors.delivery) {
                 errorText.push('Пожалуйста, выберите способ доставки!');
-            } else */
-            if (this.formErrors.date) {
-                errorText.push(
-                    'Пожалуйста, укажите когда Вам будет удобно забрать заказ!'
-                );
+            } else if (this.formErrors.date) {
+                errorText.push('Пожалуйста, укажите дату получения заказа!');
             }
-            if (this.formErrors.address) {
-                errorText.push('Пожалуйста, выберите адрес доставки!');
+            if (!this.formErrors.delivery && this.formErrors.address) {
+                errorText.push('Пожалуйста, укажите адрес доставки!');
             }
             return errorText.join('<br>');
         },
@@ -325,7 +327,7 @@ export default {
                 });
             }
         },
-        /* delivery: {
+        delivery: {
             get() {
                 return this.$store.state.orderForm.delivery;
             },
@@ -335,7 +337,7 @@ export default {
                     value
                 });
             }
-        }, */
+        },
         address: {
             get() {
                 return this.$store.state.orderForm.address;

@@ -6707,7 +6707,7 @@
             "weight": 0.28,
             "images": [],
             "isIncludedInMenu": true,
-            "order": 3,
+            "order": 4,
             "parentGroup": "902d53e6-57ec-445a-a2d6-9132265d6d00"
         },
         {
@@ -6744,7 +6744,7 @@
             "weight": 0.7,
             "images": [],
             "isIncludedInMenu": true,
-            "order": 2,
+            "order": 1,
             "parentGroup": "902d53e6-57ec-445a-a2d6-9132265d6d00"
         },
         {
@@ -6781,7 +6781,7 @@
             "weight": 0.65,
             "images": [],
             "isIncludedInMenu": true,
-            "order": 1,
+            "order": 3,
             "parentGroup": "902d53e6-57ec-445a-a2d6-9132265d6d00"
         },
         {
@@ -6818,7 +6818,7 @@
             "weight": 0.65,
             "images": [],
             "isIncludedInMenu": true,
-            "order": 0,
+            "order": 2,
             "parentGroup": "902d53e6-57ec-445a-a2d6-9132265d6d00"
         },
         {

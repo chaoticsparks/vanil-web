@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="h1-like">Беплатная доставка по Одессе!</div>
         <nuxt-child />
         <!--  <span class="h1-like">Доставка</span>
         <p class="delivery-text">
@@ -85,8 +86,10 @@ export default {
 
 <style lang="scss" scoped>
 .h1-like {
-    display: inline-block;
+    text-align: center;
+    display: block;
     margin-top: 100px;
+    margin-bottom: 100px;
     font-family: LawyerGothic, sans-serif;
     font-weight: bold;
     font-size: 48px;
