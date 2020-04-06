@@ -239,15 +239,7 @@ export default {
     },
     head() {
         return {
-            title: 'Кафе Vanil - корзина',
-            meta: [
-                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: `Рождественские кексы, штоллены, бриошь (калач) Заказать`
-                }
-            ]
+            title: 'Кафе Vanil - корзина'
         };
     },
     layout: 'simple',

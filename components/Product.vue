@@ -5,7 +5,7 @@
         </div>
         <div class="product__info">
             <h2 class="h2-like h2-like--underlined">
-                {{ product.title }}
+                {{ product.name }}
             </h2>
             <span class="product__weight">{{ product.weight }}</span>
             <p v-html="product.description"></p>
@@ -72,7 +72,7 @@ export default {
             return this.product.options ? this.product.options.errorText : '';
         },
         imagePath() {
-            return require(`~/assets/image/products/${this.product.imgFile}`);
+            return require(`~/assets/image/products/${this.product.code}.jpg`);
         }
     },
     methods: {
@@ -181,6 +181,7 @@ export default {
         .product__photo {
             padding-right: 0;
             padding-left: 24px;
+            text-align: right;
         }
         .product__info {
             padding-left: 0;
