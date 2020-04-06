@@ -18,11 +18,13 @@ export default {
     computed: {
         products() {
             // To show products only from "Пасха" group
-            return this.$store.state.products.filter(
-                product =>
-                    product.parentGroup ===
-                    '902d53e6-57ec-445a-a2d6-9132265d6d00'
-            );
+            return this.$store.state.products
+                .filter(
+                    product =>
+                        product.parentGroup ===
+                        '902d53e6-57ec-445a-a2d6-9132265d6d00'
+                )
+                .sort((a, b) => a.order - b.order);
         }
     },
     methods: {

@@ -145,7 +145,14 @@ export default {
             const sourceComment = store.state.leadSource
                 ? `Источник лида: ${store.state.leadSource}\n`
                 : '';
-            const comment = `Адрес доставки: ${deliveryTerminals[store.state.orderForm.address].title}\n${sourceComment}${userComment}`;
+            let deliveryAddress = '';
+            if (store.state.orderForm.delivery === 'Самовывоз') {
+                deliveryAddress =
+                    deliveryTerminals[store.state.orderForm.address].title;
+            } else {
+                deliveryAddress = store.state.orderForm.address;
+            }
+            const comment = `Адрес доставки: ${deliveryAddress}\n${sourceComment}${userComment}`;
 
             let deliveryHistory;
             try {

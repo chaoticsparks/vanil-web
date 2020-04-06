@@ -82,7 +82,7 @@ export const state = () => ({
         phone: '',
         comment: '',
         date: '',
-        // delivery: '',
+        delivery: '',
         address: ''
     },
     orderFormErrors: {
@@ -90,7 +90,7 @@ export const state = () => ({
         phone: false,
         phoneTooShort: false,
         date: false,
-        // delivery: false,
+        delivery: false,
         address: false
     },
     leadSource: ''
@@ -151,7 +151,7 @@ export const mutations = {
             phone: '',
             comment: '',
             date: '',
-            // delivery: '',
+            delivery: '',
             address: ''
         };
         state.orderFormErrors = {
@@ -159,7 +159,7 @@ export const mutations = {
             phone: false,
             phoneTooShort: false,
             date: false,
-            // delivery: false,
+            delivery: false,
             address: false
         };
     }
@@ -176,7 +176,8 @@ export const actions = {
                 groupId,
                 parentGroup,
                 price,
-                weight
+                weight,
+                order
             } = product;
             return {
                 id,
@@ -186,6 +187,7 @@ export const actions = {
                 groupId,
                 parentGroup,
                 price,
+                order,
                 weight: `${Math.trunc(weight * 1000)} г.`
             };
         });

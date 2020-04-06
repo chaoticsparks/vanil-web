@@ -199,7 +199,7 @@ export default {
 }
 
 .default-container {
-    margin: 150px auto;
+    margin: 0 auto 150px;
     width: 100%;
     max-width: 1392px;
     padding: 0 48px;
