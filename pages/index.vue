@@ -1,11 +1,6 @@
 <template>
     <div>
-        <Product
-            v-for="(product, index) in products"
-            :key="index"
-            :product="product"
-            @addToCart="onAddToCart"
-        />
+        <nuxt-child />
         <!--  <span class="h1-like">Доставка</span>
         <p class="delivery-text">
             Доставка по Одессе производится через сервис Bond, а также возможен
@@ -69,38 +64,21 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import Product from '../components/Product';
 import { SET_LEAD_SOURCE } from '../constants/store';
+const getProducts = () =>
+    import('~/assets/data/products.json').then(m => m.default || m);
 export default {
-    components: { Product },
-    computed: {
-        products() {
-            return this.$store.state.products;
-        }
-    },
-    fetch({ store, route }) {
+    async fetch({ store, route, $axios }) {
         if (route.query && route.query.source) {
             store.commit(SET_LEAD_SOURCE, route.query.source);
         }
+        const products = await getProducts();
+        store.dispatch('saveProductsToStore', products.products);
     },
     head() {
         return {
-            title: 'Кафе Vanil - предзаказ',
-            meta: [
-                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: `Рождественские кексы, штоллены, бриошь (калач) Заказать`
-                }
-            ]
+            title: 'Кафе Vanil - предзаказ'
         };
-    },
-    methods: {
-        ...mapActions({
-            onAddToCart: 'addToCart'
-        })
     }
 };
 </script>
