@@ -25,14 +25,14 @@
                 >
                     <div class="cart-item__image-container">
                         <img
-                            :src="getImagePath(cartItem.imgFile)"
+                            :src="getImagePath(cartItem.code)"
                             alt="product-mini"
                             class="product-icon"
                         />
                     </div>
                     <div class="cart-item__details-container">
                         <div class="cart-item__title-container">
-                            <h5 class="h5-like">{{ cartItem.title }}</h5>
+                            <h5 class="h5-like">{{ cartItem.name }}</h5>
                             <span
                                 v-if="cartItem.selectedOption"
                                 class="cart-item__flavour"
@@ -105,15 +105,7 @@ export default {
     layout: 'simple',
     head() {
         return {
-            title: 'Кафе Vanil - заказ оформлен',
-            meta: [
-                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: `Рождественские кексы, штоллены, бриошь (калач) Заказать`
-                }
-            ]
+            title: 'Кафе Vanil - заказ оформлен'
         };
     },
     computed: {
@@ -142,7 +134,7 @@ export default {
             );
 
             const items = Object.values(store.state.cart).map(item => ({
-                id: item.iikoId,
+                id: item.id,
                 amount: item.quantity,
                 code: item.code
             }));
@@ -222,8 +214,8 @@ export default {
 
             const cartItemsString = Object.values(store.state.cart).map(
                 item => {
-                    const { quantity, selectedOption, title } = item;
-                    return `${title}${
+                    const { quantity, selectedOption, name } = item;
+                    return `${name}${
                         selectedOption ? ' (' + selectedOption.option + ')' : ''
                     }\nКол-во: ${quantity}\n\n`;
                 }
@@ -276,7 +268,7 @@ export default {
     },
     methods: {
         getImagePath(imgName) {
-            return require(`~/assets/image/products/${imgName}`);
+            return require(`~/assets/image/products/${imgName}.jpg`);
         },
         onContinueShopping() {
             this.$router.push('/');

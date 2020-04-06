@@ -7,7 +7,8 @@ import {
     UPDATE_ORDER_FORM_FIELD,
     SET_ORDER_FORM_FIELD_ERROR,
     CLEAN_STORE,
-    SET_LEAD_SOURCE
+    SET_LEAD_SOURCE,
+    SAVE_PRODUCTS
 } from '~/constants/store';
 
 export const state = () => ({
@@ -117,9 +118,6 @@ export const mutations = {
         }
         state.orderForm[name] = value;
     },
-    [INCREASE_CART_PRODUCT_QTY](state, cartProductId) {
-        state.cart[cartProductId].quantity++;
-    },
     [UPDATE_PRODUCT_QTY](state, payload) {
         const { cartProductId, newQty } = payload;
         state.cart[cartProductId].quantity = newQty;
@@ -127,38 +125,24 @@ export const mutations = {
     [REMOVE_PRODUCT_FROM_CART](state, cartProductId) {
         Vue.delete(state.cart, cartProductId);
     },
+    [INCREASE_CART_PRODUCT_QTY](state, productId) {
+        state.cart[productId].quantity++;
+    },
     [ADD_PRODUCT_TO_CART](state, payload) {
-        const { productToAddId, cartProductId, selectedOption } = payload;
-        const {
+        const { id } = payload;
+        const { code, name, price } = state.products.find(
+            product => product.id === id
+        );
+        Vue.set(state.cart, id, {
             id,
-            imgFile,
-            title,
+            code,
+            name,
             price,
-            options,
-            iikoCode,
-            iikoId
-        } = state.products.find(product => product.id === productToAddId);
-        Vue.set(state.cart, cartProductId, {
-            productId: id,
-            imgFile,
-            title,
-            price: selectedOption
-                ? price[selectedOption.option.slice(1)]
-                : price,
-            selectedOption: options
-                ? {
-                      name: selectedOption.name,
-                      option: options.values[selectedOption.option.slice(1)]
-                  }
-                : null,
-            code: Array.isArray(iikoCode)
-                ? iikoCode[selectedOption.option.slice(1)]
-                : iikoCode,
-            iikoId: Array.isArray(iikoCode)
-                ? iikoId[selectedOption.option.slice(1)]
-                : iikoId,
             quantity: 1
         });
+    },
+    [SAVE_PRODUCTS](state, productsToSave) {
+        state.products = [...productsToSave];
     },
     [CLEAN_STORE](state) {
         state.cart = {};
@@ -182,19 +166,39 @@ export const mutations = {
 };
 
 export const actions = {
+    saveProductsToStore({ commit, state }, productsToSave) {
+        const mappedProducts = productsToSave.map(product => {
+            const {
+                id,
+                code,
+                description,
+                name,
+                groupId,
+                parentGroup,
+                price,
+                weight
+            } = product;
+            return {
+                id,
+                code,
+                description,
+                name,
+                groupId,
+                parentGroup,
+                price,
+                weight: `${Math.trunc(weight * 1000)} г.`
+            };
+        });
+        commit(SAVE_PRODUCTS, mappedProducts);
+    },
     addToCart({ commit, state }, productToAdd) {
-        const { id, selectedOption } = productToAdd;
-        const cartProductId = `${id}${
-            selectedOption ? selectedOption.option || '' : ''
-        }`;
+        const { id } = productToAdd;
 
-        if (state.cart[cartProductId]) {
-            commit(INCREASE_CART_PRODUCT_QTY, cartProductId);
+        if (state.cart[id]) {
+            commit(INCREASE_CART_PRODUCT_QTY, id);
         } else {
             commit(ADD_PRODUCT_TO_CART, {
-                productToAddId: productToAdd.id,
-                selectedOption,
-                cartProductId
+                id
             });
         }
     },
