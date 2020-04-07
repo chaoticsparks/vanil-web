@@ -11,7 +11,10 @@
             <p class="text-order-manager">
                 Наш менеджер свяжется с вами в ближайшее время!
             </p>
-            <p v-if="orderNumber" class="text-order-number">
+            <p
+                v-if="orderNumber && deliveryMethod === 'Самовывоз'"
+                class="text-order-number"
+            >
                 Сообщите номер вашего заказа при получении товара в кафе!
             </p>
             <h2 class="h2-like details-text">
@@ -116,9 +119,15 @@ export default {
             return this.$store.state.orderForm.delivery;
         },
         deliveryAddress() {
-            return deliveryTerminals[this.$store.state.orderForm.address]
-                ? deliveryTerminals[this.$store.state.orderForm.address].title
-                : '';
+            let deliveryAddress = '';
+            if (this.$store.state.orderForm.delivery === 'Самовывоз') {
+                deliveryAddress =
+                    deliveryTerminals[this.$store.state.orderForm.address]
+                        .title;
+            } else {
+                deliveryAddress = this.$store.state.orderForm.address;
+            }
+            return deliveryAddress;
         },
         ...mapGetters(['getCartTotal'])
     },
@@ -181,10 +190,17 @@ export default {
 
             // console.log(customer);
 
+            let deliveryTerminalId = '';
+            if (store.state.orderForm.delivery === 'Самовывоз') {
+                deliveryTerminalId =
+                    deliveryTerminals[store.state.orderForm.address].iikoId;
+            } else {
+                deliveryTerminalId = deliveryTerminals.osipova.iikoId;
+            }
+
             const orderRequest = {
                 organization: '53782c84-00d1-11ea-80eb-d8d38565926f',
-                deliveryTerminalId:
-                    deliveryTerminals[store.state.orderForm.address].iikoId,
+                deliveryTerminalId,
                 customer,
                 order: {
                     date: moment(store.state.orderForm.date).format(
@@ -241,9 +257,9 @@ export default {
                         : 'Заказ не дошел в iiko, необходимо обработать вручную'
                 }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
                     date
-                ).format('DD.MM.YYYY')}\nАдрес: ${
-                    deliveryTerminals[store.state.orderForm.address].title
-                }\n${sourceComment}${
+                ).format(
+                    'DD.MM.YYYY'
+                )}\nАдрес: ${deliveryAddress}\n${sourceComment}${
                     comment ? 'Комментарий: ' + comment : ''
                 }${failedAddText}`;
 
