@@ -50,17 +50,19 @@
                             (formErrors.phoneTooShort && phone.length < 19)
                     }"
                 />
-                <datepicker
-                    v-model="date"
-                    :input-class="
-                        `${formErrors.date &&
-                            !date &&
-                            'cart-form-error'} cart-form__date form-default`
-                    "
-                    :language="ru"
-                    :placeholder="'Дата получения *'"
-                    :disabled-dates="disabledDates"
-                />
+                <client-only>
+                    <datepicker
+                        v-model="date"
+                        :input-class="
+                            `${formErrors.date &&
+                                !date &&
+                                'cart-form-error'} cart-form__date form-default`
+                        "
+                        :language="ru"
+                        :placeholder="'Дата получения *'"
+                        :disabled-dates="disabledDates"
+                    />
+                </client-only>
                 <textarea
                     v-model="comment"
                     class="cart-form__comment form-default"
@@ -71,43 +73,6 @@
                 <div class="cart-form__delivery-text">
                     <span>Откуда Вы хотите забрать заказ?</span>
                 </div>
-                <!--<label class="radio-container">
-                    <input
-                        v-model="address"
-                        type="radio"
-                        value="primorskiy"
-                        name="address_vanil"
-                        class="radio-container__input"
-                    />
-                    <span class="radio-container__text"
-                        >ул. Приморский бульвар, 10</span
-                    >
-                    <span class="radio-container__custom-radio"></span>
-                </label>
-                <label class="radio-container">
-                    <input
-                        v-model="address"
-                        type="radio"
-                        value="osipova"
-                        name="address_vanil"
-                        class="radio-container__input"
-                    />
-                    <span class="radio-container__text">ул. Осипова, 10</span>
-                    <span class="radio-container__custom-radio"></span>
-                </label>
-                <label class="radio-container">
-                    <input
-                        v-model="address"
-                        type="radio"
-                        value="genPetrova"
-                        name="address_vanil"
-                        class="radio-container__input"
-                    />
-                    <span class="radio-container__text"
-                        >ул. Генерала Петрова, 31/1</span
-                    >
-                    <span class="radio-container__custom-radio"></span>
-                </label>-->
                 <label class="radio-container">
                     <input
                         v-model="delivery"
@@ -127,7 +92,7 @@
                         <input
                             v-model="address"
                             type="radio"
-                            value="ул. Приморский бульвар, 10"
+                            value="primorskiy"
                             name="address_vanil"
                             class="radio-container__input"
                         />
@@ -140,20 +105,20 @@
                         <input
                             v-model="address"
                             type="radio"
-                            value="ул. Троицкая, 16 "
+                            value="osipova"
                             name="address_vanil"
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >ул. Троицкая, 16
-                        </span>
+                            >ул. Осипова, 10</span
+                        >
                         <span class="radio-container__custom-radio"></span>
                     </label>
                     <label class="radio-container">
                         <input
                             v-model="address"
                             type="radio"
-                            value="ул. Генерала Петрова, 31/1"
+                            value="genPetrova"
                             name="address_vanil"
                             class="radio-container__input"
                         />
@@ -226,7 +191,6 @@
 
 <script>
 import { ru } from 'vuejs-datepicker/dist/locale';
-import Datepicker from 'vuejs-datepicker';
 import { mapGetters, mapMutations } from 'vuex';
 import { mask } from 'vue-the-mask';
 import CartItem from '../components/CartItem';
@@ -239,8 +203,7 @@ import {
 export default {
     directives: { mask },
     components: {
-        CartItem,
-        Datepicker
+        CartItem
     },
     head() {
         return {
