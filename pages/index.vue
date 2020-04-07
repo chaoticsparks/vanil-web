@@ -9,57 +9,59 @@
         </p> -->
         <span class="h2-like">Адреса кафе</span>
         <table class="locations">
-            <tr>
-                <td>ул. Приморский бульвар, 10</td>
-                <td>
-                    <div class="location">
-                        <a
-                            href="https://goo.gl/maps/wTDFFF43NSndXDaY9"
-                            class="location__link"
-                            target="_blank"
-                            >Показать на карте</a
-                        ><img
-                            src="~assets/image/map-point.svg"
-                            class="location__icon"
-                            alt="location"
-                        />
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>ул. Осипова, 10</td>
-                <td>
-                    <div class="location">
-                        <a
-                            href="https://goo.gl/maps/NV28NoVEzXtRyuYf6"
-                            class="location__link"
-                            target="_blank"
-                            >Показать на карте</a
-                        ><img
-                            src="~assets/image/map-point.svg"
-                            class="location__icon"
-                            alt="location"
-                        />
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>ул. Генерала Петрова, 31/1</td>
-                <td>
-                    <div class="location">
-                        <a
-                            href="https://goo.gl/maps/bdHkkadWu2nXaGo28"
-                            class="location__link"
-                            target="_blank"
-                            >Показать на карте</a
-                        ><img
-                            src="~assets/image/map-point.svg"
-                            class="location__icon"
-                            alt="location"
-                        />
-                    </div>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>ул. Приморский бульвар, 10</td>
+                    <td>
+                        <div class="location">
+                            <a
+                                href="https://goo.gl/maps/wTDFFF43NSndXDaY9"
+                                class="location__link"
+                                target="_blank"
+                                >Показать на карте</a
+                            ><img
+                                src="~assets/image/map-point.svg"
+                                class="location__icon"
+                                alt="location"
+                            />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ул. Осипова, 10</td>
+                    <td>
+                        <div class="location">
+                            <a
+                                href="https://goo.gl/maps/NV28NoVEzXtRyuYf6"
+                                class="location__link"
+                                target="_blank"
+                                >Показать на карте</a
+                            ><img
+                                src="~assets/image/map-point.svg"
+                                class="location__icon"
+                                alt="location"
+                            />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ул. Генерала Петрова, 31/1</td>
+                    <td>
+                        <div class="location">
+                            <a
+                                href="https://goo.gl/maps/bdHkkadWu2nXaGo28"
+                                class="location__link"
+                                target="_blank"
+                                >Показать на карте</a
+                            ><img
+                                src="~assets/image/map-point.svg"
+                                class="location__icon"
+                                alt="location"
+                            />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </template>
