@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="default-intro">
+        <!--        <section class="default-intro">
             <video
                 autoplay
                 loop
@@ -93,17 +93,16 @@
                 />
                 <span class="fixed-cart__counter">{{ getCartCounter }}</span>
             </div>
-        </nuxt-link>
+        </nuxt-link>-->
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import Footer from '../components/Footer';
 export default {
-    components: {
+    /* components: {
         Footer
-    },
+    }, */
     computed: {
         ...mapGetters(['getCartCounter'])
     }
