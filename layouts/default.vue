@@ -305,12 +305,12 @@ p {
     margin-top: 0;
     margin-left: 16px;
     width: auto;
-    padding: 0 32px;
+    padding: 0 24px;
     height: auto;
     font-family: inherit;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 16px;
     background-color: $accent;
     transition: background-color 0.5s ease;
 
