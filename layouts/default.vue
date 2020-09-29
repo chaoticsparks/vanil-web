@@ -48,6 +48,10 @@
                 </p>
                 <p>Порадует за чашкой кофе или чая с тёплыми мыслями о вас!</p>
 
+                <p>
+                    Мы создали особый десерт с осенним дизайном и декором
+                </p>
+
                 <div class="ingredients-block">
                     <span class="bolder">В составе:</span>
                     <ul class="ingredients">
@@ -59,11 +63,6 @@
                         <li>— облепиховое конфи с куантро</li>
                     </ul>
                 </div>
-
-                <p>
-                    С мыслями об этом мы создали особый десерт с осенним
-                    дизайном и декором
-                </p>
                 <p>
                     Упаковываем в милую подарочную упаковку
                 </p>
@@ -71,7 +70,16 @@
         </main>
         <div class="photos">
             <div class="photos__big">
-                <img src="~assets/image/products/big.jpg" alt="" />
+                <img
+                    src="~assets/image/products/big.jpg"
+                    alt=""
+                    class="big-img"
+                />
+                <img
+                    src="~assets/image/products/mobile-big.jpg"
+                    alt=""
+                    class="mobile-big-img"
+                />
             </div>
             <div class="photos__left">
                 <img src="~assets/image/products/left.jpg" alt="" />
@@ -239,7 +247,7 @@ p {
     margin: 0;
     padding: 0;
     li {
-        margin: 16px 0;
+        line-height: 32px;
         list-style: none;
     }
 }
@@ -287,6 +295,19 @@ p {
 
     @include max-breakpoint(mobile-medium) {
         flex-direction: column;
+    }
+}
+
+.big-img {
+    @include max-breakpoint(mobile-medium) {
+        display: none;
+    }
+}
+
+.mobile-big-img {
+    display: none;
+    @include max-breakpoint(mobile-medium) {
+        display: block;
     }
 }
 
