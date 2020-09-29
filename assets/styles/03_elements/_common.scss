@@ -13,17 +13,9 @@ a {
         text-decoration: underline;
     }
 }
-p {
-    font-family: Montserrat, sans-serif;
-    font-weight: 500;
-    color: $text-color-dark-brown;
-    font-size: 14px;
-    @include max-breakpoint(tablet-portrait) {
-        font-size: 12px;
-    }
-}
 
-input[type='text'], textarea {
+input[type='text'],
+textarea {
     /* Remove efault styles for input */
     -webkit-appearance: none;
     -moz-appearance: none;

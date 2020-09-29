@@ -14,8 +14,7 @@ export default {
             {
                 hid: 'description',
                 name: 'description',
-                content:
-                    '🥚 Пасхальный кулич, творожная пасха, сдобный краффин 🐇 Заказать'
+                content: 'Мини тортик Аutumn kiss! Заказать'
             }
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
