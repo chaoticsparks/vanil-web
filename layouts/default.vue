@@ -12,9 +12,9 @@
                 />
             </div>
             <article class="main__text-block">
-                <h1>Мини тортик "Аutumn kiss"!</h1>
+                <h1>Total black мини тортик "Halloween velvet"</h1>
                 <div class="price_weight">
-                    <span class="price">420 ₴</span>
+                    <span class="price">470 ₴</span>
                     <span class="weight">~ 750г</span>
                 </div>
                 <div class="buy">
@@ -44,28 +44,26 @@
                 </div>
 
                 <p>
-                    Лучший подарок для преподавателей, учителей и репетиторов!
+                    Самый красивый "Boo!", который можно представить и даже
+                    съесть!
                 </p>
-                <p>Порадует за чашкой кофе или чая с тёплыми мыслями о вас!</p>
+                <p>Порадуйте или напугайте близких красивым подарком!</p>
 
                 <p>
-                    Мы создали особый десерт с осенним дизайном и декором
+                    Knock knock, trick or treat?
                 </p>
 
                 <div class="ingredients-block">
                     <span class="bolder">В составе:</span>
                     <ul class="ingredients">
                         <li>
-                            — бисквит на миндальной пасте 100% с
-                            карамелизированными кедровыми орешками
+                            — бисквит "кровавый" бархат
                         </li>
-                        <li>— нежный крем чиз</li>
-                        <li>— облепиховое конфи с куантро</li>
+                        <li>— total black крем чиз</li>
+                        <li>— клубничное конфи</li>
+                        <li>— chocolate skull</li>
                     </ul>
                 </div>
-                <p>
-                    Упаковываем в милый подарочный футляр
-                </p>
             </article>
         </main>
         <div class="photos">
