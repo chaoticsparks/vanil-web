@@ -14,7 +14,7 @@ export default {
             {
                 hid: 'description',
                 name: 'description',
-                content: 'Мини тортик Аutumn kiss! Заказать'
+                content: 'Total black мини тортик "Halloween velvet"!'
             }
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]

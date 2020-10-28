@@ -128,7 +128,7 @@ export default {
 
             const members = info.members.map(member => member.id);
 
-            const messageString = `Заказ Мини тортик Аutumn kiss!\nНомер телефона: ${this.phone}`;
+            const messageString = `Total black мини тортик "Halloween velvet"\nНомер телефона: ${this.phone}`;
             await client.broadcastText(members, messageString);
             this.ordered = true;
         }
