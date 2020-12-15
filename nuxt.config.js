@@ -1,5 +1,5 @@
 export default {
-    mode: 'spa',
+    mode: 'universal',
     /*
      ** Headers of the page
      */
@@ -40,7 +40,7 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [],
+    plugins: [{ src: '~plugins/vue-datepicker.client.js', ssr: false }],
     /*
      ** Nuxt.js dev-modules
      */
@@ -76,10 +76,7 @@ export default {
                 loaders: { vue }
             }
         ) {
-            // Extend only webpack config for client-bundle
-            if (isClient) {
-                vue.transformAssetUrls.video = ['poster'];
-            }
+            vue.transformAssetUrls.video = ['poster'];
         }
     }
 };

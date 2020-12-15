@@ -48,7 +48,7 @@ export const state = () => ({
             id: 'P4',
             imgFile: 'keks23.jpg',
             title: 'Английский рождественский кекс',
-            description: `Кексовое тесто приготовленное на сливочном масле, вымоченные в темном роме изюм коринка, вяленная вишня, светлый изюм, вяленная клюква, коричневый изюм, грецкий орех, корица, имбирь, мускатный орех.<br><br> 
+            description: `Кексовое тесто приготовленное на сливочном масле, вымоченные в темном роме изюм коринка, вяленная вишня, светлый изюм, вяленная клюква, коричневый изюм, грецкий орех, корица, имбирь, мускатный орех.<br><br>
 После выпечки пропитывается большим количеством рома и выстаивается около трех недель.`,
             price: ['250', '350'],
             weight: '470 грамм, 730 грамм',
@@ -81,7 +81,7 @@ export const state = () => ({
         phone: '',
         comment: '',
         date: '',
-        // delivery: '',
+        delivery: '',
         address: ''
     },
     orderFormErrors: {
@@ -89,7 +89,7 @@ export const state = () => ({
         phone: false,
         phoneTooShort: false,
         date: false,
-        // delivery: false,
+        delivery: false,
         address: false
     },
     leadSource: ''
@@ -167,7 +167,7 @@ export const mutations = {
             phone: '',
             comment: '',
             date: '',
-            // delivery: '',
+            delivery: '',
             address: ''
         };
         state.orderFormErrors = {
@@ -175,7 +175,7 @@ export const mutations = {
             phone: false,
             phoneTooShort: false,
             date: false,
-            // delivery: false,
+            delivery: false,
             address: false
         };
     }

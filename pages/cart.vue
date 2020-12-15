@@ -50,17 +50,19 @@
                             (formErrors.phoneTooShort && phone.length < 19)
                     }"
                 />
-                <datepicker
-                    v-model="date"
-                    :input-class="
-                        `${formErrors.date &&
-                            !date &&
-                            'cart-form-error'} cart-form__date form-default`
-                    "
-                    :language="ru"
-                    :placeholder="'Дата самовывоза *'"
-                    :disabled-dates="disabledDates"
-                />
+                <client-only>
+                    <datepicker
+                        v-model="date"
+                        :input-class="
+                            `${formErrors.date &&
+                                !date &&
+                                'cart-form-error'} cart-form__date form-default`
+                        "
+                        :language="ru"
+                        :placeholder="'Дата получения *'"
+                        :disabled-dates="disabledDates"
+                    />
+                </client-only>
                 <textarea
                     v-model="comment"
                     class="cart-form__comment form-default"
@@ -72,43 +74,6 @@
                     <span>Откуда Вы хотите забрать заказ?</span>
                 </div>
                 <label class="radio-container">
-                    <input
-                        v-model="address"
-                        type="radio"
-                        value="primorskiy"
-                        name="address_vanil"
-                        class="radio-container__input"
-                    />
-                    <span class="radio-container__text"
-                        >ул. Приморский бульвар, 10</span
-                    >
-                    <span class="radio-container__custom-radio"></span>
-                </label>
-                <label class="radio-container">
-                    <input
-                        v-model="address"
-                        type="radio"
-                        value="osipova"
-                        name="address_vanil"
-                        class="radio-container__input"
-                    />
-                    <span class="radio-container__text">ул. Осипова, 10</span>
-                    <span class="radio-container__custom-radio"></span>
-                </label>
-                <label class="radio-container">
-                    <input
-                        v-model="address"
-                        type="radio"
-                        value="genPetrova"
-                        name="address_vanil"
-                        class="radio-container__input"
-                    />
-                    <span class="radio-container__text"
-                        >ул. Генерала Петрова, 31/1</span
-                    >
-                    <span class="radio-container__custom-radio"></span>
-                </label>
-                <!--<label class="radio-container">
                     <input
                         v-model="delivery"
                         type="radio"
@@ -127,7 +92,7 @@
                         <input
                             v-model="address"
                             type="radio"
-                            value="ул. Приморский бульвар, 10"
+                            value="primorskiy"
                             name="address_vanil"
                             class="radio-container__input"
                         />
@@ -140,20 +105,20 @@
                         <input
                             v-model="address"
                             type="radio"
-                            value="ул. Троицкая, 16 "
+                            value="osipova"
                             name="address_vanil"
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >ул. Троицкая, 16
-                        </span>
+                            >ул. Осипова, 10</span
+                        >
                         <span class="radio-container__custom-radio"></span>
                     </label>
                     <label class="radio-container">
                         <input
                             v-model="address"
                             type="radio"
-                            value="ул. Генерала Петрова, 31/1"
+                            value="genPetrova"
                             name="address_vanil"
                             class="radio-container__input"
                         />
@@ -179,8 +144,11 @@
                     v-model="address"
                     type="text"
                     placeholder="Адрес"
-                    class="cart-form__address"
-                />-->
+                    class="cart-form__address form-default"
+                    :class="{
+                        'cart-form-error': formErrors.address && !address
+                    }"
+                />
                 <!--<div class="cart-form__payment-text"><span>Оплата</span></div>
                 <label class="radio-container">
                     <input
@@ -221,7 +189,6 @@
 
 <script>
 import { ru } from 'vuejs-datepicker/dist/locale';
-import Datepicker from 'vuejs-datepicker';
 import { mapGetters, mapMutations } from 'vuex';
 import { mask } from 'vue-the-mask';
 import CartItem from '../components/CartItem';
@@ -234,20 +201,11 @@ import {
 export default {
     directives: { mask },
     components: {
-        CartItem,
-        Datepicker
+        CartItem
     },
     head() {
         return {
-            title: 'Кафе Vanil - корзина',
-            meta: [
-                // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: `Рождественские кексы, штоллены, бриошь (калач) Заказать`
-                }
-            ]
+            title: 'Кафе Vanil - корзина'
         };
     },
     layout: 'simple',
@@ -276,16 +234,13 @@ export default {
             } else if (this.formErrors.phoneTooShort) {
                 errorText.push('Пожалуйста, укажите номер телефона полностью!');
             }
-            /* if (this.formErrors.delivery) {
+            if (this.formErrors.delivery) {
                 errorText.push('Пожалуйста, выберите способ доставки!');
-            } else */
-            if (this.formErrors.date) {
-                errorText.push(
-                    'Пожалуйста, укажите когда Вам будет удобно забрать заказ!'
-                );
+            } else if (this.formErrors.date) {
+                errorText.push('Пожалуйста, укажите дату получения заказа!');
             }
-            if (this.formErrors.address) {
-                errorText.push('Пожалуйста, выберите адрес доставки!');
+            if (!this.formErrors.delivery && this.formErrors.address) {
+                errorText.push('Пожалуйста, укажите адрес доставки!');
             }
             return errorText.join('<br>');
         },
@@ -333,7 +288,7 @@ export default {
                 });
             }
         },
-        /* delivery: {
+        delivery: {
             get() {
                 return this.$store.state.orderForm.delivery;
             },
@@ -343,7 +298,7 @@ export default {
                     value
                 });
             }
-        }, */
+        },
         address: {
             get() {
                 return this.$store.state.orderForm.address;

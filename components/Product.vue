@@ -181,6 +181,7 @@ export default {
         .product__photo {
             padding-right: 0;
             padding-left: 24px;
+            text-align: right;
         }
         .product__info {
             padding-left: 0;
