@@ -15,8 +15,8 @@ export const state = () => ({
         {
             id: 'P6',
             imgFile: 'tubus.jpg',
-            title: 'Christmas box тубус с подарками ручной работы',
-            description: `- горячий шоколад с ложкой<br>- шоколадка из белого шоколада с фундуком<br>- карамельный трюфель 2шт<br>- брауни Вупи пай<br>- Christmas cookies 2шт<br>- макаронс-стикеры`,
+            title: 'Christmas box<br>тубус с подарками ручной работы',
+            description: `- горячий шоколад с ложкой<br>- шоколадка из белого шоколада с фундуком<br>- карамельный трюфель 2шт<br>- брауни Вупи пай<br>- Christmas cookies 2шт<br>- макаронс<br>- стикеры`,
             price: '350',
             weight: '',
             iikoCode: '05917',
@@ -25,7 +25,7 @@ export const state = () => ({
         {
             id: 'P7',
             imgFile: 'box.jpg',
-            title: 'Christmas box с солёной карамелью',
+            title: 'Christmas box<br>с солёной карамелью',
             description: `- баночка солёной карамели<br>- арахисовый кукиз с джемом<br>- овсяный кукиз с пеканом<br>- макаронс-2шт<br>- пряня с темным шоколадом и миндалем<br>- трюфель с солёной карамелью`,
             price: '400',
             weight: '',
@@ -42,10 +42,9 @@ export const state = () => ({
             iikoCode: '05922',
             iikoId: 'f519dda8-9b23-44ac-b03e-50ef60041857'
         },
-        /*
         {
             id: 'P9',
-            imgFile: '.jpg',
+            imgFile: 'karamel.jpg',
             title: 'Cоленая карамель',
             description: `Трюфели ручной работы из премиального бельгийского шоколада пяти разных вкусов:<br>- лимонный<br>- дор-блю с грецким орехом и карамельным шоколадом<br>- клубничный<br>- имбирный пряник <br>- с солёной карамелью`,
             price: ['80', '150'],
@@ -61,7 +60,6 @@ export const state = () => ({
                 'aeeb38ea-bbb0-4e9b-b6a2-06ce389c5fcb'
             ]
         },
-        */
         {
             id: 'P11',
             imgFile: 'choco.jpg',
@@ -165,6 +163,16 @@ export const state = () => ({
             weight: '700 грамм',
             iikoCode: '05088',
             iikoId: '244c7959-41ea-4dba-9f82-6483f8c8bb2b'
+        },
+        {
+            id: 'P14',
+            imgFile: 'otkritka.jpg',
+            title: 'Открытка Рождественский Щелкунчик',
+            description: ``,
+            price: '35',
+            weight: '',
+            iikoCode: '05905',
+            iikoId: 'f42b40e0-edcd-46cd-b8c9-caff11ba0fdd'
         }
     ],
     cart: {},

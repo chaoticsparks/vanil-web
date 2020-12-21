@@ -9,7 +9,7 @@
         </div>
         <div class="cart-item__details-container">
             <div class="cart-item__title-container">
-                <h5 class="h5-like">{{ cartItem.title }}</h5>
+                <h5 class="h5-like" v-html="cartItem.title"></h5>
                 <span
                     v-if="cartItem.selectedOption"
                     class="cart-item__flavour"

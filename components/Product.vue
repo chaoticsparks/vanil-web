@@ -4,9 +4,7 @@
             <img class="product__img" :src="imagePath" alt="product" />
         </div>
         <div class="product__info">
-            <h2 class="h2-like h2-like--underlined">
-                {{ product.title }}
-            </h2>
+            <h2 class="h2-like h2-like--underlined" v-html="product.title"></h2>
             <span class="product__weight">{{ product.weight }}</span>
             <p v-html="product.description"></p>
             <template v-if="product.options">

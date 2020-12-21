@@ -179,9 +179,17 @@
                     class="cart-form__errors"
                     v-html="errorText"
                 ></p>
-                <button class="btn btn-order" @click.prevent="submitForm">
-                    Оформить заказ
-                </button>
+                <div class="actions">
+                    <button
+                        class="btn btn-order continue-shopping"
+                        @click="onContinueShopping"
+                    >
+                        Продолжить покупки
+                    </button>
+                    <button class="btn btn-order" @click.prevent="submitForm">
+                        Оформить заказ
+                    </button>
+                </div>
             </form>
         </section>
     </div>
@@ -330,6 +338,9 @@ export default {
             }
             this.$store.commit(REMOVE_PRODUCT_FROM_CART, cartProductId);
         },
+        onContinueShopping() {
+            this.$router.push('/');
+        },
         ...mapMutations({
             updateQuantity: UPDATE_PRODUCT_QTY,
             updateOrderFormField: UPDATE_ORDER_FORM_FIELD
@@ -430,5 +441,19 @@ export default {
     font-weight: normal;
     font-style: italic;
     margin-top: 14px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    .btn-order {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .continue-shopping {
+        margin-right: 16px;
+    }
 }
 </style>
