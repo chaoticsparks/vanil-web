@@ -136,7 +136,7 @@ export default {
             redirect('/');
         } else {
             const instance = axios.create({
-                baseURL: 'https://iiko.biz:9900/api/0'
+                baseURL: '/iiko/'
             });
             const { data: accessToken } = await instance.get(
                 '/auth/access_token?user_id=vanilAPI2019&user_secret=vaNilAPI70712'

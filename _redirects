@@ -1,1 +1,2 @@
 /api/*  https://chatapi.viber.com/pa/:splat  200
+/iiko/*  https://iiko.biz:9900/api/0/:splat  200
