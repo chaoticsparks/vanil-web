@@ -224,8 +224,8 @@ export default {
                 );
             } catch (e) {
                 failedAddToIiko = {
-                    message: e.response.data.message,
-                    httpStatusCode: e.response.data.httpStatusCode
+                    message: e.response?.data?.message || e.message,
+                    httpStatusCode: e.response?.data?.httpStatusCode
                 };
                 result = null;
             }
