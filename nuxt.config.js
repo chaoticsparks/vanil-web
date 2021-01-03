@@ -69,14 +69,11 @@ export default {
         /*
          ** You can extend webpack config here
          */
-        extend(
-            config,
-            {
-                isClient,
-                loaders: { vue }
-            }
-        ) {
+        extend(config, { isClient, loaders: { vue } }) {
             vue.transformAssetUrls.video = ['poster'];
+        },
+        babel: {
+            plugins: ['@babel/plugin-proposal-optional-chaining']
         }
     }
 };

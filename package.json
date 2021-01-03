@@ -34,6 +34,7 @@
         "vuejs-datepicker": "^1.6.2"
     },
     "devDependencies": {
+        "@babel/plugin-proposal-optional-chaining": "^7.12.7",
         "@nuxtjs/eslint-config": "^1.0.1",
         "@nuxtjs/eslint-module": "^1.0.0",
         "@nuxtjs/style-resources": "^1.0.0",
