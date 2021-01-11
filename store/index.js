@@ -22,6 +22,7 @@ export const state = () => ({
             iikoCode: '05900',
             iikoId: '6ef2f8c6-6b8b-44f1-8962-34a6e9fe47da'
         },
+        /*
         {
             id: 'P4',
             imgFile: 'keks23.jpg',
@@ -33,6 +34,7 @@ export const state = () => ({
             iikoCode: '04061',
             iikoId: 'e3aec5e9-956f-48e9-a110-23a900c4c6a1'
         },
+        */
         {
             id: 'P5',
             imgFile: 'shtolen143.jpg',
@@ -76,6 +78,7 @@ export const state = () => ({
             iikoCode: '05088',
             iikoId: '244c7959-41ea-4dba-9f82-6483f8c8bb2b'
         },
+        /*
         {
             id: 'P6',
             imgFile: 'tubus.jpg',
@@ -152,7 +155,6 @@ export const state = () => ({
             iikoCode: '05113',
             iikoId: '0289ab44-9efd-4546-8dc2-f935b8da41a2'
         },
-        /*
       {
           id: 'P13',
           imgFile: 'pryanya.jpg',

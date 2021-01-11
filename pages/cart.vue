@@ -128,7 +128,7 @@
                         <span class="radio-container__custom-radio"></span>
                     </label>
                 </div>
-                <label class="radio-container">
+                <!--<label class="radio-container">
                     <input
                         v-model="delivery"
                         type="radio"
@@ -148,7 +148,7 @@
                     :class="{
                         'cart-form-error': formErrors.address && !address
                     }"
-                />
+                />-->
                 <!--<div class="cart-form__payment-text"><span>Оплата</span></div>
                 <label class="radio-container">
                     <input
