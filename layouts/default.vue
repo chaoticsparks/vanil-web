@@ -12,8 +12,8 @@
                 height="100"
                 poster="~assets/video/video-placeholder.jpg"
             >
-                <source src="~assets/video/vanildark2.webm" type="video/webm" />
-                <source src="~assets/video/vanildark2.mp4" type="video/mp4" />
+                <!--<source src="~assets/video/vanildark2.webm" type="video/webm" />
+                <source src="~assets/video/vanildark2.mp4" type="video/mp4" />-->
                 Извините, Ваш браузер не поддерживает встроенные видео.
             </video>
             <div class="video-overlay"></div>
