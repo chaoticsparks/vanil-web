@@ -127,6 +127,19 @@
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>
+                    <label class="radio-container">
+                        <input
+                            v-model="address"
+                            type="radio"
+                            value="korolova"
+                            name="address_vanil"
+                            class="radio-container__input"
+                        />
+                        <span class="radio-container__text"
+                            >ул. Королёва 18</span
+                        >
+                        <span class="radio-container__custom-radio"></span>
+                    </label>
                 </div>
                 <!--<label class="radio-container">
                     <input
@@ -182,7 +195,7 @@
                 <div class="actions">
                     <button
                         class="btn btn-order continue-shopping"
-                        @click="onContinueShopping"
+                        @click.prevent="onContinueShopping"
                     >
                         Продолжить покупки
                     </button>
