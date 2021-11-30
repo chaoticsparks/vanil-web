@@ -65,6 +65,23 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>ул. Королёва, 18</td>
+                    <td>
+                        <div class="location">
+                            <a
+                                href="https://goo.gl/maps/pFHg5YNCD3ferwWJ6"
+                                class="location__link"
+                                target="_blank"
+                                >Показать на карте</a
+                            ><img
+                                src="~assets/image/map-point.svg"
+                                class="location__icon"
+                                alt="location"
+                            />
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
