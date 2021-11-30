@@ -10,5 +10,9 @@ export const deliveryTerminals = {
     genPetrova: {
         title: 'ул. Генерала Петрова, 31/1',
         iikoId: '049f2ee5-03e8-337b-016e-cc62ffbec0a2'
+    },
+    korolova: {
+        title: 'ул. Королёва 18',
+        iikoId: '7a2c3711-6b1a-aa4b-0178-ee4c887f9250'
     }
 };
