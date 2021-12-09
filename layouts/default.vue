@@ -12,9 +12,9 @@
                 height="100"
                 poster="~assets/video/video-placeholder.jpg"
             >
-                <source src="~assets/video/vanildark2.webm" type="video/webm" />
+                <!--                <source src="~assets/video/vanildark2.webm" type="video/webm" />
                 <source src="~assets/video/vanildark2.mp4" type="video/mp4" />
-                Извините, Ваш браузер не поддерживает встроенные видео.
+                Извините, Ваш браузер не поддерживает встроенные видео.-->
             </video>
             <div class="video-overlay"></div>
             <header class="default-header">
@@ -64,13 +64,13 @@
                     /></a>
                 </div>
             </header>
-            <div class="intro-text">
+            <!-- <div class="intro-text">
                 <img
                     src="~assets/image/intro-text.svg"
                     alt="intro"
                     class="intro-text-img"
                 />
-            </div>
+            </div>-->
             <div class="scroll-down">
                 <span class="scroll-down__text">Заказ</span>
                 <img
@@ -128,7 +128,7 @@ export default {
 
 .video-overlay {
     background-color: black;
-    opacity: 0.3;
+    opacity: 0.4;
     width: 100%;
     height: 100%;
     position: absolute;
