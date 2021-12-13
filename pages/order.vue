@@ -248,6 +248,11 @@ export default {
                 }
             );
 
+            const deliveryTextString =
+                store.state.orderForm.delivery === 'Самовывоз'
+                    ? `Адрес Кафе (самовывоз): ${deliveryAddress}`
+                    : `Отделение НП, город: ${deliveryAddress}`;
+
             {
                 const { name, phone, date, comment } = store.state.orderForm;
 
@@ -263,7 +268,7 @@ export default {
                     date
                 ).format(
                     'DD.MM.YYYY'
-                )}\nОтделение НП, город: ${deliveryAddress}\n${sourceComment}${
+                )}\n${deliveryTextString}\n${sourceComment}${
                     comment ? 'Комментарий: ' + comment : ''
                 }${failedAddText}`;
 
