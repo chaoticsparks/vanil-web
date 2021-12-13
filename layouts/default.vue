@@ -220,6 +220,7 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
+    height: 70%;
     transform: translate(-50%, -50%);
     @include max-breakpoint(tablet-portrait) {
         font-size: 66px;
@@ -229,7 +230,7 @@ export default {
     }
 }
 .intro-text-img {
-    width: 585px;
+    width: 100%;
     height: 100%;
     @include max-breakpoint(tablet-portrait) {
         width: 390px;
