@@ -82,7 +82,7 @@
                     }}</span>
                 </div>-->
                 <div class="option-result">
-                    <span class="option">Адрес:</span>
+                    <span class="option">Отделение НП и город:</span>
                     <span class="delivery-option chosen">{{
                         deliveryAddress
                     }}</span>
@@ -208,8 +208,7 @@ export default {
                     ),
                     phone: store.state.orderForm.phone,
                     comment,
-                    isSelfService:
-                        store.state.orderForm.delivery === 'Самовывоз',
+                    isSelfService: true,
                     items
                 },
                 emailForFailedOrderInfo: 'mahbeilias@gmail.com'
@@ -264,7 +263,7 @@ export default {
                     date
                 ).format(
                     'DD.MM.YYYY'
-                )}\nАдрес: ${deliveryAddress}\n${sourceComment}${
+                )}\nОтделение НП, город: ${deliveryAddress}\n${sourceComment}${
                     comment ? 'Комментарий: ' + comment : ''
                 }${failedAddText}`;
 

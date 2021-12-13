@@ -158,7 +158,7 @@
                     v-if="delivery === 'Новая Почта'"
                     v-model="address"
                     type="text"
-                    placeholder="Отделение, город"
+                    placeholder="Отделение НП и город"
                     class="cart-form__address form-default"
                     :class="{
                         'cart-form-error': formErrors.address && !address
