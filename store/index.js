@@ -45,7 +45,7 @@ export const state = () => ({
             price: '650',
             weight: '≈900 грамм',
             iikoCode: '06384',
-            iikoId: 'a2ed874c-a541-4d98-bdb6-464e4f2e111c'
+            iikoId: '1b90865b-6292-4062-b836-3abd04cbd832'
         },
 
         {
