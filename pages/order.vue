@@ -208,7 +208,8 @@ export default {
                     ),
                     phone: store.state.orderForm.phone,
                     comment,
-                    isSelfService: true,
+                    isSelfService:
+                        store.state.orderForm.delivery === 'Самовывоз',
                     items
                 },
                 emailForFailedOrderInfo: 'mahbeilias@gmail.com'
