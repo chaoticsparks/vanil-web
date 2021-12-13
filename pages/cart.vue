@@ -141,27 +141,29 @@
                         <span class="radio-container__custom-radio"></span>
                     </label>
                 </div>
-                <!--<label class="radio-container">
+                <label class="radio-container">
                     <input
                         v-model="delivery"
                         type="radio"
-                        value="Сервис Bond"
+                        value="Новая Почта"
                         name="delivery"
                         class="radio-container__input"
                     />
-                    <span class="radio-container__text">Сервис Bond</span>
+                    <span class="radio-container__text"
+                        >Новой Почтой по Украине</span
+                    >
                     <span class="radio-container__custom-radio"></span>
                 </label>
                 <input
-                    v-if="delivery === 'Сервис Bond'"
+                    v-if="delivery === 'Новая Почта'"
                     v-model="address"
                     type="text"
-                    placeholder="Адрес"
+                    placeholder="Отделение, город"
                     class="cart-form__address form-default"
                     :class="{
                         'cart-form-error': formErrors.address && !address
                     }"
-                />-->
+                />
                 <!--<div class="cart-form__payment-text"><span>Оплата</span></div>
                 <label class="radio-container">
                     <input
