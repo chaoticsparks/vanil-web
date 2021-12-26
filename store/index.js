@@ -118,7 +118,7 @@ export const state = () => ({
         },
         {
             id: 'P8',
-            imgFile: 'christmas-box.jpg',
+            imgFile: 'chrismas-box.jpg',
             title: 'Christmas box',
             description: `Большой подарочный бокс, включает в себя:<br><br>
 •панеттоне на закваске 900г<br>
