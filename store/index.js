@@ -148,7 +148,7 @@ export const state = () => ({
             imgFile: 'stickers.jpg',
             title: 'Набор стикеров с авторскими иллюстрациями',
             description: ``,
-            price: '160',
+            price: '85',
             weight: '',
             iikoCode: '06402',
             iikoId: 'b1476cf3-cd44-43d0-a2a4-4671482d5cb2'
