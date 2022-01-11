@@ -12,6 +12,7 @@ import {
 
 export const state = () => ({
     products: [
+        /*
         {
             id: 'P8',
             imgFile: 'chrismas-box.jpg',
@@ -29,6 +30,7 @@ export const state = () => ({
             iikoCode: '05917',
             iikoId: '17070a3d-6660-4ac6-af56-465af5bdd2f2'
         },
+        */
         {
             id: 'P1',
             imgFile: 'panettone.jpg',
@@ -80,7 +82,8 @@ export const state = () => ({
             weight: '≈470 грамм',
             iikoCode: '04061',
             iikoId: 'e3aec5e9-956f-48e9-a110-23a900c4c6a1'
-        },
+        }
+        /*
         {
             id: 'P4',
             imgFile: 'kalach69.jpg',
@@ -152,8 +155,7 @@ export const state = () => ({
             weight: '',
             iikoCode: '06402',
             iikoId: 'b1476cf3-cd44-43d0-a2a4-4671482d5cb2'
-        }
-        /*
+        },
        {
            id: 'P8',
            imgFile: 'trufel-box.jpg',
