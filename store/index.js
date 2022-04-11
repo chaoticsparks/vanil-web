@@ -53,6 +53,16 @@ export const state = () => ({
             iikoId: '39b71522-c58d-4747-9635-1672deedb6c0'
         },
         {
+            id: 'P5',
+            imgFile: 'carskaya.jpg',
+            title: 'Шоколадная творожная пасха «Царская» Без САХАРА',
+            description: `Нежнейшая творожная заварная пасха с бельгийским шоколадом sugar free, с вяленой вишней и брауни.`,
+            price: '550',
+            weight: '≈850 грамм',
+            iikoCode: '06128',
+            iikoId: 'e5606cc2-d1bd-4281-a842-4ff97801f7bd'
+        },
+        {
             id: 'P6',
             imgFile: 'yayca.jpg',
             title: 'Набор шоколадных пасхальных яиц',
