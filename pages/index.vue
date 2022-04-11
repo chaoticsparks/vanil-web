@@ -12,10 +12,7 @@
             самовывоз из кафе.
         </p> -->
 
-        <div style="margin-bottom: 128px">
-            Предзаказ и онлайн продажи закрыты. Пасхальная продукция доступна в
-            кафе.
-        </div>
+        <div style="margin-bottom: 128px">Продажи закрыты</div>
         <span class="h2-like">Адреса кафе</span>
         <table class="locations">
             <tbody>
