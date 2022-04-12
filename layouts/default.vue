@@ -221,16 +221,25 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #ffffffa1;
+    padding: 64px;
+
     @include max-breakpoint(tablet-portrait) {
+        padding: 32px;
         font-size: 66px;
     }
     @include max-breakpoint(mobile-medium) {
+        padding: 15px;
         font-size: 50px;
     }
 }
 .intro-text-img {
-    width: 585px;
+    width: 1000px;
     height: 100%;
+
+    @include max-breakpoint(tablet-landscape) {
+        width: 700px;
+    }
     @include max-breakpoint(tablet-portrait) {
         width: 390px;
     }
