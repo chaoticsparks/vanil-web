@@ -14,7 +14,7 @@
         <span class="h2-like">Адреса кафе</span>
         <table class="locations">
             <tbody>
-                <tr>
+                <!--                <tr>
                     <td>ул. Приморский бульвар, 10</td>
                     <td>
                         <div class="location">
@@ -30,7 +30,7 @@
                             />
                         </div>
                     </td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td>ул. Осипова, 10</td>
                     <td>
