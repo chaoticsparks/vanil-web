@@ -1,7 +1,7 @@
 export const deliveryTerminals = {
     osipova: {
         title: 'ул. Осипова, 10',
-        iikoId: '1bc0d72f-08dd-7d63-017d-a2e8ab39277b'
+        iikoId: '04bc4387-dfea-fd14-0180-1c9af4e73f8a'
     },
     primorskiy: {
         title: 'ул. Приморский бульвар, 10',
