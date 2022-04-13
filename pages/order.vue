@@ -82,7 +82,7 @@
                     }}</span>
                 </div>-->
                 <div class="option-result">
-                    <span class="option">Отделение НП и город:</span>
+                    <span class="option">{{ deliveryText }}</span>
                     <span class="delivery-option chosen">{{
                         deliveryAddress
                     }}</span>
@@ -117,6 +117,11 @@ export default {
         },
         deliveryMethod() {
             return this.$store.state.orderForm.delivery;
+        },
+        deliveryText() {
+            return this.deliveryMethod === 'Самовывоз'
+                ? 'Адрес:'
+                : 'Отделение НП и город:';
         },
         deliveryAddress() {
             let deliveryAddress = '';
