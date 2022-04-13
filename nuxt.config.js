@@ -4,7 +4,7 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: 'Кафе Vanil - предзаказ',
+        title: 'Vanil Кафе-кондитерська',
         meta: [
             { charset: 'utf-8' },
             {

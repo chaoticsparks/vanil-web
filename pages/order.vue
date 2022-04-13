@@ -2,23 +2,24 @@
     <div>
         <section class="order-section">
             <h2 class="h2-like">
-                Спасибо, ваш заказ
+                Дякуємо, ваше замовлення
                 <span v-if="orderNumber" class="order-number"
                     >№{{ orderNumber }}</span
                 >
-                в обработке
+                в обробці
             </h2>
             <p class="text-order-manager">
-                Наш менеджер свяжется с вами в ближайшее время!
+                Наш менеджер зв'яжеться з вами найближчим часом!
             </p>
             <p
                 v-if="orderNumber && deliveryMethod === 'Самовывоз'"
                 class="text-order-number"
             >
-                Сообщите номер вашего заказа при получении товара в кафе!
+                Повідомте номер вашого замовлення під час отримання товару в
+                кафе!
             </p>
             <h2 class="h2-like details-text">
-                Детали вашего заказа
+                Деталі вашого замовлення
             </h2>
             <ul class="cart-list">
                 <li
@@ -61,13 +62,13 @@
                 </li>
             </ul>
             <footer class="cart-summary">
-                Сумма заказа:
+                Сумма замовлення:
                 <span class="cart-summary__price">{{ getCartTotal }} грн</span>
             </footer>
         </section>
         <section class="order-summary">
             <h2 v-if="orderNumber" class="h2-like">
-                Номер заказа
+                Номер замовлення
                 <span class="order-number">№{{ orderNumber }}</span>
             </h2>
             <div class="order-summary__options">
@@ -89,7 +90,7 @@
                 </div>
             </div>
             <button class="btn btn-order" @click="onContinueShopping">
-                Продолжить покупки
+                Продовжити покупки
             </button>
         </section>
     </div>

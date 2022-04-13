@@ -36,7 +36,7 @@
             <section class="product__buy">
                 <span class="product__price">{{ productPrice }}</span>
                 <button class="btn" :disabled="isError" @click="addToCart">
-                    В корзину
+                    До кошика
                 </button>
             </section>
         </div>

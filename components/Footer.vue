@@ -29,7 +29,7 @@
                             alt="schedule-icon"
                         />
                         <span class="default-footer__schedule-text"
-                            >ПН-ВС: 8:00 – 18:00</span
+                            >8:00 – 18:00</span
                         >
                     </div>
                     <a

@@ -72,11 +72,11 @@
                 />
             </div>
             <div class="scroll-down">
-                <span class="scroll-down__text">Заказ</span>
+                <span class="scroll-down__text">Замовлення</span>
                 <img
                     class="scroll-down__img"
                     src="~assets/image/arrow-down.svg"
-                    alt="Прокрутите вниз для заказа"
+                    alt="Прокрутіть вниз для замовлення"
                 />
             </div>
         </section>

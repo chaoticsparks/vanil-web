@@ -11,7 +11,7 @@
             Доставка по Одессе производится через сервис Bond, а также возможен
             самовывоз из кафе.
         </p> -->
-        <span class="h2-like">Адреса кафе</span>
+        <span class="h2-like">Адреси кафе</span>
         <table class="locations">
             <tbody>
                 <!--                <tr>
@@ -32,14 +32,14 @@
                     </td>
                 </tr>-->
                 <tr>
-                    <td>ул. Осипова, 10</td>
+                    <td>вул. Осипова, 10</td>
                     <td>
                         <div class="location">
                             <a
                                 href="https://goo.gl/maps/NV28NoVEzXtRyuYf6"
                                 class="location__link"
                                 target="_blank"
-                                >Показать на карте</a
+                                >Показати на мапі</a
                             ><img
                                 src="~assets/image/map-point.svg"
                                 class="location__icon"
@@ -49,14 +49,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>ул. Генерала Петрова, 31/1</td>
+                    <td>вул. Генерала Петрова, 31/1</td>
                     <td>
                         <div class="location">
                             <a
                                 href="https://goo.gl/maps/bdHkkadWu2nXaGo28"
                                 class="location__link"
                                 target="_blank"
-                                >Показать на карте</a
+                                >Показати на мапі</a
                             ><img
                                 src="~assets/image/map-point.svg"
                                 class="location__icon"
@@ -66,14 +66,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>ул. Королёва, 18</td>
+                    <td>вул. Корольова, 18</td>
                     <td>
                         <div class="location">
                             <a
                                 href="https://goo.gl/maps/pFHg5YNCD3ferwWJ6"
                                 class="location__link"
                                 target="_blank"
-                                >Показать на карте</a
+                                >Показати на мапі</a
                             ><img
                                 src="~assets/image/map-point.svg"
                                 class="location__icon"
