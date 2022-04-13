@@ -2,7 +2,7 @@
     <div>
         <section class="cart-section">
             <h2 class="h2-like">
-                Корзина
+                Кошик
             </h2>
             <ul class="cart-list">
                 <CartItem
@@ -16,25 +16,25 @@
             </ul>
             <footer class="cart-summary">
                 <div class="cart-summary__total">
-                    Сумма заказа:
+                    Сума замовлення:
                     <span class="cart-summary__price"
                         >{{ getCartTotal }} грн</span
                     >
                 </div>
                 <div class="cart-summary__no-discount">
-                    Все виды скидок на праздничную продукцию не действительны
+                    Усі види знижок на святкову продукцію не дійсні
                 </div>
             </footer>
         </section>
         <section class="cart-order">
             <h2 class="h2-like">
-                Оформление заказа
+                Оформлення замовлення
             </h2>
             <form class="cart-form">
                 <input
                     v-model="name"
                     type="text"
-                    placeholder="Имя *"
+                    placeholder="Ім'я *"
                     class="cart-form__name form-default"
                     :class="{ 'cart-form-error': formErrors.name && !name }"
                 />
@@ -42,7 +42,7 @@
                     v-model="phone"
                     v-mask="'+38 (###) ###-##-##'"
                     type="text"
-                    placeholder="Номер телефона *"
+                    placeholder="Номер телефону *"
                     class="cart-form__phone form-default"
                     :class="{
                         'cart-form-error':
@@ -59,7 +59,7 @@
                                 'cart-form-error'} cart-form__date form-default`
                         "
                         :language="ru"
-                        :placeholder="'Дата получения *'"
+                        :placeholder="'Дата отримання *'"
                         :disabled-dates="disabledDates"
                     />
                 </client-only>
@@ -68,10 +68,10 @@
                     class="cart-form__comment form-default"
                     cols="30"
                     rows="10"
-                    placeholder="Комментарий"
+                    placeholder="Коментар"
                 ></textarea>
                 <div class="cart-form__delivery-text">
-                    <span>Откуда Вы хотите забрать заказ?</span>
+                    <span>Звідки Ви бажаєте забрати замовлення?</span>
                 </div>
                 <label class="radio-container">
                     <input
@@ -81,7 +81,7 @@
                         name="delivery"
                         class="radio-container__input"
                     />
-                    <span class="radio-container__text">Самовывоз</span>
+                    <span class="radio-container__text">Самовивіз</span>
                     <span class="radio-container__custom-radio"></span>
                 </label>
                 <div
@@ -111,7 +111,7 @@
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >ул. Осипова, 10</span
+                            >вул. Осипова, 10</span
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>
@@ -124,7 +124,7 @@
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >ул. Генерала Петрова, 31/1</span
+                            >вул. Генерала Петрова, 31/1</span
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>
@@ -137,7 +137,7 @@
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >ул. Королёва 18</span
+                            >вул. Корольова 18</span
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>
@@ -151,7 +151,7 @@
                         class="radio-container__input"
                     />
                     <span class="radio-container__text"
-                        >Новой Почтой по Украине</span
+                        >Новою Поштою по Україні</span
                     >
                     <span class="radio-container__custom-radio"></span>
                 </label>
@@ -159,7 +159,7 @@
                     v-if="delivery === 'Новая Почта'"
                     v-model="address"
                     type="text"
-                    placeholder="Отделение НП и город"
+                    placeholder="Відділення НП та місто"
                     class="cart-form__address form-default"
                     :class="{
                         'cart-form-error': formErrors.address && !address
@@ -200,10 +200,10 @@
                         class="btn btn-order continue-shopping"
                         @click.prevent="onContinueShopping"
                     >
-                        Продолжить покупки
+                        Продовжити покупки
                     </button>
                     <button class="btn btn-order" @click.prevent="submitForm">
-                        Оформить заказ
+                        Оформити замовлення
                     </button>
                 </div>
             </form>
@@ -229,7 +229,7 @@ export default {
     },
     head() {
         return {
-            title: 'Кафе Vanil - корзина'
+            title: 'Кафе Vanil - кошик'
         };
     },
     layout: 'simple',
