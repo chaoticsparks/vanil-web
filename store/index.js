@@ -23,6 +23,17 @@ export const state = () => ({
             iikoId: '79246d37-fc91-4914-a45c-c6340d31c92d'
         },
         {
+            id: 'P12',
+            imgFile: 'choko-kulich.jpg',
+            title: 'Кулич «Сникерс»',
+            description: `Влажное сдобное тесто, на итальянской муке,желтках и сливочном масле.
+            <br><br>Жидкий центр из из шоколада, соленой карамели и соленого арахиса!`,
+            price: '450',
+            weight: '≈900 грамм',
+            iikoCode: '06498',
+            iikoId: '9bde79c4-061c-410e-b61c-96156dddf68c'
+        },
+        {
             id: 'P2',
             imgFile: 'panettone.jpg',
             title: 'Праздничный пасхальный панеттоне',
