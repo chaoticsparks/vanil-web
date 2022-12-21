@@ -105,7 +105,7 @@ export default {
     },
     head() {
         return {
-            title: 'Кафе Vanil - предзаказ'
+            title: 'Кафе Vanil - попереднє замовлення'
         };
     },
     methods: {
