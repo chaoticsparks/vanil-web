@@ -109,7 +109,7 @@ export default {
     layout: 'simple',
     head() {
         return {
-            title: 'Кафе Vanil - заказ оформлен'
+            title: 'Кафе Vanil - замовлення оформлено'
         };
     },
     computed: {
@@ -121,8 +121,8 @@ export default {
         },
         deliveryText() {
             return this.deliveryMethod === 'Самовывоз'
-                ? 'Адрес:'
-                : 'Отделение НП и город:';
+                ? 'Адреса:'
+                : 'Відділення НП і місто:';
         },
         deliveryAddress() {
             let deliveryAddress = '';

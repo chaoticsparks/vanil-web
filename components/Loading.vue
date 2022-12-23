@@ -15,7 +15,7 @@
 export default {
     props: {
         loadingText: {
-            default: 'Отправляем данные',
+            default: 'Надсилаємо дані',
             type: String
         }
     },
