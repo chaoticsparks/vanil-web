@@ -109,7 +109,7 @@ export const state = () => ({
             weight: '≈700 грамм',
             iikoCode: '05088',
             iikoId: '244c7959-41ea-4dba-9f82-6483f8c8bb2b'
-        }
+        },
         /*
        {
            id: 'P7',
@@ -130,17 +130,18 @@ export const state = () => ({
            weight: '',
            iikoCode: '06403',
            iikoId: '9cf5827c-2111-4aba-a422-384b6e83c621'
-       },
-       {
-           id: 'P9',
-           imgFile: 'otrkitki.jpg',
-           title: 'Рождественские открытки с авторскими иллюстрациями',
-           description: `набор 6шт`,
-           price: '120',
-           weight: '',
-           iikoCode: '06419',
-           iikoId: '4c6d1e12-b0fb-42ed-ac2c-78fcc882e6f0'
-       },
+       } */
+        {
+            id: 'P9',
+            imgFile: 'otrkitki.jpg',
+            title: 'Різдвяні листівки з авторськими ілюстраціями',
+            description: `набор 6шт`,
+            price: '120',
+            weight: '',
+            iikoCode: '06419',
+            iikoId: '4c6d1e12-b0fb-42ed-ac2c-78fcc882e6f0'
+        }
+        /*
        {
            id: 'P10',
            imgFile: 'stickers.jpg',
