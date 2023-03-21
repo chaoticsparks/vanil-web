@@ -1,18 +1,16 @@
 <template>
     <div>
-        <!--        <Product
+        <Product
             v-for="(product, index) in products"
             :key="index"
             :product="product"
             @addToCart="onAddToCart"
-        />-->
+        />
         <!--  <span class="h1-like">Доставка</span>
         <p class="delivery-text">
             Доставка по Одессе производится через сервис Bond, а также возможен
             самовывоз из кафе.
         </p> -->
-
-        <div style="margin-bottom: 128px">Продажи закрыты</div>
         <span class="h2-like">Адреса кафе</span>
         <table class="locations">
             <tbody>
@@ -91,8 +89,10 @@
 
 <script>
 import { mapActions } from 'vuex';
+import Product from '../components/Product';
 import { SET_LEAD_SOURCE } from '../constants/store';
 export default {
+    components: { Product },
     computed: {
         products() {
             return this.$store.state.products;
