@@ -144,14 +144,16 @@ export default {
             const instance = axios.create({
                 baseURL: '/iiko/'
             });
-            const { data: accessToken } = await instance.get(
-                '/auth/access_token?user_id=vanilAPI2019&user_secret=vaNilAPI70712'
-            );
+            const {
+                data: { token: accessToken }
+            } = await instance.post('/auth/access_token', {
+                apiLogin: 'f7cb05e0-29e'
+            });
 
             const items = Object.values(store.state.cart).map(item => ({
-                id: item.iikoId,
+                productId: item.iikoId,
                 amount: item.quantity,
-                code: item.code
+                type: 'Product'
             }));
 
             const userComment = store.state.orderForm.comment
@@ -171,8 +173,18 @@ export default {
 
             let deliveryHistory;
             try {
-                deliveryHistory = await instance.get(
-                    `/orders/deliveryHistoryByPhone?access_token=${accessToken}&organization=d58a4c3e-e21f-460b-a070-8b296fe644a1&phone=${store.state.orderForm.phone}`
+                deliveryHistory = await instance.post(
+                    `/loyalty/iiko/customer/info`,
+                    {
+                        phone: store.state.orderForm.phone,
+                        type: 'phone',
+                        organizationId: 'd58a4c3e-e21f-460b-a070-8b296fe644a1'
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`
+                        }
+                    }
                 );
             } catch (e) {
                 deliveryHistory = null;
@@ -180,17 +192,16 @@ export default {
 
             let customer;
             if (deliveryHistory) {
-                const fetchedCustomer =
-                    deliveryHistory.data.customersDeliveryHistory[0].customer;
+                const fetchedCustomer = deliveryHistory.data;
                 customer = {
                     id: fetchedCustomer.id,
                     name: fetchedCustomer.name,
-                    phone: fetchedCustomer.phone
+                    type: 'regular'
                 };
             } else {
                 customer = {
                     name: store.state.orderForm.name,
-                    phone: store.state.orderForm.phone
+                    type: 'one-time'
                 };
             }
 
@@ -205,16 +216,15 @@ export default {
             }
 
             const orderRequest = {
-                organization: 'd58a4c3e-e21f-460b-a070-8b296fe644a1',
-                deliveryTerminalId,
-                customer,
+                organizationId: 'd58a4c3e-e21f-460b-a070-8b296fe644a1',
+                terminalGroupId: deliveryTerminalId,
                 order: {
-                    date: moment(store.state.orderForm.date).format(
+                    completeBefore: moment(store.state.orderForm.date).format(
                         'YYYY-MM-DD hh:mm:ss'
                     ),
                     phone: store.state.orderForm.phone,
                     comment,
-                    isSelfService: true,
+                    customer,
                     items
                 },
                 emailForFailedOrderInfo: 'mahbeilias@gmail.com'
@@ -225,8 +235,13 @@ export default {
             let failedAddToIiko;
             try {
                 result = await instance.post(
-                    `/orders/add?access_token=${accessToken}`,
-                    orderRequest
+                    `/deliveries/create`,
+                    orderRequest,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`
+                        }
+                    }
                 );
             } catch (e) {
                 failedAddToIiko = {

@@ -1,18 +1,18 @@
 export const deliveryTerminals = {
     osipova: {
         title: 'ул. Осипова, 10',
-        iikoId: '04bc4387-dfea-fd14-0180-1c9af4e73f8a'
+        iikoId: '0dddab5c-2763-45a7-0156-3158a05000b8'
     },
     primorskiy: {
         title: 'ул. Приморский бульвар, 10',
-        iikoId: '21331ee8-f1a5-d2bb-017c-dc9c00074b43'
+        iikoId: 'b94d6190-2514-43f1-b21c-c50ead7b1b4b'
     },
     genPetrova: {
         title: 'ул. Генерала Петрова, 31/1',
-        iikoId: '6cca5f4d-81b3-2ed4-017a-1e372155696b'
+        iikoId: 'b7a364ca-c8d4-4c8c-814c-46ad3b33ecf4'
     },
     korolova: {
         title: 'ул. Королёва 18',
-        iikoId: '7a2c3711-6b1a-aa4b-0178-ee4c887f9250'
+        iikoId: '7385b586-b573-41e4-a3eb-18a8c402f71a'
     }
 };

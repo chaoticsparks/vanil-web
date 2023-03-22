@@ -1,2 +1,2 @@
 /api/*  https://chatapi.viber.com/pa/:splat  200
-/iiko/*  https://loyalty.syrve.live/api/0/:splat  200
+/iiko/*  https://api-eu.syrve.live/api/1/:splat  200
