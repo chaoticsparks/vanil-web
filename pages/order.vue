@@ -219,7 +219,7 @@ export default {
                 organizationId: 'd58a4c3e-e21f-460b-a070-8b296fe644a1',
                 terminalGroupId: deliveryTerminalId,
                 order: {
-                    orderServiceType: 'DeliveryPickUp',
+                    orderTypeId: '5b1508f9-fe5b-d6af-cb8d-043af587d5c2',
                     completeBefore:
                         moment(store.state.orderForm.date).format(
                             'YYYY-MM-DD'
