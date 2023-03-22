@@ -219,9 +219,10 @@ export default {
                 organizationId: 'd58a4c3e-e21f-460b-a070-8b296fe644a1',
                 terminalGroupId: deliveryTerminalId,
                 order: {
-                    completeBefore: moment(store.state.orderForm.date).format(
-                        'yyyy-MM-dd HH:mm:ss.fff'
-                    ),
+                    completeBefore:
+                        moment(store.state.orderForm.date).format(
+                            'YYYY-MM-DD'
+                        ) + ' 12:00:00.000',
                     phone: store.state.orderForm.phone,
                     comment,
                     customer,
