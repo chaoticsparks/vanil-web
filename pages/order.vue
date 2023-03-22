@@ -220,14 +220,13 @@ export default {
                 terminalGroupId: deliveryTerminalId,
                 order: {
                     completeBefore: moment(store.state.orderForm.date).format(
-                        'YYYY-MM-DD hh:mm:ss'
+                        'yyyy-MM-dd HH:mm:ss.fff'
                     ),
                     phone: store.state.orderForm.phone,
                     comment,
                     customer,
                     items
-                },
-                emailForFailedOrderInfo: 'mahbeilias@gmail.com'
+                }
             };
 
             // console.log(orderRequest);
