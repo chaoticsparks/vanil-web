@@ -237,7 +237,7 @@ export default {
         return {
             ru,
             disabledDates: {
-                to: new Date(Date.UTC(2021, 3, 28))
+                to: new Date(new Date().setDate(new Date().getDate() - 1))
             }
         };
     },
