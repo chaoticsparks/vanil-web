@@ -172,7 +172,7 @@ export default {
             let deliveryHistory;
             try {
                 deliveryHistory = await instance.get(
-                    `/orders/deliveryHistoryByPhone?access_token=${accessToken}&organization=53782c84-00d1-11ea-80eb-d8d38565926f&phone=${store.state.orderForm.phone}`
+                    `/orders/deliveryHistoryByPhone?access_token=${accessToken}&organization=d58a4c3e-e21f-460b-a070-8b296fe644a1&phone=${store.state.orderForm.phone}`
                 );
             } catch (e) {
                 deliveryHistory = null;
@@ -205,7 +205,7 @@ export default {
             }
 
             const orderRequest = {
-                organization: '53782c84-00d1-11ea-80eb-d8d38565926f',
+                organization: 'd58a4c3e-e21f-460b-a070-8b296fe644a1',
                 deliveryTerminalId,
                 customer,
                 order: {
