@@ -226,7 +226,7 @@ export default {
                     completeBefore:
                         moment(store.state.orderForm.date).format(
                             'YYYY-MM-DD'
-                        ) + ' 12:00:00.000',
+                        ) + ' 23:59:00.000',
                     phone: store.state.orderForm.phone,
                     comment,
                     customer,
