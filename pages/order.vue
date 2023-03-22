@@ -146,7 +146,7 @@ export default {
             });
             const {
                 data: { token: accessToken }
-            } = await instance.post('/auth/access_token', {
+            } = await instance.post('/access_token', {
                 apiLogin: 'f7cb05e0-29e'
             });
 
