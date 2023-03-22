@@ -64,13 +64,13 @@
                     /></a>
                 </div>
             </header>
-            <div class="intro-text">
+            <!--            <div class="intro-text">
                 <img
                     src="~assets/image/intro-text.svg"
                     alt="intro"
                     class="intro-text-img"
                 />
-            </div>
+            </div>-->
             <div class="scroll-down">
                 <span class="scroll-down__text">Замовлення</span>
                 <img
