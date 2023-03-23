@@ -263,6 +263,29 @@ export default {
             if (failedAddToIiko) {
                 failedAddText = `\n\nКод ошибки: ${failedAddToIiko.httpStatusCode}\nТекст ошибки: ${failedAddToIiko.message}`;
             }
+            const orderId = result?.data.orderInfo.id;
+
+            let orderNumber;
+            if (orderId) {
+                try {
+                    const res = await instance.post(
+                        `/deliveries/by_id`,
+                        {
+                            orderIds: [orderId],
+                            organizationId:
+                                'd58a4c3e-e21f-460b-a070-8b296fe644a1'
+                        },
+                        {
+                            headers: {
+                                Authorization: `Bearer ${accessToken}`
+                            }
+                        }
+                    );
+                    orderNumber = res.data.orders[0].order.number;
+                } catch (e) {
+                    orderNumber = null;
+                }
+            }
 
             const cartItemsString = Object.values(store.state.cart).map(
                 item => {
@@ -287,7 +310,7 @@ export default {
                     store.getters.getCartTotal
                 } грн.\n\nНомер заказа: ${
                     result
-                        ? result.data.number
+                        ? orderNumber
                         : 'Заказ не дошел в iiko, необходимо обработать вручную'
                 }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
                     date
