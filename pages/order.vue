@@ -265,6 +265,9 @@ export default {
             }
             const orderId = result?.data.orderInfo.id;
 
+            // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
             let orderNumber;
             if (orderId) {
                 try {
