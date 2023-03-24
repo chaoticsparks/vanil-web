@@ -265,11 +265,10 @@ export default {
             }
             const orderId = result?.data.orderInfo.id;
 
-            // eslint-disable-next-line nuxt/no-timing-in-fetch-data
-            await new Promise(resolve => setTimeout(resolve, 2000));
-
-            let orderNumber;
-            if (orderId) {
+            const fetchOrderNumber = async (retryCounter = 5) => {
+                // eslint-disable-next-line nuxt/no-timing-in-fetch-data
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                let orderNumber;
                 try {
                     const res = await instance.post(
                         `/deliveries/by_id`,
@@ -288,6 +287,15 @@ export default {
                 } catch (e) {
                     orderNumber = null;
                 }
+
+                if (!orderNumber && retryCounter > 0) {
+                    return fetchOrderNumber(retryCounter - 1);
+                }
+            };
+
+            let orderNumber;
+            if (orderId) {
+                orderNumber = await fetchOrderNumber();
             }
 
             const cartItemsString = Object.values(store.state.cart).map(
