@@ -339,7 +339,7 @@ export default {
                 await client.broadcastText(members, messageString);
             }
 
-            return { orderNumber: result ? result.data.number : null };
+            return { orderNumber };
         }
     },
     mounted() {
