@@ -291,6 +291,7 @@ export default {
                 if (!orderNumber && retryCounter > 0) {
                     return fetchOrderNumber(retryCounter - 1);
                 }
+                return orderNumber;
             };
 
             let orderNumber;
