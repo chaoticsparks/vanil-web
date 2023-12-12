@@ -54,7 +54,7 @@
                     /></a>
                     <a
                         class="default-footer__social-link"
-                        href="https://www.instagram.com/vanilodessa/"
+                        href="https://instagram.com/vanilodesa"
                         target="_blank"
                         ><img
                             class="social-icon"
