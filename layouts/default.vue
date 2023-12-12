@@ -46,7 +46,7 @@
                     /></a>
                     <a
                         class="default-header__social-link"
-                        href="https://www.instagram.com/vanilodessa/"
+                        href="https://instagram.com/vanilodesa"
                         target="_blank"
                         ><img
                             class="social-icon"
