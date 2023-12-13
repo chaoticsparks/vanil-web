@@ -88,7 +88,6 @@
                     v-if="delivery === 'Самовывоз'"
                     class="cart-form__self-delivery"
                 >
-                    <!--
                     <label class="radio-container">
                         <input
                             v-model="address"
@@ -101,7 +100,7 @@
                             >ул. Приморский бульвар, 10</span
                         >
                         <span class="radio-container__custom-radio"></span>
-                    </label>-->
+                    </label>
                     <label class="radio-container">
                         <input
                             v-model="address"
