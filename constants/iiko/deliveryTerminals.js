@@ -4,7 +4,7 @@ export const deliveryTerminals = {
         iikoId: '0dddab5c-2763-45a7-0156-3158a05000b8'
     },
     primorskiy: {
-        title: 'ул. Приморский бульвар, 10',
+        title: 'ул. Приморський бульвар, 10',
         iikoId: 'b94d6190-2514-43f1-b21c-c50ead7b1b4b'
     },
     genPetrova: {
