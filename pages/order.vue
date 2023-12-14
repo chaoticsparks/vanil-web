@@ -265,9 +265,9 @@ export default {
             }
             const orderId = result?.data.orderInfo.id;
 
-            const fetchOrderNumber = async (retryCounter = 5) => {
+            const fetchOrderNumber = async (retryCounter = 10) => {
                 // eslint-disable-next-line nuxt/no-timing-in-fetch-data
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                await new Promise(resolve => setTimeout(resolve, 1500));
                 let orderNumber;
                 try {
                     const res = await instance.post(
@@ -320,11 +320,8 @@ export default {
                     ''
                 )}\nИтого: ${
                     store.getters.getCartTotal
-                } грн.\n\nНомер заказа: ${
-                    result
-                        ? orderNumber
-                        : 'Заказ не дошел в iiko, необходимо обработать вручную'
-                }\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
+                } грн.\n\nНомер заказа: ${orderNumber ||
+                    'Заказ не дошел в iiko, необходимо обработать вручную'}\nИмя: ${name}\nНомер тел.: ${phone}\nДата: ${moment(
                     date
                 ).format(
                     'DD.MM.YYYY'

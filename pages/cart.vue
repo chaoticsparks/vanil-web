@@ -97,7 +97,7 @@
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >ул. Приморский бульвар, 10</span
+                            >ул. Приморський бульвар, 10</span
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>
