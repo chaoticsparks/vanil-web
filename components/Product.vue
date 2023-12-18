@@ -155,7 +155,7 @@ export default {
     }
     &__weight {
         margin-top: 24px;
-        font-weight: 100;
+        font-weight: 700;
         color: $text-color-dark-brown;
         display: inline-block;
     }
