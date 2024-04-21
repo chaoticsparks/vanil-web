@@ -112,8 +112,7 @@ export default {
 
 <style lang="scss" scoped>
 .default-intro {
-    height: 100vh;
-    min-height: 550px;
+    height: 124px;
     position: relative;
     overflow: hidden;
 }
@@ -261,7 +260,8 @@ export default {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
+    // display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 
