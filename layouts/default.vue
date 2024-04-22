@@ -127,7 +127,7 @@ export default {
 
 .video-overlay {
     background-color: black;
-    opacity: 0.1;
+    opacity: 0.3;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -162,7 +162,7 @@ export default {
     &__phone {
     }
     &__phone-link {
-        color: #81867c;
+        color: $text-color-light;
         font-size: 18px;
         @include max-breakpoint(mobile-medium) {
             font-size: 16px;
