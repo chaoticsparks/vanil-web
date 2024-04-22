@@ -166,7 +166,7 @@ td {
     font-family: Montserrat, sans-serif;
     font-size: 14px;
     font-weight: normal;
-    color: $text-color-dark-brown;
+    color: #3b5c0e;
     @include max-breakpoint(mobile-medium) {
         font-size: 10px;
         height: 23px;

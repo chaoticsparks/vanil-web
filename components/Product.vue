@@ -225,7 +225,7 @@ export default {
     width: 168px;
     height: 40px;
     border-radius: 8px;
-    background-color: $text-color-brown;
+    background-color: rgba(59, 92, 14, 0.8);
     font-family: LawyerGothic, sans-serif;
     font-size: 18px;
     font-weight: bold;
@@ -238,7 +238,7 @@ export default {
         font-size: 12px;
     }
     &:hover {
-        background-color: $btn-color-hover;
+        background-color: rgba(59, 92, 14, 1);
     }
     &:disabled {
         background-color: $text-color-brown-transparent;
