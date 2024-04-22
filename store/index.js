@@ -32,7 +32,7 @@ export const state = () => ({
             iikoCode: '06776',
             iikoId: '788f9a72-32d3-4549-a255-9b94f164fdb5'
         },
-        {
+        /* {
             id: 'P8',
             imgFile: 'panettone.jpg',
             title:
@@ -70,7 +70,7 @@ export const state = () => ({
             iikoCode: '07195',
             iikoId: 'b33cdd86-819d-47f1-a3a1-8084386de236'
         },
-        /*        {
+               {
             id: 'P12',
             imgFile: 'choko-kulich.jpg',
             title: 'Паска «Снікерс»',
