@@ -187,8 +187,8 @@ td {
     display: flex;
     align-items: center;
     &__link {
-        color: $text-color-location;
-        border-bottom: 1px dashed $text-color-location;
+        color: rgba(59, 92, 14, 1);
+        border-bottom: 1px dashed rgba(59, 92, 14, 1);
         &:hover {
             border-bottom: none;
             text-decoration: none;

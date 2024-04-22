@@ -156,7 +156,7 @@ export default {
     &__weight {
         margin-top: 24px;
         font-weight: 100;
-        color: $text-color-dark-brown;
+        color: #3b5c0e;
         display: inline-block;
     }
     &__price {

@@ -1,6 +1,6 @@
 body {
     font-family: Montserrat, sans-serif;
-    color: $text-color-brown;
+    color: #3b5c0e;
     background-color: $text-color-light;
     font-size: 14px;
     line-height: 1.3;
@@ -16,7 +16,7 @@ a {
 p {
     font-family: Montserrat, sans-serif;
     font-weight: 500;
-    color: $text-color-dark-brown;
+    color: #3b5c0e;
     font-size: 14px;
     @include max-breakpoint(tablet-portrait) {
         font-size: 12px;
@@ -52,14 +52,14 @@ textarea {
 
 .btn {
     border-radius: 8px;
-    background-color: $text-color-brown;
+    background-color: rgba(59, 92, 14, 0.8);
     font-family: LawyerGothic, sans-serif;
     font-weight: bold;
     color: $text-color-light;
     border-style: none;
     cursor: pointer;
     &:hover {
-        background-color: $btn-color-hover;
+        background-color: rgba(59, 92, 14, 1);
     }
     &:disabled {
         background-color: $text-color-brown-transparent;
