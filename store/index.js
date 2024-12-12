@@ -93,16 +93,16 @@ export const state = () => ({
             iikoCode: '05066',
             iikoId: 'a243baa4-889f-4726-b7be-4f4c2dbf2710'
         },
-        /* {
+        {
             id: 'P5',
-            imgFile: 'kalach46.jpg',
+            imgFile: 'kalach98.jpg',
             title: 'Різдвяна бриоша з дубайською начинкою',
             description: `Ніжне здобне шоколадне тісто на вершковому маслі, доповнене натуральною фісташковою пастою, тонким тістом катаіфі та подрібненою фісташкою.`,
             price: '600',
             weight: '≈700 грамм',
-            iikoCode: '05077',
-            iikoId: 'babf2c10-63cc-435e-951c-55ce3ac69a29'
-        }, */
+            iikoCode: '07670',
+            iikoId: '2155f35d-0446-4bfb-b44d-225f811863e8'
+        },
         {
             id: 'P6',
             imgFile: 'kalach98.jpg',
@@ -123,17 +123,17 @@ export const state = () => ({
             weight: '200 грамм',
             iikoCode: '05923',
             iikoId: 'aeeb38ea-bbb0-4e9b-b6a2-06ce389c5fcb'
-        }
-        /* {
+        },
+        {
             id: 'P10',
             imgFile: 'dubai-choco.jpg',
             title: 'Дубайський шоколад від Vanil',
             description: `Неперевершене поєднання молочного шоколаду, хрусткого тіста катаїфі, фісташкової пасти та пасти тахіні. Справжній смак розкоші, створений для поціновувачів унікальних десертів.`,
             price: '550',
             weight: '160 грамм',
-            iikoCode: '',
-            iikoId: ''
-        } */
+            iikoCode: '07603',
+            iikoId: '4d6164b7-e434-41ce-8810-bfd4832e6519'
+        }
         /*
         {
          id: 'P8',
