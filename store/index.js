@@ -13,26 +13,46 @@ import {
 export const state = () => ({
     products: [
         {
-            id: 'P6',
-            imgFile: 'yayca.jpg',
-            title: 'Набір шоколадних великодніх яєць',
-            description: `Яйця з бельгійського білого шоколаду з курагою, хрусткими кульками та фісташками.`,
-            price: '590',
-            weight: '4шт ≈360 грамм',
-            iikoCode: '06781',
-            iikoId: '826c72fe-cd28-4bb2-9026-7e73e6eb2e0a'
-        },
-        {
             id: 'P1',
             imgFile: 'kulich.jpg',
             title: 'Великодня паска від Vanil',
             description: `Здобне вологе тісто на італійському борошні Manitoba з фермерским маслом, вимішане на жовтках, з апельсиновою цедрою, в'яленою журавлиною, курагою та мигдалем.`,
-            price: '750',
-            weight: '≈900 грамм',
-            iikoCode: '07365',
-            iikoId: '5572f1c1-0f11-4840-ac1f-c89613267d1b'
+            price: '800',
+            weight: '≈750 грамм',
+            iikoCode: '06776',
+            iikoId: '788f9a72-32d3-4549-a255-9b94f164fdb5'
         },
         {
+            id: 'P2',
+            imgFile: 'kulich2.jpg',
+            title: 'Великодня паска з нутеллою',
+            description: `Здобна пухка паска на італійському борошні Manitoba та справжня нутелла. Чи може бути щось краще?! -Так! Це ще більше нутелли!`,
+            price: '550',
+            weight: '≈430 грамм',
+            iikoCode: '07859',
+            iikoId: '3d2df82d-d6ce-4f49-ab11-2278d8c457be'
+        },
+        {
+            id: 'P3',
+            imgFile: 'kulich3.jpg',
+            title: 'Великодня паска-малютка з нутелою',
+            description: ``,
+            price: '210',
+            weight: '≈150 грамм',
+            iikoCode: '07861',
+            iikoId: '7cd30e5c-0f64-4e0e-acf6-b34202fe4a28'
+        },
+        {
+            id: 'P4',
+            imgFile: 'kulich4.jpg',
+            title: 'Великодня паска малютка з солоною карамеллю тоффі',
+            description: ``,
+            price: '210',
+            weight: '≈150 грамм',
+            iikoCode: '07862',
+            iikoId: 'fdda2cd0-a415-47b1-8715-253d14055487'
+        },
+        /* {
             id: 'P8',
             imgFile: 'panettone.jpg',
             title: 'Справжній італійський панеттон від Vanil',
@@ -69,7 +89,6 @@ export const state = () => ({
             iikoCode: '07195',
             iikoId: 'b33cdd86-819d-47f1-a3a1-8084386de236'
         },
-        /*
                {
             id: 'P12',
             imgFile: 'choko-kulich.jpg',
@@ -80,7 +99,7 @@ export const state = () => ({
             weight: '≈900 грамм',
             iikoCode: '06777',
             iikoId: '946fa5d7-4494-4539-99be-52325a602ea8'
-        }, */
+        },
         {
             id: 'P2',
             imgFile: 'panettone3.jpg',
@@ -92,7 +111,6 @@ export const state = () => ({
             iikoCode: '07368',
             iikoId: 'e367c32c-c70f-4e5f-8acf-08f6b463d606'
         },
-        /*
         {
             id: 'P3',
             imgFile: 'krafin.jpg',
@@ -103,7 +121,6 @@ export const state = () => ({
             iikoCode: '05360',
             iikoId: '91e54006-c63f-4d17-9161-a67613efb846'
         },
-       */
         {
             id: 'P5',
             imgFile: 'carskaya.jpg',
@@ -114,15 +131,36 @@ export const state = () => ({
             iikoCode: '07366',
             iikoId: 'df39ca6e-e107-4902-a055-6877c6a7b9b7'
         },
+         */
         {
-            id: 'P4',
-            imgFile: 'orange_kulich.jpg',
-            title: 'Запечна сирна паска в полуничному шоколаді',
+            id: 'P5',
+            imgFile: 'baked_kulich.jpg',
+            title: 'Запечна сирна паска в бельгійському шоколаді',
             description: `Запечений сир з журавлиною,курагою та фісташками, здобрений великою кількістю лимонної цедри та апельсиновими цукатами.`,
             price: '650',
-            weight: '≈650 грамм',
-            iikoCode: '07364',
-            iikoId: 'e8c51926-4a65-4658-8364-346727e4c3be'
+            weight: '≈500 грамм',
+            iikoCode: '07863',
+            iikoId: 'c3490745-2657-4685-8177-e8d268eba095'
+        },
+        {
+            id: 'P6',
+            imgFile: 'yayca.jpg',
+            title: 'Набір шоколадних великодніх яєць',
+            description: `Яйця з бельгійського шоколаду з дубайською начинкою, та з білого шоколаду з хрусткими кульками та пухнастим тістом пішмані.`,
+            price: '650',
+            weight: '4шт ≈360 грамм',
+            iikoCode: '07857',
+            iikoId: '3a4f14ea-e101-49e6-8b98-d2e0964d942c'
+        },
+        {
+            id: 'P7',
+            imgFile: 'yayca.jpg',
+            title: 'Набір шоколадних великодніх яєць',
+            description: `Яйця з бельгійського шоколаду з дубайською начинкою, та з білого шоколаду з хрусткими кульками та пухнастим тістом пішмані.`,
+            price: '330',
+            weight: '2шт ≈180 грамм',
+            iikoCode: '07858',
+            iikoId: '5cc37471-cd45-4a92-ba91-8bb07bd3980f'
         }
         /*
         {
