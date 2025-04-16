@@ -114,19 +114,19 @@
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>
-                    <!--                    <label class="radio-container">
+                    <label class="radio-container">
                         <input
                             v-model="address"
                             type="radio"
-                            value="genPetrova"
+                            value="citycenter"
                             name="address_vanil"
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >вул. Генерала Петрова, 31/1</span
+                            >ТРЦ «City Center»</span
                         >
                         <span class="radio-container__custom-radio"></span>
-                    </label>-->
+                    </label>
                     <label class="radio-container">
                         <input
                             v-model="address"
