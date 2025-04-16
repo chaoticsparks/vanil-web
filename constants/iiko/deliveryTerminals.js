@@ -14,5 +14,9 @@ export const deliveryTerminals = {
     korolova: {
         title: 'ул. Королёва 18',
         iikoId: '7385b586-b573-41e4-a3eb-18a8c402f71a'
+    },
+    citycenter: {
+        title: 'ТРЦ «City Center»',
+        iikoId: '044b89bc-91b5-4676-8984-89b083a37dc3'
     }
 };
