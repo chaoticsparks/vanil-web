@@ -22,7 +22,7 @@
                                 href="https://goo.gl/maps/wTDFFF43NSndXDaY9"
                                 class="location__link"
                                 target="_blank"
-                                >Показать на карте</a
+                                >Показати на мапі</a
                             ><img
                                 src="~assets/image/map-point.svg"
                                 class="location__icon"
@@ -49,11 +49,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>вул. Генерала Петрова, 31/1</td>
+                    <td>ТРЦ «City Center»</td>
                     <td>
                         <div class="location">
                             <a
-                                href="https://goo.gl/maps/bdHkkadWu2nXaGo28"
+                                href="https://maps.app.goo.gl/6MAg1dbNtgUriS539"
                                 class="location__link"
                                 target="_blank"
                                 >Показати на мапі</a
