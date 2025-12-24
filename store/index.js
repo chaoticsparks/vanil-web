@@ -144,6 +144,7 @@ Panettone, створений у філософії haute couture. Натура�
             iikoCode: '08041',
             iikoId: 'b4d3ada3-e56d-4e8e-b079-53197bb67a6e'
         },
+        /*
 
         {
             id: 'P10',
@@ -155,9 +156,10 @@ Panettone, створений у філософії haute couture. Натура�
             iikoCode: '07603',
             iikoId: '4d6164b7-e434-41ce-8810-bfd4832e6519'
         },
+        */
         {
             id: 'P8',
-            imgFile: 'chrismas-box.jpg',
+            imgFile: 'chel.jpg',
             title: 'Імбирний чоловічок ',
             description: ``,
             price: '250',
