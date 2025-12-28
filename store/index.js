@@ -138,7 +138,7 @@ Panettone, створений у філософії haute couture. Натура�
             id: 'P9',
             imgFile: 'karamel.jpg',
             title: 'Шоколадний коник',
-            description: `Коник`,
+            description: ``,
             price: '290',
             weight: '200 грамм',
             iikoCode: '08041',
