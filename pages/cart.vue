@@ -131,12 +131,12 @@
                         <input
                             v-model="address"
                             type="radio"
-                            value="korolova"
+                            value="ostrov"
                             name="address_vanil"
                             class="radio-container__input"
                         />
                         <span class="radio-container__text"
-                            >вул. Корольова 18</span
+                            >ТЦ «Остров», вул. Новощіпний Ряд, 2</span
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>

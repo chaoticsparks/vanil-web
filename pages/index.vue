@@ -66,11 +66,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>вул. Корольова, 18</td>
+                    <td>ТЦ «Остров», вул. Новощіпний Ряд, 2</td>
                     <td>
                         <div class="location">
                             <a
-                                href="https://goo.gl/maps/pFHg5YNCD3ferwWJ6"
+                                href="https://maps.app.goo.gl/HsPbkgMyE8atWoX67"
                                 class="location__link"
                                 target="_blank"
                                 >Показати на мапі</a
