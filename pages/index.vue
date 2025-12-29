@@ -15,7 +15,7 @@
         <table class="locations">
             <tbody>
                 <tr>
-                    <td>ул. Приморський бульвар, 10</td>
+                    <td>вул. Приморський бульвар, 10</td>
                     <td>
                         <div class="location">
                             <a
@@ -32,7 +32,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>вул. Осипова, 10</td>
+                    <td>вул. Осіпова, 10</td>
                     <td>
                         <div class="location">
                             <a
