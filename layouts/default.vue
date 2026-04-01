@@ -112,7 +112,7 @@ export default {
 
 <style lang="scss" scoped>
 .default-intro {
-    height: 700px;
+    height: 800px;
     position: relative;
     overflow: hidden;
 }
