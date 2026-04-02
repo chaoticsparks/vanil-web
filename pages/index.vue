@@ -66,21 +66,21 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>вул. Корольова, 18</td>
-                    <td>
-                        <div class="location">
-                            <a
-                                href="https://goo.gl/maps/pFHg5YNCD3ferwWJ6"
-                                class="location__link"
-                                target="_blank"
-                                >Показати на мапі</a
-                            ><img
-                                src="~assets/image/map-point.svg"
-                                class="location__icon"
-                                alt="location"
-                            />
-                        </div>
-                    </td>
+                  <td>ТРЦ «Острів»</td>
+                  <td>
+                    <div class="location">
+                      <a
+                        href="https://maps.app.goo.gl/qsXkWdwuGapzya6A6"
+                        class="location__link"
+                        target="_blank"
+                      >Показати на мапі</a
+                      ><img
+                      src="~assets/image/map-point.svg"
+                      class="location__icon"
+                      alt="location"
+                    />
+                    </div>
+                  </td>
                 </tr>
             </tbody>
         </table>

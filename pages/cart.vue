@@ -127,7 +127,20 @@
                         >
                         <span class="radio-container__custom-radio"></span>
                     </label>
-                    <label class="radio-container">
+                  <label class="radio-container">
+                    <input
+                      v-model="address"
+                      type="radio"
+                      value="ostriv"
+                      name="address_vanil"
+                      class="radio-container__input"
+                    />
+                    <span class="radio-container__text"
+                    >ТРЦ «Острів»</span
+                    >
+                    <span class="radio-container__custom-radio"></span>
+                  </label>
+<!--                    <label class="radio-container">
                         <input
                             v-model="address"
                             type="radio"
@@ -139,7 +152,7 @@
                             >вул. Корольова 18</span
                         >
                         <span class="radio-container__custom-radio"></span>
-                    </label>
+                    </label>-->
                 </div>
                 <label class="radio-container">
                     <input
