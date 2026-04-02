@@ -18,5 +18,9 @@ export const deliveryTerminals = {
     citycenter: {
         title: 'ТРЦ «City Center»',
         iikoId: '044b89bc-91b5-4676-8984-89b083a37dc3'
-    }
+    },
+  ostriv: {
+    title: 'ТРЦ «Острів»',
+    iikoId: '7385b586-b573-41e4-a3eb-18a8c402f71a'
+  }
 };
