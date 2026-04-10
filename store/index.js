@@ -80,6 +80,7 @@ export const state = () => ({
         iikoCode: '07863',
         iikoId: 'c3490745-2657-4685-8177-e8d268eba095'
       },
+      /*
       {
         id: 'P6',
         imgFile: 'sirnapaskafistashka.jpg',
@@ -93,7 +94,7 @@ export const state = () => ({
         iikoCode: '06128',
         iikoId: 'e5606cc2-d1bd-4281-a842-4ff97801f7bd'
       },
-      /*{
+      {
         id: 'P7',
         imgFile: 'paskamalutka.jpg',
         title: 'Паска «Малютка»',
