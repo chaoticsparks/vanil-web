@@ -18,16 +18,20 @@ export const state = () => ({
             title: 'Великодня паска від Vanil',
             description: `Розкішна великодня паска, створена за технологією панетоне.<br><br>
 Здобне вологе тісто на італійському борошні Manitoba, вимішане на великій кількості жовтків і фермерського масла.<br><br>
-Додаємо ароматичну пасту, як у панетоне - з натуральної ванілі та бобів тонка, для глибокого й складного аромату.<br><br>
-На вибір:<br>
-— в’ялена журавлина, родзинки, курага та мигдаль<br>
-— шматочки шоколаду, курага та апельсинові цукати`,
-            price: '950',
+Додаємо ароматичну пасту, як у панетоне - з натуральної ванілі та бобів тонка, для глибокого й складного аромату.`,
+            price: ['950', '950'],
             weight: '≈750 грам',
-            iikoCode: '06776',
-            iikoId: '788f9a72-32d3-4549-a255-9b94f164fdb5'
+          options: {
+            name: 'На вибір:',
+            values: ['в’ялена журавлина, родзинки, курага та мигдаль',
+              'шматочки шоколаду, курага та апельсинові цукати'],
+            errorText: 'Будь ласка, виберіть смак!'
+          },
+            iikoCode: ['06776', '08129'],
+            iikoId: ['788f9a72-32d3-4549-a255-9b94f164fdb5', 'b0e66807-dfdc-4f1d-a473-b7035e342b76']
         },
-        {
+
+       /* {
             id: 'P2',
             imgFile: 'paskanutella.jpg',
             title: 'Великодня паска Nutella',
@@ -62,7 +66,7 @@ export const state = () => ({
         weight: '≈500 грам',
         iikoCode: '08114',
         iikoId: '0adbd1bc-4bfb-410b-8b5b-2224791305c2'
-      },
+      },*/
       {
         id: 'P5',
         imgFile: 'sirnapaska.jpg',
@@ -89,7 +93,7 @@ export const state = () => ({
         iikoCode: '06128',
         iikoId: 'e5606cc2-d1bd-4281-a842-4ff97801f7bd'
       },
-      {
+      /*{
         id: 'P7',
         imgFile: 'paskamalutka.jpg',
         title: 'Паска «Малютка»',
@@ -105,7 +109,7 @@ export const state = () => ({
         },
         iikoCode: ['08112', '08110', '08111'],
         iikoId: ['d0b9b1bb-58a9-4961-8e66-06509a841b9d', '8b25413b-4c74-4a11-9d47-b581503f1893', '32dbed6c-2509-4ef9-b3ba-dee5245c4dd7']
-      },
+      },*/
       {
         id: 'P8',
         imgFile: 'cakepopsiyayca.jpg',
@@ -118,6 +122,7 @@ export const state = () => ({
         iikoCode: '08119',
         iikoId: 'fc6966ce-2ba3-43f7-baae-be43a3c6112b'
       },
+      /*
       {
         id: 'P9',
         imgFile: 'panettonevanil.jpg',
@@ -135,7 +140,7 @@ export const state = () => ({
         iikoCode: '08047',
         iikoId: 'f8752792-4c1f-446c-a02e-e7298cf81d01'
       },
-/*
+
         {
             id: 'P3',
             imgFile: 'paskalotusbiscoff.jpg',
